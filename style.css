@@ -1,0 +1,465 @@
+/* Body Section for Body design*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgb(57, 81, 198), rgb(136, 150, 221));
+}
+
+
+/* ===================================== Navigation Button ================ */
+
+nav {
+    gap: 1.5rem;
+    background-image: linear-gradient(to top, #040308, #AD4A28, #DD723C, #FC7001, #DCB697, #9BA5AE, #3E5879, #020B1A);
+    background-color: #6e6565;
+    display: flex;
+    justify-content: center;
+}
+
+nav a , nav div ,.dropbtn{
+    background-image: linear-gradient(161.15deg, #6714CC 12.73%, #2E68F5 72.95%);
+    border: 0;
+    border-radius: 55px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    outline: 0;
+    padding: 5px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.home:hover, .dropbtn:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+    box-shadow: rgba(53, 53, 66, 0.25) 0px 30px 60px -12px inset, rgba(65, 40, 40, 0.411) 0px 18px 36px -18px inset;
+}
+
+nav a:hover, .dropdown-content a:hover, .dropbtn:hover {
+    background-color: #555;
+}
+
+
+/* Dropdown styles */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: #f7f4f4;
+    padding: 2px 6px;
+    display: block;
+    border-radius: 2px; /* Adjust the radius as needed */
+    transition: background-color 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+/* ================================= profile photo =============*/
+header {
+    background-image: linear-gradient(rgb(126, 140, 214), rgb(72, 90, 184));
+    padding: 20px;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #444a4e; /* Add a border color */
+}
+
+.home-section {
+    text-align: left;
+    max-width: 600px;
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+
+
+
+/* ================================= about-section styles ==================================== */
+
+/* Add these styles to your existing CSS */
+
+#about-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-image: linear-gradient(rgb(57, 81, 198), rgb(136, 150, 221));
+    padding: 10px; /* Adjust padding as needed */
+}
+
+.about-box {
+    width: auto;
+    max-width: 900px; /* Set your desired max-width */
+    
+    background-image: linear-gradient(rgb(57, 81, 198), rgb(136, 150, 221));
+
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 1px 5px 11px 1px rgb(255, 255, 255); /* Add a subtle box shadow */
+}
+
+.about-box h2 {
+    background-image: linear-gradient(rgb(57, 81, 198), rgb(136, 150, 221));
+
+}
+
+.about-box p {
+    color: #ffffff; /* Set your desired paragraph text color */
+    line-height: 1.6;
+}
+
+
+/* ======================== Styles for Education and Certifications Section ===============================  */
+
+#education-section {
+    display: flex;
+    justify-content: space-around;
+    background-image: linear-gradient(rgb(57, 81, 198), rgb(136, 150, 221));
+    padding: 20px; /* Adjust padding as needed */
+}
+
+.headings {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.education-box {
+    width: 45%; /* Adjust the width as needed */
+    background-image: conic-gradient(at center top, rgb(17, 24, 39), rgb(92, 129, 204), rgb(17, 24, 39));
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 1px 5px 11px 1px rgb(255, 255, 255); /* Add a subtle box shadow */
+}
+
+h2 {
+    background-image: linear-gradient(rgb(57, 81, 198), rgb(136, 150, 221));
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #ffffff; /* Set your desired paragraph text color */
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+/*================================================== Skills section ==================================================*/
+
+
+/* Skills Section styles */
+#skills-section {
+    text-align: center; /* Center-align the content */
+    background-image: linear-gradient(rgb(57, 81, 198), rgb(136, 150, 221));
+    padding: 5px; /* Adjust padding as needed */
+}
+
+.skills-box {
+    display: flex;
+    justify-content: space-around;
+}
+
+.skill {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skill-item {
+    width: 200px; /* Adjust the width of each skill box */
+    height: 200px; /* Set the height equal to the width for a square box */
+    margin: 10px;
+    background-color: transparent; /* Set your desired skill box background color */
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 1px 5px 11px 1px rgb(255, 255, 255); 
+}
+
+.skill img {
+    width: 100%; /* Set image width to 100% of the box */
+    height: 70%; /* Set image height to 70% of the box */
+    border-radius: 10px; /* Ensure rounded corners for the image */
+}
+
+.skill h3 {
+    color: #ffffff; /* Set your desired title text color */
+    text-align: center;
+    margin-top: 5px; /* Adjust the margin as needed */
+}
+
+
+/*================================================== Project section ==================================================*/
+
+
+#project-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+    background-image: linear-gradient(rgb(57, 81, 198), rgb(136, 150, 221));
+    padding: 60px; /* Adjust padding as needed */
+    box-shadow: 1px 5px 11px 1px rgb(255, 255, 255); 
+}
+
+.project-box {
+    text-align: center;
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    width: 200px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+}
+
+.project-box:hover {
+    transform: scale(1.1);
+}
+
+.project-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    border-radius: 10px;
+    box-shadow: 1px 5px 11px 1px rgb(255, 255, 255); 
+}
+
+
+
+
+/* ============================================ Style for Testimonial =================================================*/
+
+
+#testimonials {
+    background-image: radial-gradient(at right center, rgb(56, 189, 248), rgb(49, 46, 129));
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+.testimonial {
+    background-image: conic-gradient(from 80deg at -3% 0%, rgba(255, 255, 255, 1) 0%, rgb(14, 165, 233) 50%, rgb(14, 165, 233) 100%);
+    width: 48%; /* Adjust the width as needed */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 20px 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.headings h2 {
+    color: #333;
+}
+
+.collaborator {
+    text-align: center;
+}
+
+.collaborator-details {
+    margin-top: 15px;
+}
+
+.collaborator-details img {
+    border-radius: 50%; /* Make the profile pic round */
+    width: 100px; /* Adjust the size as needed */
+    height: 100px;
+    margin-bottom: 10px;
+    border: 2px solid #b8afaf; /* Add a border to the profile pic */
+}
+
+.collaborator-details p {
+    margin: 0;
+    color: #555;
+}
+
+.collaborator p:last-child {
+    margin-bottom: 15px;
+}
+
+.testimonial p {
+    margin-top: 15px;
+    color: #666;
+}
+
+
+/* ==========================CSS Styles for Contact Me Section============= */
+
+#contact-me {
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.headings h2 {
+    color: #333;
+}
+
+.lets-connect h3 {
+    color: #0a0a0a;
+}
+
+.contact-info {
+    gap: 1.5rem;
+    background-image: linear-gradient(rgb(69, 34, 119), rgb(144, 97, 209));
+    max-width: auto;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
+    display: flex; /* Use flex to create a single row */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info img {
+    width: 80px;
+    height: 80px; /* Set the height to maintain a square shape */
+    margin-bottom: 5px;
+    border-radius: 50%; /* Make the images circular */
+}
+
+
+/* ================================================== Footer section  =============================================== */
+
+footer {
+    background-image: linear-gradient(220.55deg, #24CFC5 0%, #001C63 100%);
+    color: #fff; /* Choose your desired text color */
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+}
+
+.footer-social a {
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+    transform: scale(1.2);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.footer-links li {
+    margin-right: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #FFD700; /* Change to your desired hover color */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #FFD700; /* Change to your desired link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-bottom a:hover {
+    color: #fff; /* Change to your desired hover color */
+}
