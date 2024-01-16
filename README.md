@@ -1,7 +1,6 @@
-# [Gujuri Alekha] - Data Scientist
+# Gujuri Alekha - Data Scientist
 
-![Profile image](my_documents/my-photos/Alekha Image.jpeg)
-
+![Profile image](https://github.com/alekha1234/gujurialekha.github.io/blob/main/my_documents/my-photos/Alekha%20Image.jpeg)
 
 Welcome to my Data Science Portfolio! This repository showcases my data science projects, highlighting my expertise in data analysis, machine learning, and data visualization.
 
