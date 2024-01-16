@@ -1,8 +1,10 @@
 # Gujuri Alekha - Data Scientist
 
-![Profile image](https://github.com/alekha1234/gujurialekha.github.io/blob/main/my_documents/my-photos/Alekha%20Image.jpeg)
+<img src="https://github.com/alekha1234/gujurialekha.github.io/blob/main/my_documents/my-photos/Alekha%20Image.jpeg" alt="Profile image" width="200" height="200">
 
-Welcome to my Data Science Portfolio! This repository showcases my data science projects, highlighting my expertise in data analysis, machine learning, and data visualization.
+Welcome to my Data Science Portfolio! I am passionate about leveraging data to solve complex problems and develop innovative AI solutions. As a data scientist, I explore the realms of machine learning, data analysis, and natural language processing to extract meaningful insights.
+
+Feel free to explore the projects showcased below and connect with me to discuss data-driven possibilities and collaborations.
 
 
 ## GitHub Page
@@ -10,41 +12,46 @@ Welcome to my Data Science Portfolio! This repository showcases my data science 
 
 ## About Me
 
-I am a passionate data scientist with a strong knowledge on machine learning techniques, data analysis, natural language processing. My goal is to develope predictive models, leverage data to solve complex problems, make data-driven decisions & develop innovative AI solutions.
-
+I am a dedicated data scientist with expertise in machine learning, data analysis, and natural language processing. My goal is to develop predictive models and make data-driven decisions to contribute meaningfully to various domains.
 
 ## Projects
 
-Here are some of the projects you'll find in this portfolio:
+### 1. Liver Disease Prediction
+- **Description:** Early detection of liver diseases using machine learning.
+- **Technologies Used:** Python, NumPy, pandas, scikit-learn, Seaborn.
+- **Results:** Achieved 82% accuracy using decision tree classification and logistic regression.
 
-1. **[Liver Disease Prediction](https://github.com/alekha1234/LIver_Disease_Prediction)**
-   - **Description:** [Early detection of liver diseases using machine learning]
-   - **Technologies Used:** [ Python, NumPy, pandas, scikit-learn, Seaborn.]
-   - **Results:** [Achieved 82% accuracy using decision tree classification and logistic regression.]
+### 2. YOLOv5 Face Mask Detection
+- **Description:** Real-time face mask detection using YOLOv5.
+- **Technologies Used:** Python, YOLOv5, OpenCV.
+- **Results:** Implemented an accurate face mask detection system.
 
-2. **[Project Name 2](link-to-project-2)**
-   - **Description:** [Provide a brief project description]
-   - **Technologies Used:** [List the technologies and tools used]
-   - **Results:** [Highlight the key results or achievements]
+### 3. FIFA World Cup 2020 Analysis
+- **Description:** Analyzing FIFA World Cup 2020 data for insights.
+- **Technologies Used:** Python, pandas, Matplotlib.
+- **Results:** Uncovered interesting patterns and statistics from the World Cup data.
 
-3. **[Project Name 3](link-to-project-3)**
-   - **Description:** [Provide a brief project description]
-   - **Technologies Used:** [List the technologies and tools used]
-   - **Results:** [Highlight the key results or achievements]
+### 4. House Price Prediction (Advanced Regression)
+- **Description:** Predicting house prices using advanced regression techniques.
+- **Technologies Used:** Python, scikit-learn, XGBoost, LightGBM.
+- **Results:** Developed a robust model for accurate house price predictions.
 
-[Add more projects as needed]
+### 5. Portuguese Bank Analysis
+- **Description:** Analyzing customer data for a Portuguese bank.
+- **Technologies Used:** Python, pandas, Seaborn.
+- **Results:** Extracted valuable insights to improve marketing strategies.
 
 ## How to Run
 
-If you'd like to explore these projects, you can visit my [GitHub Portfolio Page](https://github.com/alekha1234) and find the project repositories there. Each project typically includes a README file with instructions on how to run or reproduce the analysis.
+If you'd like to explore these projects, visit my [GitHub Portfolio Page](https://github.com/alekha1234). Each project repository includes a README file with instructions on how to run or reproduce the analysis.
 
 ## Contact
 
-Feel free to reach out to me if you have any questions or feedback about my projects or would like to collaborate on data science initiatives:
+Feel free to reach out to me for questions, feedback, or collaboration on data science initiatives:
 
 - **Email:** [gujurialekha@gmail.com](mailto:gujurialekha@gmail.com)
-- **LinkedIn:** [https://www.linkedin.com/in/gujuri-alekha-188b56278/](https://www.linkedin.com/in/gujuri-alekha-188b56278/)
-- **GitHub:** [https://github.com/alekha1234](https://github.com/alekha1234)
+- **LinkedIn:** [Connect with me on LinkedIn](https://www.linkedin.com/in/gujuri-alekha-188b56278/)
+- **GitHub:** [Visit my GitHub profile](https://github.com/alekha1234)
 
 ## License
 
@@ -52,6 +59,6 @@ This project is licensed under the [MIT License](LICENSE), allowing you to use t
 
 ## Contributing
 
-Contributions to this repository are welcome! If you'd like to contribute, please follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md). Your improvements, bug fixes, or additional projects are greatly appreciated.
+Contributions to this repository are welcome! Follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md) if you'd like to contribute.
 
 Enjoy exploring my data science projects!
