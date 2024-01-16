@@ -71,7 +71,7 @@ I am a dedicated data scientist with expertise in machine learning, data analysi
    - **Technologies Used:** [Replace with the technologies and tools used]
    - **Results:** [Replace with the key results or achievements]
 
-[For more projects, feel free to [Contact me](https://www.linkedin.com/in/gujuri-alekha/)
+### For more projects, feel free to [Contact me](https://www.linkedin.com/in/gujuri-alekha/)
 
 
 
@@ -97,3 +97,9 @@ This project is licensed under the [MIT License](LICENSE), allowing you to use t
 Contributions to this repository are welcome! Follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md) if you'd like to contribute.
 
 Enjoy exploring my data science projects!
+
+
+## Copyright
+
+Copyright © 2024 Gujuri Alekha. All rights reserved.
+
