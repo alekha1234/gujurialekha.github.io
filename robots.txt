@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://alekha1234.github.io/gujurialekha.github.io/sitemap.xml
