@@ -10,7 +10,6 @@ import Education from '@/components/Education';
 import Writing from '@/components/Writing';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import DataVisualizations from '@/components/DataVisualizations';
 
 export default function Home() {
   return (
@@ -29,13 +28,6 @@ export default function Home() {
 
       {/* Featured Projects with 7-Step Case Study Schema */}
       <FeaturedProjects />
-
-      {/* Interactive Data Science Evaluation Sandbox */}
-      <section className="py-16 border-t border-lab-border bg-lab-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <DataVisualizations />
-        </div>
-      </section>
 
       {/* More Projects Archive */}
       <MoreProjects />
