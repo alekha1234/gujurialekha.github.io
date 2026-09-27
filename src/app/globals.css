@@ -43,6 +43,33 @@ body {
   background: #334155;
 }
 
+/* Accessibility Focus Ring Utility */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lab-accent focus-visible:ring-offset-2 focus-visible:ring-offset-lab-bg;
+}
+
+/* Skip link for keyboard accessibility */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background-color: #10b981;
+  color: #080c14;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 0.375rem;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid #f8fafc;
+}
+
 /* Technical grid backdrop */
 .bg-tech-grid {
   background-size: 32px 32px;
@@ -56,6 +83,18 @@ body {
   background-image: radial-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px);
 }
 
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Subtle border animation */
 @keyframes pulse-subtle {
   0%, 100% { opacity: 0.6; }
@@ -65,3 +104,14 @@ body {
 .animate-pulse-subtle {
   animation: pulse-subtle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* 2-second auto-close progress indicator */
+@keyframes shrink2s {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.animate-shrink2s {
+  animation: shrink2s 2s linear forwards;
+}
+

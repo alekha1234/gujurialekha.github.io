@@ -55,9 +55,9 @@ export const personalData: PersonalData = {
     "Grounding my engineering practice is a strong quantitative foundation: currently completing an MCA specializing in Machine Learning & Artificial Intelligence from Lovely Professional University, preceded by a Bachelor of Science (Physics Honours) from Science Degree College (CGPA 7.7/10)."
   ],
   resume: {
-    viewUrl: "https://drive.google.com/file/d/1apVed_aNN6iK8IVO1ZetFuw0buB5T4OI/view?usp=sharing",
-    downloadUrl: "https://drive.google.com/uc?export=download&id=1apVed_aNN6iK8IVO1ZetFuw0buB5T4OI",
-    localPdf: "/documents/logos/Gujuri-Alekha-Resume.pdf",
+    viewUrl: "/my_documents/resume/gujuri_alekha_resume.pdf",
+    downloadUrl: "/my_documents/resume/gujuri_alekha_resume.pdf",
+    localPdf: "/my_documents/resume/gujuri_alekha_resume.pdf",
   },
   socials: [
     {

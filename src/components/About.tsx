@@ -2,15 +2,14 @@
 
 import React, { useState } from 'react';
 import { personalData } from '@/data/personal';
+import { skillsData } from '@/data/skills';
 import {
   Brain,
   Cpu,
-  Layers,
   Server,
   ChevronDown,
   ChevronUp,
   Compass,
-  Sparkles,
   Bot,
 } from 'lucide-react';
 
@@ -36,11 +35,11 @@ export default function About() {
     },
     {
       code: 'PILLAR_03',
-      title: 'Generative AI & Operator Alert Summarization',
+      title: 'Generative AI, RAG & Agentic AI',
       description:
-        'Integrating machine learning outputs with municipal command centers (ICCC) and deploying LLM-based alert summarization so operators receive clear, plain-language operational summaries.',
+        'Integrating RAG pipelines and agentic AI workflows with municipal command centers (ICCC). Deploying LLM-based alert summarization with retrieval-augmented context so operators receive clear, grounded operational summaries.',
       icon: Bot,
-      tools: ['GenAI / LLMs', 'Prompt Design', 'ICCC Integration', 'Alert Traceability'],
+      tools: ['GenAI / LLMs', 'RAG Pipelines', 'Agentic AI', 'Prompt Design', 'ICCC Integration'],
     },
     {
       code: 'PILLAR_04',
@@ -53,23 +52,23 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 border-t border-lab-border bg-lab-surface/30">
+    <section id="about" aria-labelledby="about-heading" className="py-16 border-t border-lab-border bg-lab-surface/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="space-y-2 mb-12">
+        <div className="space-y-1.5 mb-8">
           <div className="flex items-center space-x-2">
-            <span className="font-mono text-xs text-lab-accent tracking-widest">[01 // BACKGROUND & PRODUCTION PHILOSOPHY]</span>
-            <div className="h-[1px] bg-lab-border flex-1 max-w-xs" />
+            <span className="font-mono text-[10px] text-lab-accent tracking-widest">[01 // BACKGROUND & PRODUCTION PHILOSOPHY]</span>
+            <div className="h-[1px] bg-lab-border flex-1 max-w-xs" aria-hidden="true" />
           </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-lab-text-primary tracking-tight">
+          <h2 id="about-heading" className="font-display font-bold text-2xl sm:text-3xl text-lab-text-primary tracking-tight">
             About & Engineering Practice
           </h2>
         </div>
 
         {/* Narrative & Profile Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
-          <div className="lg:col-span-7 space-y-5 text-lab-text-secondary leading-relaxed font-sans">
-            <p className="text-lg text-lab-text-primary font-medium">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10">
+          <div className="lg:col-span-7 space-y-3 text-lab-text-secondary leading-relaxed font-sans text-sm">
+            <p className="text-base text-lab-text-primary font-medium">
               {personalData.shortBio}
             </p>
 
@@ -78,7 +77,7 @@ export default function About() {
             </p>
 
             {expanded && (
-              <div className="space-y-4 pt-2 border-t border-lab-border/50 text-lab-text-secondary animate-fadeIn">
+              <div className="space-y-3 pt-2 border-t border-lab-border/50 text-lab-text-secondary animate-fadeIn">
                 {personalData.extendedBio.map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))}
@@ -88,41 +87,42 @@ export default function About() {
             <button
               type="button"
               onClick={() => setExpanded(!expanded)}
-              className="inline-flex items-center space-x-2 font-mono text-xs text-lab-accent hover:text-emerald-300 transition-colors pt-2 focus:outline-none"
+              aria-expanded={expanded}
+              className="inline-flex items-center space-x-1.5 font-mono text-[10px] text-lab-accent hover:text-emerald-300 transition-colors pt-1 focus-ring rounded p-1"
             >
-              <span>{expanded ? 'Collapse Detailed Narrative' : 'Read Full Engineering Background'}</span>
-              {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              <span>{expanded ? 'Collapse' : 'Read Full Background'}</span>
+              {expanded ? <ChevronUp className="w-3.5 h-3.5" aria-hidden="true" /> : <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />}
             </button>
           </div>
 
-          {/* Quick Quantitative Facts Box */}
-          <div className="lg:col-span-5 bg-lab-surface border border-lab-border rounded-lg p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-lab-border pb-3">
-              <span className="font-mono text-xs text-lab-text-muted flex items-center space-x-2">
-                <Compass className="w-3.5 h-3.5 text-lab-accent" />
+          {/* Quick Facts Box */}
+          <div className="lg:col-span-5 bg-lab-surface border border-lab-border rounded-lg p-4 space-y-3">
+            <div className="flex items-center justify-between border-b border-lab-border pb-2">
+              <span className="font-mono text-[10px] text-lab-text-muted flex items-center space-x-1.5">
+                <Compass className="w-3 h-3 text-lab-accent" />
                 <span>VERIFIED_PROFILE</span>
               </span>
-              <span className="font-mono text-[11px] text-lab-accent">2.5 YRS EXPERIENCE</span>
+              <span className="font-mono text-[10px] text-lab-accent">2.5 YRS EXPERIENCE</span>
             </div>
 
-            <div className="space-y-3 font-mono text-xs">
-              <div className="flex justify-between py-1.5 border-b border-lab-border/50">
+            <div className="space-y-2 font-mono text-[10px]">
+              <div className="flex justify-between py-1 border-b border-lab-border/50">
                 <span className="text-lab-text-muted">CURRENT ENGAGEMENT</span>
                 <span className="text-lab-text-primary">Trinity Mobility (Associate Data Scientist)</span>
               </div>
-              <div className="flex justify-between py-1.5 border-b border-lab-border/50">
+              <div className="flex justify-between py-1 border-b border-lab-border/50">
                 <span className="text-lab-text-muted">LOCATION</span>
                 <span className="text-lab-text-primary">{personalData.location}</span>
               </div>
-              <div className="flex justify-between py-1.5 border-b border-lab-border/50">
+              <div className="flex justify-between py-1 border-b border-lab-border/50">
                 <span className="text-lab-text-muted">HIGHEST EDUCATION</span>
                 <span className="text-lab-text-primary">MCA (AI & ML) — LPU (2025–2027)</span>
               </div>
-              <div className="flex justify-between py-1.5 border-b border-lab-border/50">
+              <div className="flex justify-between py-1 border-b border-lab-border/50">
                 <span className="text-lab-text-muted">UNDERGRADUATE</span>
                 <span className="text-lab-text-primary">B.Sc. Physics (Hons) — 7.7/10 CGPA</span>
               </div>
-              <div className="flex justify-between py-1.5">
+              <div className="flex justify-between py-1">
                 <span className="text-lab-text-muted">CORE EXPERTISE</span>
                 <span className="text-lab-accent">Time Series • FastAPI • Simulation • MLOps</span>
               </div>
@@ -131,44 +131,44 @@ export default function About() {
         </div>
 
         {/* What I Do — 4 Pillars */}
-        <div className="space-y-6 pt-6">
+        <div className="space-y-4 pt-4">
           <div className="flex items-center space-x-3">
-            <h3 className="font-display font-bold text-2xl text-lab-text-primary">
+            <h3 className="font-display font-bold text-xl text-lab-text-primary">
               What I Do
             </h3>
-            <span className="font-mono text-xs text-lab-text-muted">// PRODUCTION PILLARS</span>
+            <span className="font-mono text-[10px] text-lab-text-muted">// PRODUCTION PILLARS</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {pillars.map((pillar) => {
               const Icon = pillar.icon;
               return (
                 <div
                   key={pillar.code}
-                  className="rounded-lg border border-lab-border bg-lab-surface/60 p-6 flex flex-col justify-between hover:border-lab-accent/60 hover:bg-lab-surface transition-all duration-300 group"
+                  className="rounded-lg border border-lab-border bg-lab-surface/60 p-4 flex flex-col justify-between hover:border-lab-accent/60 hover:bg-lab-surface transition-all duration-300 group"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-[10px] text-lab-text-muted">
+                      <span className="font-mono text-[9px] text-lab-text-muted">
                         {pillar.code}
                       </span>
-                      <Icon className="w-5 h-5 text-lab-accent group-hover:scale-110 transition-transform" />
+                      <Icon className="w-4 h-4 text-lab-accent group-hover:scale-110 transition-transform" />
                     </div>
 
-                    <h4 className="font-display font-bold text-lg text-lab-text-primary leading-snug group-hover:text-lab-accent transition-colors">
+                    <h4 className="font-display font-bold text-sm text-lab-text-primary leading-snug group-hover:text-lab-accent transition-colors">
                       {pillar.title}
                     </h4>
 
-                    <p className="text-xs text-lab-text-secondary leading-relaxed font-sans">
+                    <p className="text-[11px] text-lab-text-secondary leading-relaxed font-sans">
                       {pillar.description}
                     </p>
                   </div>
 
-                  <div className="pt-6 border-t border-lab-border/50 flex flex-wrap gap-1.5 mt-4">
+                  <div className="pt-4 border-t border-lab-border/50 flex flex-wrap gap-1 mt-3">
                     {pillar.tools.map((tool) => (
                       <span
                         key={tool}
-                        className="font-mono text-[10px] px-2 py-0.5 rounded bg-lab-elevated text-lab-text-secondary border border-lab-border/70"
+                        className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-lab-elevated text-lab-text-secondary border border-lab-border/70"
                       >
                         {tool}
                       </span>
@@ -177,6 +177,48 @@ export default function About() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Merged: Technical Competencies & Tooling Matrix */}
+        <div id="skills" className="mt-10 pt-6 border-t border-lab-border/60 scroll-mt-24">
+          <div className="flex items-center space-x-2 mb-4">
+            <span className="font-mono text-[10px] text-lab-accent tracking-widest">[04 // TECH_MATRIX & TOOLING COMPETENCIES]</span>
+            <div className="h-[1px] bg-lab-border flex-1 max-w-xs" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+            {skillsData.map((category) => (
+              <div
+                key={category.code}
+                className="rounded-lg border border-lab-border bg-lab-surface/60 p-3 hover:border-lab-border-subtle transition-all duration-300"
+              >
+                <div className="flex items-center justify-between border-b border-lab-border pb-2 mb-2">
+                  <span className="font-mono text-[9px] text-lab-accent">{category.code}</span>
+                </div>
+
+                <h4 className="font-display font-bold text-xs text-lab-text-primary mb-1">
+                  {category.title}
+                </h4>
+
+                <div className="space-y-1 pt-1">
+                  {category.skills.map((skill) => (
+                    <div
+                      key={skill.name}
+                      className="flex items-center justify-between py-0.5 text-[10px] font-mono"
+                    >
+                      <span className={`flex items-center space-x-1.5 ${skill.highlight ? 'text-lab-text-primary' : 'text-lab-text-secondary'}`}>
+                        {skill.highlight && (
+                          <span className="w-1 h-1 rounded-full bg-lab-accent inline-block" />
+                        )}
+                        <span>{skill.name}</span>
+                      </span>
+                      <span className="text-[9px] text-lab-text-muted">{skill.level}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

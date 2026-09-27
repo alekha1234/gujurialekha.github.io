@@ -22,7 +22,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-lab-border bg-lab-bg py-12 font-mono text-xs">
+    <footer role="contentinfo" className="border-t border-lab-border bg-lab-bg py-12 font-mono text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-lab-border/50">
           {/* Identity */}
@@ -31,7 +31,7 @@ export default function Footer() {
               <span className="font-display font-bold text-sm text-lab-text-primary">
                 ALEKHA GUJURI
               </span>
-              <span className="text-lab-accent text-[11px]">// DATA_SCIENTIST</span>
+              <span className="text-lab-accent text-[11px] font-semibold">// DATA_SCIENTIST</span>
             </div>
             <p className="text-[11px] text-lab-text-muted">
               Bengaluru, Karnataka, India • Open for Applied AI & Data Science
@@ -44,35 +44,35 @@ export default function Footer() {
               href="https://github.com/alekha1234"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lab-text-secondary hover:text-lab-accent transition-colors"
-              aria-label="GitHub"
+              className="text-lab-text-secondary hover:text-lab-accent transition-colors focus-ring rounded p-1"
+              aria-label="View Alekha Gujuri GitHub Profile (opens in new tab)"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-4 h-4" aria-hidden="true" />
             </a>
             <a
               href="https://www.linkedin.com/in/gujuri-alekha/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lab-text-secondary hover:text-lab-cyan transition-colors"
-              aria-label="LinkedIn"
+              className="text-lab-text-secondary hover:text-lab-cyan transition-colors focus-ring rounded p-1"
+              aria-label="Connect with Alekha Gujuri on LinkedIn (opens in new tab)"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-4 h-4" aria-hidden="true" />
             </a>
             <a
               href="https://www.kaggle.com/gujurialekha"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lab-text-secondary hover:text-lab-accent transition-colors font-bold"
-              aria-label="Kaggle"
+              className="text-lab-text-secondary hover:text-lab-accent transition-colors font-bold focus-ring rounded p-1"
+              aria-label="View Alekha Gujuri Kaggle Competitions (opens in new tab)"
             >
               K
             </a>
             <a
               href={`mailto:${personalData.contact.email}`}
-              className="text-lab-text-secondary hover:text-lab-amber transition-colors"
-              aria-label="Email"
+              className="text-lab-text-secondary hover:text-lab-amber transition-colors focus-ring rounded p-1"
+              aria-label={`Send Email to ${personalData.contact.email}`}
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
 
@@ -80,10 +80,11 @@ export default function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded border border-lab-border bg-lab-surface text-lab-text-secondary hover:text-lab-accent hover:border-lab-accent transition-all text-xs"
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded border border-lab-border bg-lab-surface text-lab-text-secondary hover:text-lab-accent hover:border-lab-accent transition-all text-xs focus-ring"
+            aria-label="Scroll back to top of page"
           >
             <span>TOP</span>
-            <ArrowUp className="w-3.5 h-3.5" />
+            <ArrowUp className="w-3.5 h-3.5" aria-hidden="true" />
           </button>
         </div>
 

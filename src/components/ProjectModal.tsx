@@ -97,13 +97,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={onClose}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="case-study-title"
         className="relative w-full max-w-4xl max-h-[90vh] bg-lab-surface border border-lab-border rounded-xl shadow-2xl overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Sticky Header Bar */}
         <div className="sticky top-0 z-20 flex items-center justify-between border-b border-lab-border bg-lab-surface/95 backdrop-blur-md px-6 py-4">
           <div className="flex items-center space-x-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-lab-accent inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-lab-accent inline-block" aria-hidden="true" />
             <div className="font-mono text-xs text-lab-text-muted">
               CASE_STUDY_INSPECTOR // {project.id.toUpperCase()}
             </div>
@@ -111,10 +114,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded border border-lab-border text-lab-text-secondary hover:text-lab-text-primary hover:bg-lab-elevated transition-colors"
-            aria-label="Close Case Study"
+            className="p-1.5 rounded border border-lab-border text-lab-text-secondary hover:text-lab-text-primary hover:bg-lab-elevated transition-colors focus-ring"
+            aria-label="Close Case Study Dialog"
+            autoFocus
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
@@ -125,7 +129,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <span className="font-mono text-xs text-lab-cyan uppercase tracking-wider">
               {project.category}
             </span>
-            <h3 className="font-display font-bold text-2xl sm:text-3xl text-lab-text-primary">
+            <h3 id="case-study-title" className="font-display font-bold text-2xl sm:text-3xl text-lab-text-primary">
               {project.title}
             </h3>
             <p className="text-sm font-mono text-lab-text-secondary">

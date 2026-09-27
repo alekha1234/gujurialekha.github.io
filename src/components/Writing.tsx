@@ -6,19 +6,19 @@ import { BookOpen, ArrowUpRight, Clock, Tag } from 'lucide-react';
 
 export default function Writing() {
   return (
-    <section id="writing" className="py-24 border-t border-lab-border bg-lab-bg">
+    <section id="writing" aria-labelledby="writing-heading" className="py-20 border-t border-lab-border bg-lab-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-2">
             <div className="flex items-center space-x-2">
               <span className="font-mono text-xs text-lab-accent tracking-widest">[06 // TECHNICAL DISCOURSE]</span>
-              <div className="h-[1px] bg-lab-border flex-1 max-w-xs" />
+              <div className="h-[1px] bg-lab-border flex-1 max-w-xs" aria-hidden="true" />
             </div>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl text-lab-text-primary tracking-tight">
+            <h2 id="writing-heading" className="font-display font-bold text-2xl sm:text-3xl text-lab-text-primary tracking-tight">
               Technical Writing & Tutorials
             </h2>
-            <p className="text-sm text-lab-text-muted font-mono max-w-2xl">
+            <p className="text-xs sm:text-sm text-lab-text-muted font-mono max-w-2xl">
               Articles and engineering walkthroughs exploring machine learning lifecycles, data pipelines, and applied computer vision.
             </p>
           </div>
@@ -27,10 +27,11 @@ export default function Writing() {
             href="https://alekhagujuri.blogspot.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 font-mono text-xs text-lab-accent hover:text-emerald-300 font-semibold self-start md:self-auto"
+            className="inline-flex items-center space-x-2 font-mono text-xs text-lab-accent hover:text-emerald-300 font-semibold self-start md:self-auto focus-ring rounded p-1"
+            aria-label="Visit Complete Blog Platform on Blogspot (opens in new tab)"
           >
             <span>Visit Complete Blog Platform</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
           </a>
         </div>
 
@@ -42,32 +43,33 @@ export default function Writing() {
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-lab-border bg-lab-surface/70 p-6 flex flex-col justify-between hover:border-lab-accent/60 hover:bg-lab-surface transition-all duration-300 group"
+              className="rounded-lg border border-lab-border bg-lab-surface/70 p-6 flex flex-col justify-between hover:border-lab-accent/60 hover:bg-lab-surface transition-all duration-300 group focus-ring"
+              aria-label={`Read article: ${post.title} (opens in new tab)`}
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between font-mono text-[11px]">
                   <span className="text-lab-cyan flex items-center space-x-1.5">
-                    <Tag className="w-3 h-3" />
+                    <Tag className="w-3 h-3" aria-hidden="true" />
                     <span>{post.category}</span>
                   </span>
                   <span className="text-lab-text-muted flex items-center space-x-1">
-                    <Clock className="w-3 h-3" />
+                    <Clock className="w-3 h-3" aria-hidden="true" />
                     <span>{post.readTime}</span>
                   </span>
                 </div>
 
-                <h3 className="font-display font-bold text-lg text-lab-text-primary group-hover:text-lab-accent transition-colors leading-snug">
+                <h3 className="font-display font-bold text-base sm:text-lg text-lab-text-primary group-hover:text-lab-accent transition-colors leading-snug">
                   {post.title}
                 </h3>
 
-                <p className="text-xs text-lab-text-secondary leading-relaxed font-sans">
+                <p className="text-xs text-lab-text-secondary leading-relaxed font-sans line-clamp-3">
                   {post.excerpt}
                 </p>
               </div>
 
               <div className="pt-6 mt-4 border-t border-lab-border/40 flex items-center justify-between font-mono text-xs text-lab-accent">
                 <span>Read Full Article</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
               </div>
             </a>
           ))}

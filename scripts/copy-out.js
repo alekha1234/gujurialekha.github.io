@@ -24,7 +24,7 @@ if (fs.existsSync(outDir)) {
   console.log('Synchronizing static export from out/ to root for GitHub Pages...');
   
   // Copy critical files to root
-  const itemsToCopy = ['index.html', '404.html', 'robots.txt', 'sitemap.xml', '_next', 'projects'];
+  const itemsToCopy = ['index.html', '404.html', 'robots.txt', 'sitemap.xml', '_next', 'projects', 'my_documents'];
   
   itemsToCopy.forEach((item) => {
     const srcPath = path.join(outDir, item);

@@ -58,21 +58,9 @@ export const certificationsData: CertificationItem[] = [
     accreditationBody: "Ministry of Electronics and IT (MeitY), Govt. of India",
   },
   {
-    title: "Data Science Foundation",
-    issuer: "International Association of Business Analytics (IABAC)",
-    date: "September 2023",
-    accreditationBody: "Global Analytics Certification",
-  },
-  {
     title: "Data Science Immersive Certification",
     issuer: "DataMites™",
     date: "January 2023 — May 2023",
     accreditationBody: "DataMites Bangalore Global Training",
-  },
-  {
-    title: "Python for Beginners",
-    issuer: "SkillUp by Simplilearn",
-    date: "January 2023",
-    accreditationBody: "Simplilearn Learning Hub",
   },
 ];
