@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import Link from 'next/link';
 import { featuredProjects, moreProjectsData, ProjectItem } from '@/data/projects';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
@@ -416,14 +417,23 @@ export default function FeaturedProjects() {
 
                     <div className="flex items-center space-x-2">
                       {project.isFeatured && project.originalProject ? (
-                        <button
-                          type="button"
-                          onClick={() => setActiveModalProject(project.originalProject)}
-                          className="inline-flex items-center space-x-1 font-mono text-[9.5px] text-lab-accent hover:text-emerald-300 font-semibold"
-                        >
-                          <BarChart2 className="w-3 h-3" />
-                          <span>Case Study</span>
-                        </button>
+                        <>
+                          <button
+                            type="button"
+                            onClick={() => setActiveModalProject(project.originalProject)}
+                            className="inline-flex items-center space-x-1 font-mono text-[9.5px] text-lab-accent hover:text-emerald-300 font-semibold"
+                          >
+                            <BarChart2 className="w-3 h-3" />
+                            <span>Preview</span>
+                          </button>
+                          <Link
+                            href={`/projects/${project.originalProject.slug}/`}
+                            className="inline-flex items-center space-x-0.5 font-mono text-[9.5px] text-lab-cyan hover:underline font-semibold"
+                          >
+                            <span>Case Study</span>
+                            <ArrowUpRight className="w-2.5 h-2.5" />
+                          </Link>
+                        </>
                       ) : null}
 
                       <a

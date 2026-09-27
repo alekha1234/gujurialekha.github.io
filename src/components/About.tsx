@@ -182,9 +182,17 @@ export default function About() {
 
         {/* Merged: Technical Competencies & Tooling Matrix */}
         <div id="skills" className="mt-10 pt-6 border-t border-lab-border/60 scroll-mt-24">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="font-mono text-[10px] text-lab-accent tracking-widest">[04 // TECH_MATRIX & TOOLING COMPETENCIES]</span>
-            <div className="h-[1px] bg-lab-border flex-1 max-w-xs" />
+          <div className="space-y-1.5 mb-6">
+            <div className="flex items-center space-x-2">
+              <span className="font-mono text-[10px] text-lab-accent tracking-widest">[04 // TECH_MATRIX & TOOLING COMPETENCIES]</span>
+              <div className="h-[1px] bg-lab-border flex-1 max-w-xs" aria-hidden="true" />
+            </div>
+            <h3 className="font-display font-bold text-xl text-lab-text-primary">
+              Technical Competencies & Tooling Matrix
+            </h3>
+            <p className="font-mono text-[11px] text-lab-text-muted">
+              Production capabilities across applied modeling, time-series forecasting, APIs, MLOps, and big data infrastructure.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">

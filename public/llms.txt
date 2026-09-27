@@ -1,0 +1,21 @@
+# Alekha Gujuri — Associate Data Scientist & Machine Learning Engineer
+
+> Professional portfolio, production case studies, research code, and technical competencies of Alekha Gujuri. Associate Data Scientist with 2.5 years of commercial experience across time-series forecasting, multi-stage ML pipelines, smart city IoT systems, and MLOps.
+
+## Primary Sections & Permalinks
+
+- [Home & Executive Summary](https://alekha1234.github.io/gujurialekha.github.io/): Applied ML track record, commercial experience at Trinity Mobility, qualifications, and core technical pillars.
+- [Smart Irrigation Case Study](https://alekha1234.github.io/gujurialekha.github.io/projects/smart-irrigation-pipeline/): Sequential 3-stage predictive pipeline forecasting environmental conditions, classifying irrigation necessity, and regressing duration with ICCC platform integration.
+- [ML Composer Case Study](https://alekha1234.github.io/gujurialekha.github.io/projects/ml-composer-platform/): Enterprise no-code machine learning platform automating end-to-end model training, hyperparameter tuning, and containerized deployment.
+- [Smart Energy Simulation Case Study](https://alekha1234.github.io/gujurialekha.github.io/projects/smart-energy-grid-simulation/): Physics-informed synthetic data engine and power grid simulation pipeline for load curve forecasting and anomaly detection.
+- [Face Mask Detection Case Study](https://alekha1234.github.io/gujurialekha.github.io/projects/real-time-face-mask-detection/): High-throughput real-time bounding box object detection engine using MobileNetV2 and OpenCV.
+- [Bank Marketing Prediction Case Study](https://alekha1234.github.io/gujurialekha.github.io/projects/portuguese-bank-marketing/): Cost-sensitive predictive classification engine on imbalanced financial telemetry with SMOTE and precision-recall tuning.
+- [Marine Jellyfish Classification Case Study](https://alekha1234.github.io/gujurialekha.github.io/projects/jellyfish-marine-classification/): Deep convolutional neural network for automated marine taxonomic indexing from underwater imagery.
+
+## Technical Competencies
+
+- **Machine Learning & Modeling:** Scikit-Learn, Time-Series Forecasting, Lag Features, Classification, Regression, Clustering, Anomaly Detection.
+- **Simulation & Generative AI:** Synthetic Data Generation, Pandapower, NetworkX, LLM Alert Summarization, Prompt Engineering for ICCC.
+- **Microservices & APIs:** FastAPI, Pydantic, REST API Design, Flask, Docker, Municipal Command Center Integrations.
+- **MLOps & Quality Gates:** Model Registry (Nexus), MLflow, CI/CD Pipelines, Automated Unit Testing with Code Coverage Gates.
+- **Languages & Frameworks:** Python, TensorFlow, Keras, PySpark, Pandas, NumPy, SQL, Linux.

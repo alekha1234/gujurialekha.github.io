@@ -36,6 +36,7 @@ export default function Hero() {
               </p>
               <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-lab-text-primary tracking-tight leading-[1.1]">
                 GUJURI <span className="text-lab-accent">ALEKHA</span>
+                <span className="sr-only"> — Associate Data Scientist & Machine Learning Engineer</span>
               </h1>
               <div className="flex flex-wrap items-center gap-1.5 pt-0.5 font-mono text-[10px] sm:text-xs text-lab-text-secondary">
                 <span className="px-1.5 py-0.5 rounded bg-lab-surface border border-lab-border text-lab-text-primary">
@@ -160,6 +161,8 @@ export default function Hero() {
                   <img
                     src={getAssetPath('/documents/logos/headshot.png')}
                     alt="Gujuri Alekha — Associate Data Scientist"
+                    width={400}
+                    height={500}
                     className="w-full h-full object-cover object-top transition-all duration-500 group-hover:scale-105"
                     loading="eager"
                   />
@@ -169,22 +172,26 @@ export default function Hero() {
                     <div className="flex items-center justify-between font-mono text-[9px]">
                       <span className="text-lab-text-secondary flex items-center space-x-1">
                         <Activity className="w-3 h-3 text-lab-accent" />
-                        <span>SMART_CITY</span>
+                        <span>AI / ML SYSTEMS</span>
                       </span>
-                      <span className="text-lab-accent font-semibold">ICCC // ACTIVE</span>
+                      <span className="text-lab-accent font-semibold">RAG // ACTIVE</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Technical Specs Footer */}
-                <div className="mt-2.5 pt-2 border-t border-lab-border/50 font-mono text-[9px] space-y-1">
-                  <div className="flex items-center justify-between text-lab-text-muted">
-                    <span>FOCUS</span>
-                    <span className="text-lab-text-primary">Agentic AI • RAG • Time-Series</span>
-                  </div>
+                <div className="mt-2.5 pt-2 border-t border-lab-border/50 font-mono text-[9px] space-y-1.5">
                   <div className="flex items-center justify-between text-lab-text-muted">
                     <span>ROLE</span>
-                    <span className="text-lab-accent">Trinity Mobility (Bengaluru)</span>
+                    <span className="text-lab-accent font-semibold">Associate Data Scientist</span>
+                  </div>
+                  <div className="flex items-center justify-between text-lab-text-muted">
+                    <span>COMPANY</span>
+                    <span className="text-lab-text-primary">Trinity Mobility (Bengaluru)</span>
+                  </div>
+                  <div className="flex items-center justify-between text-lab-text-muted">
+                    <span>FOCUS</span>
+                    <span className="text-lab-text-primary">Machine Learning • RAG • GenAI</span>
                   </div>
                 </div>
               </div>

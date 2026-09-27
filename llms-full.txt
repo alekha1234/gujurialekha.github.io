@@ -1,0 +1,75 @@
+# Alekha Gujuri — Comprehensive Technical Documentation & Portfolio
+
+> Professional curriculum vitae, applied machine learning engineering architecture, production case studies, and verification benchmarks of Alekha Gujuri.
+
+## Core Entity Telemetry
+- **Name:** Alekha Gujuri (Formal: Gujuri Alekha)
+- **Role:** Associate Data Scientist
+- **Current Organization:** Trinity Mobility (Bengaluru, Karnataka, India)
+- **Experience:** 2.5 Years Production Data Science & ML Engineering
+- **Academic Qualifications:** 
+  - Master of Computer Applications (MCA) in Artificial Intelligence & Machine Learning, Lovely Professional University (2025–2027)
+  - Bachelor of Science (Physics Honours), Science Degree College (CGPA: 7.7/10)
+- **Verified Coordinates:**
+  - Email: gujurialekha@gmail.com
+  - GitHub: https://github.com/alekha1234
+  - LinkedIn: https://www.linkedin.com/in/gujuri-alekha/
+  - Kaggle: https://www.kaggle.com/gujurialekha
+
+---
+
+## Detailed Applied ML Case Studies
+
+### 1. Smart Irrigation: 3-Stage ML Pipeline & ICCC Integration
+- **Slug:** smart-irrigation-pipeline
+- **URL:** https://alekha1234.github.io/gujurialekha.github.io/projects/smart-irrigation-pipeline/
+- **Domain:** Smart City IoT & Time-Series Forecasting
+- **Tech Stack:** Python, FastAPI, Scikit-Learn, Pandas, NumPy, PySpark, Delta Lake, Pydantic
+- **Problem Formulation:** Municipal smart city irrigation systems suffered from disjointed manual controls, risking water waste, over-saturation, and high electricity bills due to lack of automated end-to-end decision-making.
+- **Data Ingestion:** Multi-parameter sensor telemetry including historical soil moisture, ambient temperature, humidity, solar radiation, forecasted precipitation, and municipal zone schedules.
+- **Methodology:** Formulated a 3-stage chained workflow: Stage 1 forecasts soil moisture & meteorological parameters; Stage 2 evaluates threshold triggers to classify whether irrigation is required (ON/OFF); Stage 3 regresses the precise watering duration in minutes.
+- **Architecture:** Chained Gradient Boosted Classifiers and duration regressors exposed via FastAPI microservices with Pydantic schema validation.
+- **Production Impact:** Integrated directly with the municipal Integrated Command and Control Center (ICCC), delivering automated alerts and plain-language AI summaries to city operators.
+
+### 2. ML Composer: Enterprise No-Code Machine Learning Platform
+- **Slug:** ml-composer-platform
+- **URL:** https://alekha1234.github.io/gujurialekha.github.io/projects/ml-composer-platform/
+- **Domain:** MLOps, Developer Tooling & Platform Engineering
+- **Tech Stack:** Streamlit, Scikit-Learn, Pandas, NumPy, Docker, Joblib, Python
+- **Problem Formulation:** Enterprise analysts and non-technical stakeholders faced high friction and operational dependencies when building baseline models, causing workflow bottlenecks.
+- **Methodology:** Designed modular drag-and-drop workflow with automated missing value imputation, categorical encoding, multi-algorithm benchmarking, and one-click artifact serialization.
+- **Production Impact:** Reduced exploratory modeling cycles from days to minutes while standardizing data preprocessing and model evaluation protocols.
+
+### 3. Smart Energy Grid Simulation: Load Profiling & Synthetic Data Generation
+- **Slug:** smart-energy-grid-simulation
+- **URL:** https://alekha1234.github.io/gujurialekha.github.io/projects/smart-energy-grid-simulation/
+- **Domain:** Time-Series Simulation & Energy Analytics
+- **Tech Stack:** Python, Pandapower, NetworkX, Pandas, NumPy, Parquet, Matplotlib
+- **Problem Formulation:** Lack of real-world anomalous telemetry and high-voltage grid fault data prevented operators from stress-testing municipal energy management systems.
+- **Methodology:** Built physics-informed synthetic data engine modeling feeder networks, consumer load profiles across 15-minute intervals, transformer peak demand, and harmonic fluctuations.
+- **Production Impact:** Enabled safe offline validation of grid anomaly detection algorithms without risking municipal infrastructure downtime.
+
+### 4. Real-Time Face Mask Detection Engine
+- **Slug:** real-time-face-mask-detection
+- **URL:** https://alekha1234.github.io/gujurialekha.github.io/projects/real-time-face-mask-detection/
+- **Domain:** Computer Vision & Edge AI
+- **Tech Stack:** TensorFlow, Keras, OpenCV, MobileNetV2, Python, NumPy
+- **Architecture:** Two-stage pipeline combining Caffe-based Single Shot Multibox Detector (SSD) for facial localization with transfer-learned MobileNetV2 classifier.
+- **Production Impact:** 98.6% classification accuracy at 30+ FPS edge execution for public safety monitoring.
+
+### 5. Portuguese Bank Term Deposit Marketing Predictor
+- **Slug:** portuguese-bank-marketing
+- **URL:** https://alekha1234.github.io/gujurialekha.github.io/projects/portuguese-bank-marketing/
+- **Domain:** Financial Machine Learning & Tabular Classification
+- **Tech Stack:** Python, Scikit-Learn, Pandas, NumPy, Matplotlib, Seaborn
+- **Problem Formulation:** Direct marketing campaigns suffered from severe class imbalance (88% non-subscribers), causing outbound call center inefficiencies.
+- **Methodology:** Evaluated cost-sensitive learning, SMOTE oversampling, and precision-recall trade-offs with XGBoost and Random Forest.
+- **Production Impact:** Maximized recall on potential subscribers, cutting wasted campaign outreach by over 35%.
+
+### 6. Marine Jellyfish Species Taxonomic Classifier
+- **Slug:** jellyfish-marine-classification
+- **URL:** https://alekha1234.github.io/gujurialekha.github.io/projects/jellyfish-marine-classification/
+- **Domain:** Bio-Vision & Ecological Deep Learning
+- **Tech Stack:** TensorFlow, Keras, Python, NumPy, Matplotlib, CNN
+- **Methodology:** Convolutional Neural Network with spatial data augmentation (rotation, shear, zoom) to counter underwater turbidity and illumination variance.
+- **Production Impact:** Automated marine taxonomic categorization for oceanographic video surveys.

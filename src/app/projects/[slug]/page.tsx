@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { featuredProjects, ProjectItem } from '@/data/projects';
@@ -27,6 +28,49 @@ export function generateStaticParams() {
 interface PageProps {
   params: {
     slug: string;
+  };
+}
+
+export function generateMetadata({ params }: PageProps): Metadata {
+  const project = featuredProjects.find((p) => p.slug === params.slug);
+  if (!project) {
+    return {
+      title: 'Project Case Study Not Found',
+    };
+  }
+
+  const canonicalUrl = `https://alekha1234.github.io/gujurialekha.github.io/projects/${project.slug}/`;
+  const imageUrl = `https://alekha1234.github.io/gujurialekha.github.io${project.image}`;
+
+  return {
+    title: `${project.title} | Case Study`,
+    description: project.summary,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: 'article',
+      locale: 'en_US',
+      url: canonicalUrl,
+      title: `${project.title} | Applied ML Case Study`,
+      description: project.summary,
+      siteName: 'Alekha Gujuri — Data Scientist Portfolio',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — Applied Machine Learning Architecture`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | Case Study`,
+      description: project.summary,
+      creator: '@Alekha81293434',
+      images: [imageUrl],
+    },
   };
 }
 
@@ -91,8 +135,84 @@ export default function ProjectPage({ params }: PageProps) {
     },
   ];
 
+  const currentIndex = featuredProjects.findIndex((p) => p.slug === params.slug);
+  const prevProject =
+    featuredProjects[(currentIndex - 1 + featuredProjects.length) % featuredProjects.length];
+  const nextProject = featuredProjects[(currentIndex + 1) % featuredProjects.length];
+
+  const canonicalUrl = `https://alekha1234.github.io/gujurialekha.github.io/projects/${project.slug}/`;
+  const imageUrl = `https://alekha1234.github.io/gujurialekha.github.io${project.image}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'TechArticle',
+        '@id': `${canonicalUrl}#article`,
+        isPartOf: {
+          '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#website',
+        },
+        headline: project.title,
+        description: project.summary,
+        inLanguage: 'en-US',
+        url: canonicalUrl,
+        image: imageUrl,
+        author: {
+          '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
+        },
+        publisher: {
+          '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
+        },
+        datePublished: '2024-01-15T00:00:00Z',
+        dateModified: '2026-09-27T00:00:00Z',
+        articleSection: project.category,
+        keywords: project.technologies.join(', '),
+      },
+      {
+        '@type': 'SoftwareSourceCode',
+        '@id': `${canonicalUrl}#code`,
+        name: project.title,
+        codeRepository: project.githubUrl,
+        programmingLanguage: 'Python',
+        author: {
+          '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}#breadcrumbs`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://alekha1234.github.io/gujurialekha.github.io/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Case Studies',
+            item: 'https://alekha1234.github.io/gujurialekha.github.io/#case-studies',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: project.title,
+            item: canonicalUrl,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-lab-bg text-lab-text-primary py-12 px-4 sm:px-6 lg:px-8">
+      {/* Schema.org 2026 Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Top Back Navigation */}
         <div className="flex items-center justify-between border-b border-lab-border pb-6">
@@ -141,7 +261,9 @@ export default function ProjectPage({ params }: PageProps) {
         <div className="relative aspect-video rounded-xl overflow-hidden border border-lab-border bg-lab-surface">
           <img
             src={getAssetPath(project.image)}
-            alt={project.title}
+            alt={`${project.title} — Applied Machine Learning Architecture`}
+            width={1200}
+            height={675}
             className="w-full h-full object-cover"
           />
         </div>
@@ -209,9 +331,9 @@ export default function ProjectPage({ params }: PageProps) {
         {/* Action Call to Action */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-xl border border-lab-border bg-lab-surface/90">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="font-display font-bold text-lg text-lab-text-primary">
+            <h3 className="font-display font-bold text-lg text-lab-text-primary">
               Ready to Inspect the Source Code?
-            </h4>
+            </h3>
             <p className="text-xs font-mono text-lab-text-muted">
               Access the complete Jupyter notebook, preprocessing routines, and evaluation logs.
             </p>
@@ -227,6 +349,35 @@ export default function ProjectPage({ params }: PageProps) {
             <span>Open GitHub Notebook</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
+        </div>
+
+        {/* Directional Internal Link Conduits: Previous / Next Case Study */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-lab-border">
+          <Link
+            href={`/projects/${prevProject.slug}/`}
+            className="group flex flex-col p-4 rounded-xl border border-lab-border bg-lab-surface/60 hover:border-lab-accent/60 transition-all"
+          >
+            <span className="font-mono text-[10px] text-lab-text-muted uppercase flex items-center space-x-1 group-hover:text-lab-accent">
+              <ArrowLeft className="w-3 h-3" />
+              <span>Previous Case Study</span>
+            </span>
+            <span className="font-display font-semibold text-sm text-lab-text-primary mt-1 line-clamp-1 group-hover:text-lab-accent transition-colors">
+              {prevProject.title}
+            </span>
+          </Link>
+
+          <Link
+            href={`/projects/${nextProject.slug}/`}
+            className="group flex flex-col items-end text-right p-4 rounded-xl border border-lab-border bg-lab-surface/60 hover:border-lab-accent/60 transition-all"
+          >
+            <span className="font-mono text-[10px] text-lab-text-muted uppercase flex items-center space-x-1 group-hover:text-lab-accent">
+              <span>Next Case Study</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </span>
+            <span className="font-display font-semibold text-sm text-lab-text-primary mt-1 line-clamp-1 group-hover:text-lab-accent transition-colors">
+              {nextProject.title}
+            </span>
+          </Link>
         </div>
       </div>
     </main>

@@ -22,16 +22,46 @@ const rootDir = path.join(__dirname, '..');
 
 if (fs.existsSync(outDir)) {
   console.log('Synchronizing static export from out/ to root for GitHub Pages...');
-  
+
+  // Purge stale directories at root to eliminate zombie routes
+  const directoriesToCleanFirst = ['projects', '_next'];
+  directoriesToCleanFirst.forEach((dirName) => {
+    const targetDir = path.join(rootDir, dirName);
+    if (fs.existsSync(targetDir)) {
+      console.log(`Cleaning old ${dirName} directory at root...`);
+      fs.rmSync(targetDir, { recursive: true, force: true });
+    }
+  });
+
   // Copy critical files to root
-  const itemsToCopy = ['index.html', '404.html', 'robots.txt', 'sitemap.xml', '_next', 'projects', 'my_documents'];
-  
+  const itemsToCopy = [
+    'index.html',
+    '404.html',
+    'robots.txt',
+    'sitemap.xml',
+    '_next',
+    'projects',
+    'my_documents',
+    'llms.txt',
+    'llms-full.txt',
+  ];
+
   itemsToCopy.forEach((item) => {
     const srcPath = path.join(outDir, item);
     const destPath = path.join(rootDir, item);
     if (fs.existsSync(srcPath)) {
       console.log(`Copying ${item} -> root`);
       copyRecursiveSync(srcPath, destPath);
+    }
+  });
+
+  // Also sync public/llms.txt if not in out
+  const publicDir = path.join(__dirname, '..', 'public');
+  ['llms.txt', 'llms-full.txt'].forEach((file) => {
+    const src = path.join(publicDir, file);
+    const dest = path.join(rootDir, file);
+    if (fs.existsSync(src)) {
+      fs.copyFileSync(src, dest);
     }
   });
 

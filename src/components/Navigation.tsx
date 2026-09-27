@@ -19,12 +19,12 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { label: '01. About', href: '#about' },
-    { label: '02. Experience', href: '#experience' },
-    { label: '03. Case Studies', href: '#case-studies' },
-    { label: '04. Skills', href: '#skills' },
-    { label: '05. Education', href: '#education' },
-    { label: '06. Contact', href: '#contact' },
+    { label: 'About', href: '#about' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Case Studies', href: '#case-studies' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Education', href: '#education' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -53,15 +53,9 @@ export default function Navigation() {
               <div className="w-8 h-8 rounded border border-lab-border bg-lab-surface flex items-center justify-center text-lab-accent font-mono text-xs font-bold transition-colors group-hover:border-lab-accent group-hover:shadow-lab-glow">
                 AG
               </div>
-              <div className="flex flex-col">
-                <span className="font-display font-bold text-sm tracking-tight text-lab-text-primary group-hover:text-lab-accent transition-colors">
-                  ALEKHA GUJURI
-                </span>
-                <span className="font-mono text-[10px] text-lab-text-muted flex items-center space-x-1">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-lab-accent animate-pulse" aria-hidden="true" />
-                  <span>DS_SYS // v2.5</span>
-                </span>
-              </div>
+              <span className="font-display font-bold text-sm tracking-tight text-lab-text-primary group-hover:text-lab-accent transition-colors">
+                ALEKHA GUJURI
+              </span>
             </Link>
 
             {/* Desktop Navigation Links */}

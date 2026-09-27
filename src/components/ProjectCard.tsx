@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { ProjectItem } from '@/data/projects';
 import { getAssetPath } from '@/utils/assets';
-import { Github, BarChart2, Eye } from 'lucide-react';
+import { Github, BarChart2, Eye, ArrowUpRight } from 'lucide-react';
 
 export type CardVariant = 'focused' | 'adjacent' | 'outer';
 
@@ -39,6 +40,8 @@ export default function ProjectCard({
             <img
               src={getAssetPath(project.image)}
               alt={project.title}
+              width={200}
+              height={110}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 group-hover:opacity-90"
               loading="lazy"
             />
@@ -52,9 +55,15 @@ export default function ProjectCard({
 
           {/* Outer Content */}
           <div className="p-2 space-y-1">
-            <h4 className="font-display font-semibold text-[11px] text-lab-text-secondary group-hover:text-lab-accent transition-colors leading-snug line-clamp-2">
-              {project.title}
-            </h4>
+            <h3 className="font-display font-semibold text-[11px] text-lab-text-secondary group-hover:text-lab-accent transition-colors leading-snug line-clamp-2">
+              <Link
+                href={`/projects/${project.slug}/`}
+                onClick={(e) => e.stopPropagation()}
+                className="hover:text-lab-accent transition-colors"
+              >
+                {project.title}
+              </Link>
+            </h3>
             <div className="flex flex-wrap gap-0.5 pt-0.5">
               {project.technologies.slice(0, 2).map((tech) => (
                 <span
@@ -91,6 +100,8 @@ export default function ProjectCard({
             <img
               src={getAssetPath(project.image)}
               alt={project.title}
+              width={260}
+              height={125}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-75 group-hover:opacity-100"
               loading="lazy"
             />
@@ -105,7 +116,13 @@ export default function ProjectCard({
           {/* Adjacent Content */}
           <div className="p-2.5 space-y-1">
             <h3 className="font-display font-bold text-xs text-lab-text-primary group-hover:text-lab-accent transition-colors leading-snug line-clamp-1">
-              {project.title}
+              <Link
+                href={`/projects/${project.slug}/`}
+                onClick={(e) => e.stopPropagation()}
+                className="hover:text-lab-accent transition-colors"
+              >
+                {project.title}
+              </Link>
             </h3>
             <p className="font-mono text-[8.5px] text-lab-text-muted line-clamp-1">
               {project.subtitle}
@@ -148,6 +165,8 @@ export default function ProjectCard({
           <img
             src={getAssetPath(project.image)}
             alt={project.title}
+            width={380}
+            height={140}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
             loading="lazy"
           />
@@ -165,7 +184,13 @@ export default function ProjectCard({
         <div className="p-3 space-y-1 flex-1 min-h-0">
           <div className="space-y-0.5">
             <h3 className="font-display font-bold text-sm text-lab-text-primary group-hover:text-lab-accent transition-colors leading-snug line-clamp-1">
-              {project.title}
+              <Link
+                href={`/projects/${project.slug}/`}
+                onClick={(e) => e.stopPropagation()}
+                className="hover:text-lab-accent transition-colors"
+              >
+                {project.title}
+              </Link>
             </h3>
             <p className="font-mono text-[9px] text-lab-text-muted line-clamp-1">
               {project.subtitle}
@@ -221,6 +246,16 @@ export default function ProjectCard({
             <BarChart2 className="w-3 h-3" aria-hidden="true" />
             <span>Case Study</span>
           </button>
+
+          <Link
+            href={`/projects/${project.slug}/`}
+            onClick={(e) => e.stopPropagation()}
+            className="p-1.5 rounded border border-lab-border bg-lab-elevated text-lab-text-secondary hover:text-lab-accent hover:border-lab-accent transition-colors focus-ring"
+            title={`View permanent URL for ${project.title}`}
+            aria-label={`View permanent URL for ${project.title}`}
+          >
+            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </Link>
 
           <a
             href={project.githubUrl}

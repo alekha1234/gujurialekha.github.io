@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import Link from 'next/link';
 import { ProjectItem } from '@/data/projects';
 import {
   X,
@@ -206,16 +207,26 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-lab-border">
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-5 py-2.5 rounded font-mono text-xs font-semibold bg-lab-accent text-lab-bg hover:bg-emerald-400 transition-colors shadow-lab-glow"
-            >
-              <Github className="w-4 h-4" />
-              <span>Inspect Source Notebook & Code</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href={`/projects/${project.slug}/`}
+                onClick={onClose}
+                className="inline-flex items-center space-x-2 px-5 py-2.5 rounded font-mono text-xs font-semibold bg-lab-accent text-lab-bg hover:bg-emerald-400 transition-colors shadow-lab-glow"
+              >
+                <span>Open Dedicated Case Study Page</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 px-4 py-2.5 rounded font-mono text-xs border border-lab-border text-lab-text-secondary hover:text-lab-text-primary hover:bg-lab-elevated transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                <span>GitHub Source</span>
+              </a>
+            </div>
 
             <button
               type="button"

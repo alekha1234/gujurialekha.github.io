@@ -1,4 +1,15 @@
 User-Agent: *
 Allow: /
 
+User-Agent: GPTBot
+User-Agent: ClaudeBot
+User-Agent: Google-Extended
+User-Agent: PerplexityBot
+User-Agent: Applebot-Extended
+Allow: /
+
+User-Agent: Bytespider
+User-Agent: CCBot
+Disallow: /
+
 Sitemap: https://alekha1234.github.io/gujurialekha.github.io/sitemap.xml
