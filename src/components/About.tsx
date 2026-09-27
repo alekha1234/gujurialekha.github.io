@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import { personalData } from '@/data/personal';
 import {
   Brain,
-  Eye,
-  MessageSquareCode,
+  Cpu,
+  Layers,
   Server,
   ChevronDown,
   ChevronUp,
-  Cpu,
   Compass,
+  Sparkles,
+  Bot,
 } from 'lucide-react';
 
 export default function About() {
@@ -19,35 +20,35 @@ export default function About() {
   const pillars = [
     {
       code: 'PILLAR_01',
-      title: 'Data Science & Predictive Modeling',
+      title: 'Time-Series Forecasting & Multi-Stage ML',
       description:
-        'Transforming raw transactional and operational datasets into empirical insights. Performing rigorous EDA, feature engineering, hypothesis validation, and predictive modeling for business triage.',
+        'Designing chained predictive pipelines (e.g. Smart Irrigation) where soil and weather forecasts feed decision classifiers and duration regressors, returning unified operational commands.',
       icon: Brain,
-      tools: ['Scikit-Learn', 'Pandas', 'NumPy', 'Stats', 'EDA'],
+      tools: ['Scikit-Learn', 'Time-Series', 'Lag Features', 'FastAPI', 'Pandas'],
     },
     {
       code: 'PILLAR_02',
-      title: 'Machine Learning & Deep Architectures',
+      title: 'Simulation Engines & Synthetic Telemetry',
       description:
-        'Developing supervised and unsupervised pipelines—from gradient boosted trees (XGBoost/LightGBM) to deep neural networks (CNNs, ResNet50) for fine-grained classification.',
+        'Building physics-informed synthetic data engines and simulation pipelines (e.g. Smart Energy) for load curves, peak demand, and anomaly scenarios across 15-min to daily intervals.',
       icon: Cpu,
-      tools: ['TensorFlow', 'Keras', 'Random Forest', 'SVM', 'Ensembles'],
+      tools: ['Pandapower', 'NetworkX', 'Parquet', 'JSON', 'Synthetic Data'],
     },
     {
       code: 'PILLAR_03',
-      title: 'AI, Vision & NLP Engineering',
+      title: 'Generative AI & Operator Alert Summarization',
       description:
-        'Implementing high-throughput object detection using YOLOv5 and end-to-end NLP pipelines encompassing tokenization, TF-IDF vectorization, lemmatization, and sentiment extraction.',
-      icon: Eye,
-      tools: ['YOLOv5', 'NLTK', 'OpenCV', 'TF-IDF', 'Computer Vision'],
+        'Integrating machine learning outputs with municipal command centers (ICCC) and deploying LLM-based alert summarization so operators receive clear, plain-language operational summaries.',
+      icon: Bot,
+      tools: ['GenAI / LLMs', 'Prompt Design', 'ICCC Integration', 'Alert Traceability'],
     },
     {
       code: 'PILLAR_04',
-      title: 'Pipeline Engineering & API Serving',
+      title: 'MLOps, Quality Gates & Microservice CI/CD',
       description:
-        'Containerizing and deploying machine learning artifacts into production microservices with FastAPI and Flask, backed by relational (MySQL) and document (MongoDB) databases.',
+        'Architecting Model Registries with Nexus, single-click deployment CI/CD workflows, and automated test execution with code coverage gates within Flask/FastAPI service pipelines.',
       icon: Server,
-      tools: ['FastAPI', 'Flask', 'MySQL', 'MongoDB', 'Git / CI'],
+      tools: ['FastAPI', 'Flask', 'MLflow', 'Evidently AI', 'Nexus', 'CI/CD'],
     },
   ];
 
@@ -57,11 +58,11 @@ export default function About() {
         {/* Section Header */}
         <div className="space-y-2 mb-12">
           <div className="flex items-center space-x-2">
-            <span className="font-mono text-xs text-lab-accent tracking-widest">[01 // BACKGROUND & METHODOLOGY]</span>
+            <span className="font-mono text-xs text-lab-accent tracking-widest">[01 // BACKGROUND & PRODUCTION PHILOSOPHY]</span>
             <div className="h-[1px] bg-lab-border flex-1 max-w-xs" />
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-lab-text-primary tracking-tight">
-            About & Engineering Philosophy
+            About & Engineering Practice
           </h2>
         </div>
 
@@ -73,9 +74,7 @@ export default function About() {
             </p>
 
             <p>
-              My journey in data science is grounded in a rigorous quantitative physics background (B.Sc. Physics Honours),
-              combining mathematical formulation with modern algorithmic computation. I have applied predictive intelligence
-              across both dynamic municipal smart mobility at <strong>Trinity Mobility</strong> and enterprise consulting engagements at <strong>Rubixe</strong>.
+              Operating across the seam between applied data science and software delivery, my work centers on developing reliable, reusable, and production-ready machine learning solutions for Smart City IoT and enterprise systems at <strong>Trinity Mobility</strong>.
             </p>
 
             {expanded && (
@@ -101,31 +100,31 @@ export default function About() {
             <div className="flex items-center justify-between border-b border-lab-border pb-3">
               <span className="font-mono text-xs text-lab-text-muted flex items-center space-x-2">
                 <Compass className="w-3.5 h-3.5 text-lab-accent" />
-                <span>SYSTEM_PROFILE</span>
+                <span>VERIFIED_PROFILE</span>
               </span>
-              <span className="font-mono text-[11px] text-lab-accent">VERIFIED DATA</span>
+              <span className="font-mono text-[11px] text-lab-accent">2.5 YRS EXPERIENCE</span>
             </div>
 
             <div className="space-y-3 font-mono text-xs">
+              <div className="flex justify-between py-1.5 border-b border-lab-border/50">
+                <span className="text-lab-text-muted">CURRENT ENGAGEMENT</span>
+                <span className="text-lab-text-primary">Trinity Mobility (Associate Data Scientist)</span>
+              </div>
               <div className="flex justify-between py-1.5 border-b border-lab-border/50">
                 <span className="text-lab-text-muted">LOCATION</span>
                 <span className="text-lab-text-primary">{personalData.location}</span>
               </div>
               <div className="flex justify-between py-1.5 border-b border-lab-border/50">
-                <span className="text-lab-text-muted">ACADEMIC FOUNDATION</span>
-                <span className="text-lab-text-primary">B.Sc. Physics (Honours)</span>
+                <span className="text-lab-text-muted">HIGHEST EDUCATION</span>
+                <span className="text-lab-text-primary">MCA (AI & ML) — LPU (2025–2027)</span>
               </div>
               <div className="flex justify-between py-1.5 border-b border-lab-border/50">
-                <span className="text-lab-text-muted">PROFESSIONAL ACCREDITATIONS</span>
-                <span className="text-lab-text-primary">IABAC & NASSCOM Certified</span>
-              </div>
-              <div className="flex justify-between py-1.5 border-b border-lab-border/50">
-                <span className="text-lab-text-muted">PRIMARY FOCUS</span>
-                <span className="text-lab-text-primary">Predictive ML, CV & NLP</span>
+                <span className="text-lab-text-muted">UNDERGRADUATE</span>
+                <span className="text-lab-text-primary">B.Sc. Physics (Hons) — 7.7/10 CGPA</span>
               </div>
               <div className="flex justify-between py-1.5">
-                <span className="text-lab-text-muted">SERVING STACK</span>
-                <span className="text-lab-text-primary">FastAPI • Flask • Docker/Pipelines</span>
+                <span className="text-lab-text-muted">CORE EXPERTISE</span>
+                <span className="text-lab-accent">Time Series • FastAPI • Simulation • MLOps</span>
               </div>
             </div>
           </div>
@@ -137,7 +136,7 @@ export default function About() {
             <h3 className="font-display font-bold text-2xl text-lab-text-primary">
               What I Do
             </h3>
-            <span className="font-mono text-xs text-lab-text-muted">// CORE CAPABILITIES</span>
+            <span className="font-mono text-xs text-lab-text-muted">// PRODUCTION PILLARS</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

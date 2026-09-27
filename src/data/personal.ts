@@ -13,6 +13,7 @@ export interface PersonalData {
   tagline: string;
   status: string;
   location: string;
+  phone: string;
   shortBio: string;
   extendedBio: string[];
   resume: {
@@ -23,6 +24,7 @@ export interface PersonalData {
   socials: SocialLink[];
   contact: {
     email: string;
+    phone: string;
     web3FormsKey: string;
   };
   analytics: {
@@ -35,15 +37,22 @@ export const personalData: PersonalData = {
   name: "Alekha Gujuri",
   formalName: "Gujuri Alekha",
   role: "Associate Data Scientist",
-  subRoles: ["Data Science", "Machine Learning", "Artificial Intelligence", "Computer Vision & NLP"],
-  tagline: "Transforming complex observational data into deterministic predictive systems across the machine learning lifecycle.",
-  status: "Available for Data Science & Applied AI Opportunities",
+  subRoles: [
+    "Applied Machine Learning",
+    "ML Engineering & MLOps",
+    "Time Series & Simulation",
+    "Synthetic Data & Generative AI",
+    "FastAPI & Microservices"
+  ],
+  tagline: "Carrying machine learning from initial problem statements through to resilient production delivery for Smart City, IoT, and enterprise systems.",
+  status: "Available for Applied AI, ML Engineering & Data Science Roles",
   location: "Bengaluru, Karnataka, India",
-  shortBio: "Welcome to my world of data exploration, where every dataset is an opportunity to uncover hidden insights and drive impactful decisions. I am a dedicated Data Scientist with a passion for turning complex data into actionable strategies and predictive models.",
+  phone: "+91 9348673473",
+  shortBio: "Applied Data Scientist with 2.5 years of experience carrying machine learning work from raw problem statements through to production. Specializing in time-series forecasting, multi-stage decision pipelines, synthetic data simulation, and MLOps tooling that bridges data science with robust software delivery.",
   extendedBio: [
-    "My journey in data science is fueled by curiosity and a relentless drive to solve challenging problems. Over the years, I have had the privilege of working on initiatives spanning industries and operational applications—from analyzing dynamic market behaviors to optimizing operational efficiencies.",
-    "My expertise goes beyond building standalone models: I am deeply invested in the entire data lifecycle, from exploratory wrangling and feature engineering to deployment, performance monitoring, and decision translation.",
-    "What sets my approach apart is the ability to bridge the gap between technical rigor and business outcomes. I translate complex model outputs into actionable strategies that empower stakeholders to make confident, data-driven decisions."
+    "At Trinity Mobility, my work centers on applied machine learning for smart-city systems: designing three-stage automated irrigation pipelines, building smart energy grid simulation engines, integrating ML outputs with Integrated Command and Control Centers (ICCC), and deploying LLM-based alert summarization for operator traceability.",
+    "Beyond standalone modeling, I engineer the platform tooling that makes models reliable and maintainable: connecting Model Registries with Nexus, building single-click CI/CD deployment modules, and enforcing automated test quality gates with code coverage in Flask/FastAPI microservices.",
+    "Grounding my engineering practice is a strong quantitative foundation: currently completing an MCA specializing in Machine Learning & Artificial Intelligence from Lovely Professional University, preceded by a Bachelor of Science (Physics Honours) from Science Degree College (CGPA 7.7/10)."
   ],
   resume: {
     viewUrl: "https://drive.google.com/file/d/1apVed_aNN6iK8IVO1ZetFuw0buB5T4OI/view?usp=sharing",
@@ -84,6 +93,7 @@ export const personalData: PersonalData = {
   ],
   contact: {
     email: "gujurialekha@gmail.com",
+    phone: "+91 9348673473",
     web3FormsKey: "164da4cb-4bc2-49a7-acb5-c69b18982f18",
   },
   analytics: {

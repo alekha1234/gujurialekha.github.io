@@ -5,6 +5,7 @@ export interface EducationItem {
   period: string;
   field?: string;
   details?: string;
+  grade?: string;
 }
 
 export interface CertificationItem {
@@ -17,11 +18,20 @@ export interface CertificationItem {
 
 export const educationData: EducationItem[] = [
   {
-    degree: "Bachelor of Science (Physics Honours)",
+    degree: "Master of Computer Applications (MCA)",
+    institution: "Lovely Professional University",
+    location: "Punjab, India",
+    period: "Feb 2025 — Feb 2027 (In Progress)",
+    field: "Specialization in Machine Learning & Artificial Intelligence",
+    details: "Advanced graduate coursework focusing on deep neural architectures, enterprise machine learning systems, distributed computing, and generative AI.",
+  },
+  {
+    degree: "Bachelor of Science (B.Sc.), Physics",
     institution: "Science Degree College",
     location: "Kukudakhandi, Odisha",
-    period: "2018 — 2021",
-    field: "Physics & Mathematical Sciences",
+    period: "Aug 2018 — Sep 2021",
+    grade: "CGPA: 7.7 / 10",
+    field: "Physics Honours & Applied Mathematics",
     details: "Rigorous quantitative foundation in physical modeling, mathematical formulation, differential equations, and computational problem solving.",
   },
   {
@@ -31,13 +41,6 @@ export const educationData: EducationItem[] = [
     period: "2016 — 2018",
     field: "Physics, Chemistry, Mathematics & Information Technology",
     details: "Foundational coursework in computer science fundamentals, calculus, matrix algebra, and algorithmic principles.",
-  },
-  {
-    degree: "High School (General)",
-    institution: "Govt. High School",
-    location: "Kukudakhandi, Odisha",
-    period: "2015 — 2016",
-    field: "General Secondary Curriculum",
   },
 ];
 
@@ -64,7 +67,7 @@ export const certificationsData: CertificationItem[] = [
     title: "Data Science Immersive Certification",
     issuer: "DataMites™",
     date: "January 2023 — May 2023",
-    accreditationBody: "DataMites Global Training",
+    accreditationBody: "DataMites Bangalore Global Training",
   },
   {
     title: "Python for Beginners",

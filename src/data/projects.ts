@@ -33,6 +33,130 @@ export interface ProjectItem {
 
 export const featuredProjects: ProjectItem[] = [
   {
+    id: "smart-irrigation-pipeline",
+    slug: "smart-irrigation-pipeline",
+    title: "Smart Irrigation: 3-Stage ML Pipeline & ICCC Integration",
+    category: "Smart City IoT & Time-Series",
+    subtitle: "Chained Forecasting, Decisioning & Duration Microservices",
+    summary: "Sequential 3-stage predictive pipeline forecasting environmental conditions, classifying irrigation necessity, and regressing duration—exposed via FastAPI with AI-generated alert summaries for city command center operators.",
+    image: "/documents/projects/machine-learning.jpeg",
+    technologies: ["Python", "FastAPI", "Scikit-Learn", "Pandas", "NumPy", "PySpark", "Delta Lake", "Pydantic"],
+    metrics: [
+      { label: "Pipeline Stages", value: "3 Chained", description: "Forecast → Decision → Duration" },
+      { label: "Integration", value: "ICCC Platform", description: "City Command Center alerts" },
+      { label: "AI Feature", value: "LLM Summaries", description: "Operator-facing plain English" },
+    ],
+    githubUrl: "https://github.com/alekha1234",
+    isFeatured: true,
+    highlights: [
+      "Engineered sequential 3-stage architecture where each stage feeds the next, returning a complete operational command.",
+      "Integrated trained models into FastAPI microservices with Pydantic request models and automated validation.",
+      "Published irrigation alerts with short AI-generated summaries to the ICCC platform for operators.",
+    ],
+    caseStudy: {
+      problem: "Municipal smart city irrigation systems suffered from disjointed manual controls, risking water waste, over-saturation, and high electricity bills due to lack of automated end-to-end decision-making.",
+      data: "Multi-parameter sensor telemetry including historical soil moisture, ambient temperature, humidity, solar radiation, forecasted precipitation, and municipal zone schedules.",
+      approach: "Formulated a 3-stage chained workflow: Stage 1 forecasts soil moisture & meteorological parameters; Stage 2 evaluates threshold triggers to classify whether irrigation is required (ON/OFF); Stage 3 regresses the precise watering duration in minutes.",
+      model: "Time-series forecasting models combined with Gradient Boosted Classifiers and duration regressors, orchestrated as an integrated pipeline.",
+      evaluation: "Benchmarked end-to-end latency, stage-to-stage error propagation, classification precision for valve activation, and duration calibration.",
+      results: "Replaced disconnected manual checks with a single atomic API call returning an actionable irrigation command, complete with predictive confidence metrics.",
+      impact: "Integrated directly with the municipal Integrated Command and Control Center (ICCC), delivering automated alerts and plain-language AI summaries to city operators."
+    }
+  },
+  {
+    id: "ml-composer-platform",
+    slug: "ml-composer-platform",
+    title: "ML Composer: Enterprise No-Code Machine Learning Platform",
+    category: "ML Engineering & MLOps",
+    subtitle: "Automated Ingestion, Model Validation & Nexus Registry CI/CD",
+    summary: "Enterprise platform enabling non-ML specialists to ingest data from SQL/APIs, clean, train regression/classification/clustering models, enforce automated quality gates, and deploy via a Nexus Model Registry.",
+    image: "/documents/projects/end-to-end-ml.jpeg",
+    technologies: ["Python", "Flask", "FastAPI", "Scikit-Learn", "PySpark", "MLflow", "Evidently AI", "Nexus", "CI/CD"],
+    metrics: [
+      { label: "Deployment", value: "Single-Click", description: "Nexus CI/CD deployment path" },
+      { label: "Quality Gate", value: "Automated", description: "Code coverage & test suites" },
+      { label: "Algorithms", value: "Multi-Model", description: "Regression, Classif., Clustering" },
+    ],
+    githubUrl: "https://github.com/alekha1234/End-to-End-Machine-Learning-Project",
+    isFeatured: true,
+    highlights: [
+      "Designed Model Registry and Nexus integration workflow for centralized model storage, versioning, and reuse.",
+      "Built a reusable pretrained-model CI/CD module with single-click deployment, eliminating manual setup overhead.",
+      "Enabled end-to-end automated testing and code coverage within the Flask-service quality gate.",
+    ],
+    caseStudy: {
+      problem: "Domain and engineering teams faced severe bottlenecks deploying ML models: lack of automated testing, scattered model versions, and slow, repetitive manual configuration for every release.",
+      data: "Ingestion pipelines connecting relational databases (SQL), big data streams (PySpark), REST APIs, and multi-format local files (CSV, Parquet, JSON).",
+      approach: "Constructed a visual data preparation workflow with automated feature engineering, linked to an MLOps pipeline with automated validation, drift monitoring, and strict quality gates.",
+      model: "Modular algorithm library supporting regression, classification, and clustering with automated hyperparameter search and model evaluation.",
+      evaluation: "Integrated MLflow tracking, Evidently AI data-drift detection, and automated test execution with code coverage gates on every build.",
+      results: "Unified model storage in a Nexus-backed Model Registry and introduced a single-click CI/CD deployment workflow that eliminated repeated manual setups.",
+      impact: "Standardized model governance across smart city engineering teams, ensuring consistency and preventing flawed models from reaching production."
+    }
+  },
+  {
+    id: "smart-energy-grid-simulation",
+    slug: "smart-energy-grid-simulation",
+    title: "Smart Energy Grid Simulation Engine & Synthetic Telemetry",
+    category: "Simulation & Synthetic Data",
+    subtitle: "High-Resolution Demand Analysis & Anomaly Detection Telemetry",
+    summary: "Physics-informed simulation engine and synthetic dataset generator modeling distribution grid loads, peak demands, and electrical anomalies across 15-minute, hourly, and daily resolutions for ICCC dashboards.",
+    image: "/documents/projects/total-sales.jpeg",
+    technologies: ["Python", "Pandapower", "NetworkX", "NumPy", "Parquet", "JSON", "Time-Series", "ICCC Telemetry"],
+    metrics: [
+      { label: "Time Granularity", value: "15m / 1h / 1d", description: "Multi-resolution simulation" },
+      { label: "Data Pipeline", value: "Parquet/JSON", description: "High-throughput streaming" },
+      { label: "Target Domain", value: "Grid Anomalies", description: "Proactive overload detection" },
+    ],
+    githubUrl: "https://github.com/alekha1234",
+    isFeatured: true,
+    highlights: [
+      "Engineered simulation engines generating ML-ready synthetic datasets for energy-demand analysis and grid fault scenarios.",
+      "Processed high-throughput time-series outputs across 15-minute, hourly, and daily resolutions via Parquet/JSON.",
+      "Integrated anomaly triggers with ICCC command center dashboards with plain-language alert explanations.",
+    ],
+    caseStudy: {
+      problem: "Real-world electrical grid anomaly and peak demand datasets are strictly confidential and rare, impeding the training and validation of smart-city demand response and fault detection algorithms.",
+      data: "Simulated electrical network topology, load profiles, transformer demand curves, and synthetic anomaly injection points.",
+      approach: "Built physics-informed synthetic generation pipelines modeling consumption fluctuations, peak surge events, and voltage fluctuations across 15-min, hourly, and daily intervals.",
+      model: "Synthetic simulation engines coupled with time-series anomaly detection algorithms and statistical thresholding.",
+      evaluation: "Benchmarked distribution validity against empirical smart meter profiles and verified streaming latency into operator dashboards.",
+      results: "Delivered scalable Parquet/JSON simulation pipelines powering command center visualizations, proactive threshold alarms, and anomaly diagnostics.",
+      impact: "Empowered municipal operators to simulate grid stress scenarios proactively and validate grid resilience strategies without live network risk."
+    }
+  },
+  {
+    id: "real-time-face-mask-detection",
+    slug: "real-time-face-mask-detection",
+    title: "Real-Time Face Mask Compliance Detection",
+    category: "Computer Vision & Edge AI",
+    subtitle: "High-Throughput Object Localization with YOLOv5 Architecture",
+    summary: "Automated real-time computer vision system built on custom-trained YOLOv5 to detect face mask compliance in high-density public environments.",
+    image: "/documents/projects/face-mask.jpeg",
+    technologies: ["YOLOv5", "PyTorch", "Python", "OpenCV", "Matplotlib", "Computer Vision"],
+    metrics: [
+      { label: "Model Family", value: "YOLOv5", description: "Single-stage detector" },
+      { label: "Classes", value: "3 Classes", description: "Masked / Unmasked / Incorrect" },
+      { label: "Throughput", value: "Real-Time", description: "Edge video stream capable" },
+    ],
+    githubUrl: "https://github.com/alekha1234/Face-Mask-Detection-Using-YoloV5-Model/blob/main/Yolov5_Face_mask_detection.ipynb",
+    isFeatured: true,
+    highlights: [
+      "Trained custom YOLOv5 weights with mosaic augmentations and anchor box tuning.",
+      "Handles partial facial occlusions, varied angles, and diverse illumination levels.",
+      "Structured for edge CCTV camera deployment and live video stream inference.",
+    ],
+    caseStudy: {
+      problem: "Manual verification of public health compliance in crowded facilities is non-scalable, labor-intensive, and prone to human inspection fatigue.",
+      data: "Annotated multi-class image dataset with precise bounding box coordinates categorized into three states: masked, unmasked, and incorrectly worn masks.",
+      approach: "Engineered robust preprocessing pipeline leveraging mosaic augmentation, color jittering, spatial scaling, and normalized bounding box coordinate conversions.",
+      model: "Fine-tuned YOLOv5 architecture featuring CSPDarknet53 backbone and Path Aggregation Network (PANet) neck for multi-scale feature localization.",
+      evaluation: "Validated against mean Average Precision (mAP@0.5 and mAP@0.5:0.95), inference latency (milliseconds per frame), and precision-recall trade-offs.",
+      results: "Demonstrated accurate multi-target localization in high-density frames with minimal latency, distinguishing subtle mask placement variations.",
+      impact: "Enables contactless, automated compliance telemetry across transit hubs and commercial facilities without requiring on-site personnel."
+    }
+  },
+  {
     id: "portuguese-bank-marketing",
     slug: "portuguese-bank-marketing",
     title: "Portuguese Bank Direct Marketing Optimization",
@@ -55,50 +179,19 @@ export const featuredProjects: ProjectItem[] = [
     ],
     caseStudy: {
       problem: "Direct telemarketing campaigns suffered from low conversion rates and escalating operational costs caused by untargeted cold calling across the entire customer base.",
-      data: "Comprehensive Portuguese banking dataset comprising 45,211 direct marketing interactions with 17 attributes across client demographics, balance levels, loan obligations, contact timing, and macroeconomic indices.",
-      approach: "Conducted exhaustive exploratory data analysis, handled non-linear feature interactions, applied categorical encoding, and addressed severe class imbalance through re-weighting and stratified sampling.",
+      data: "Comprehensive Portuguese banking dataset comprising 45,211 direct marketing interactions with 17 attributes across client demographics, balance levels, and economic indices.",
+      approach: "Conducted exhaustive exploratory data analysis, handled non-linear feature interactions, applied categorical encoding, and addressed class imbalance.",
       model: "Trained and benchmarked Logistic Regression, Decision Trees, Random Forests, and Gradient Boosted Classifiers with hyperparameter optimization.",
       evaluation: "Prioritized Precision-Recall AUC and F1-score over raw accuracy to prevent false-negative lead loss, utilizing confusion matrices and threshold tuning.",
-      results: "Isolated the top 20% lead tier capable of generating over 65% of successful deposit subscriptions, identifying economic sentiment and prior outreach history as key conversion drivers.",
+      results: "Isolated the top 20% lead tier capable of generating over 65% of successful deposit subscriptions, identifying economic sentiment as a key driver.",
       impact: "Supplies marketing operations with an empirical lead-scoring system that substantially cuts campaign costs while raising net conversion yield."
-    }
-  },
-  {
-    id: "real-time-face-mask-detection",
-    slug: "real-time-face-mask-detection",
-    title: "Real-Time Face Mask Compliance Detection",
-    category: "Computer Vision & Edge AI",
-    subtitle: "High-Throughput Object Localization with YOLOv5 Architecture",
-    summary: "Automated real-time computer vision system built on custom-trained YOLOv5 to detect face mask compliance in high-density public environments.",
-    image: "/documents/projects/face-mask.jpeg",
-    technologies: ["YOLOv5", "PyTorch", "Python", "OpenCV", "Matplotlib", "Computer Vision"],
-    metrics: [
-      { label: "Model Family", value: "YOLOv5", description: "Single-stage detector" },
-      { label: "Classes", value: "3 Classes", description: "Masked / Unmasked / Incorrect" },
-      { label: "Throughput", value: "Real-Time", description: "Video stream inference capable" },
-    ],
-    githubUrl: "https://github.com/alekha1234/Face-Mask-Detection-Using-YoloV5-Model/blob/main/Yolov5_Face_mask_detection.ipynb",
-    isFeatured: true,
-    highlights: [
-      "Trained custom YOLOv5 weights with mosaic augmentations and anchor box tuning.",
-      "Handles partial facial occlusions, varied angles, and diverse illumination levels.",
-      "Structured for edge CCTV camera deployment and live video stream inference.",
-    ],
-    caseStudy: {
-      problem: "Manual verification of public health compliance in crowded facilities is non-scalable, labor-intensive, and prone to human inspection fatigue.",
-      data: "Annotated multi-class image dataset with precise bounding box coordinates categorized into three states: masked, unmasked, and incorrectly worn masks under varied environmental lighting.",
-      approach: "Engineered robust preprocessing pipeline leveraging mosaic augmentation, color jittering, spatial scaling, and normalized bounding box coordinate conversions.",
-      model: "Fine-tuned YOLOv5 architecture featuring CSPDarknet53 backbone and Path Aggregation Network (PANet) neck for multi-scale feature localization.",
-      evaluation: "Validated against mean Average Precision (mAP@0.5 and mAP@0.5:0.95), inference latency (milliseconds per frame), and precision-recall trade-offs.",
-      results: "Demonstrated accurate multi-target localization in high-density frames with minimal latency, distinguishing subtle mask placement variations.",
-      impact: "Enables contactless, automated compliance telemetry across transit hubs and commercial facilities without requiring on-site personnel."
     }
   },
   {
     id: "jellyfish-marine-classification",
     slug: "jellyfish-marine-classification",
     title: "Marine Jellyfish Species Classifier",
-    category: "Deep Learning & Marine Science",
+    category: "Deep Learning & Marine Bio-Vision",
     subtitle: "Automated Species Identification using Convolutional Neural Networks",
     summary: "Convolutional neural network for marine organism classification to support ecological surveys and automated taxonomic indexing from underwater imagery.",
     image: "/documents/projects/jellyfish.jpeg",
@@ -116,106 +209,13 @@ export const featuredProjects: ProjectItem[] = [
       "Automates tedious marine taxonomic categorization for oceanographic research.",
     ],
     caseStudy: {
-      problem: "Oceanographic biologists face massive manual backlogs indexing underwater video and camera traps to monitor marine biodiversity and jellyfish bloom surges.",
+      problem: "Oceanographic biologists face massive manual backlogs indexing underwater video and camera traps to monitor marine biodiversity and jellyfish blooms.",
       data: "Multi-species underwater imagery dataset featuring distinct jellyfish classifications (Moon, Compass, Lion's Mane, Barrel) captured across diverse ocean conditions.",
-      approach: "Implemented extensive image transformations including rotation, shear, horizontal flips, and zoom alongside channel normalization to handle turbidity.",
+      approach: "Implemented extensive image transformations including rotation, shear, horizontal flips, and zoom alongside channel normalization.",
       model: "Designed multi-tier Convolutional Neural Network with progressive feature maps (32 → 64 → 128), Batch Normalization, Dropout (0.3), and Softmax classification.",
       evaluation: "Tracked categorical cross-entropy loss convergence, per-species confusion matrices, and precision/recall balance across classes.",
       results: "Achieved robust taxonomic separation across challenging morphometry, accurately identifying species despite motion blur and light refraction.",
       impact: "Accelerates ecological research workflows by automating organism tagging in continuous underwater survey feeds."
-    }
-  },
-  {
-    id: "cifar10-visual-recognition",
-    slug: "cifar10-visual-recognition",
-    title: "CIFAR-10 Visual Recognition Engine",
-    category: "Deep Learning & Computer Vision",
-    subtitle: "Multi-Class Object Recognition Across Low-Resolution Imagery",
-    summary: "Deep learning vision architecture engineered to extract stable visual feature representations from noisy 32x32 color images across 10 diverse classes.",
-    image: "/documents/projects/cifar10.png",
-    technologies: ["TensorFlow", "Keras", "Python", "Deep Learning", "NumPy", "Matplotlib"],
-    metrics: [
-      { label: "Dataset Size", value: "60,000", description: "Standardized 32x32 image samples" },
-      { label: "Class Count", value: "10 Classes", description: "Balanced object taxonomy" },
-      { label: "Framework", value: "TensorFlow", description: "Keras Sequential pipeline" },
-    ],
-    githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Object-Classification-Using-Cifar10.ipynb",
-    isFeatured: true,
-    highlights: [
-      "Engineered stacked convolutional blocks with spatial dropout to combat overfitting.",
-      "Trained on 60,000 samples spanning animals, vehicles, and everyday objects.",
-      "Validated stable generalization across subtle intra-class variations in low resolution.",
-    ],
-    caseStudy: {
-      problem: "Extracting generalized visual representations from low-resolution (32x32) pixels is challenging due to pixel noise and overlapping category contours.",
-      data: "60,000 32x32 color images across 10 balanced classes (airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, trucks), partitioned into 50k train and 10k test splits.",
-      approach: "Applied pixel scaling, spatial data augmentations, batch normalization, and He-normal kernel initializations to stabilize gradient propagation.",
-      model: "Constructed deep CNN architecture featuring dual conv blocks with Max Pooling, Dropout regularizers (0.25 to 0.5), and dense Softmax prediction layers.",
-      evaluation: "Evaluated top-1 test accuracy, cross-entropy loss trajectories, and class-by-class precision and recall metrics.",
-      results: "Attained stable generalization across diverse categories without divergence, proving the robustness of the convolutional feature hierarchy.",
-      impact: "Serves as an architectural baseline for downstream embedded vision applications and lightweight image categorization models."
-    }
-  },
-  {
-    id: "clinical-liver-disease-prediction",
-    slug: "clinical-liver-disease-prediction",
-    title: "Clinical Liver Disease Diagnostic Predictor",
-    category: "Healthcare Analytics & Diagnostics",
-    subtitle: "Early Hepatic Pathology Detection via Biochemical Patient Profiles",
-    summary: "Predictive clinical classification model leveraging 10 routine biochemical biomarkers to assist medical teams with early-stage hepatic triage.",
-    image: "/documents/projects/liver-disease.jpeg",
-    technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Seaborn", "Decision Trees"],
-    metrics: [
-      { label: "Model Accuracy", value: "82%", description: "Validated test classification" },
-      { label: "Biomarkers", value: "10 Clinical", description: "Bilirubin, enzymes, protein ratios" },
-      { label: "Target", value: "Binary Triage", description: "Hepatic risk indicator" },
-    ],
-    githubUrl: "https://github.com/alekha1234/LIver-Disease-Prediction",
-    isFeatured: true,
-    highlights: [
-      "Achieved 82% validation accuracy using Decision Trees and Logistic Regression.",
-      "Demonstrated Bilirubin ratios and transaminase enzyme levels as top diagnostic indicators.",
-      "Designed for early clinical triage to prioritize high-risk patients for confirmatory diagnostics.",
-    ],
-    caseStudy: {
-      problem: "Chronic liver ailments are frequently asymptomatic during early stages, leading to late interventions and adverse patient outcomes.",
-      data: "Patient records containing 10 biochemical blood indicators including Total Bilirubin, Direct Bilirubin, Alkaline Phosphotase, ALT, AST, Total Proteins, Albumin, and A/G Ratio.",
-      approach: "Performed clinical outlier assessment, missing value imputation, feature scaling, and correlation mapping to prevent multicollinearity.",
-      model: "Trained and tuned Decision Tree and Logistic Regression models with regularization to prevent overfitting on clinical variations.",
-      evaluation: "Validated against test cohort achieving 82% diagnostic accuracy, calibrating decision boundaries to minimize clinical false-negative occurrences.",
-      results: "Confirmed that elevated direct bilirubin and AST/ALT enzyme ratios provide the strongest empirical signal for early hepatic dysfunction.",
-      impact: "Provides a reliable algorithmic triage tool for primary health clinics, expediting timely referrals to hepatology specialists."
-    }
-  },
-  {
-    id: "nlp-research-pipeline-suite",
-    slug: "nlp-research-pipeline-suite",
-    title: "Modular NLP Text Processing & Sentiment Suite",
-    category: "NLP & Text Analytics",
-    subtitle: "End-to-End Text Preprocessing, Vectorization & Sentiment Pipelines",
-    summary: "Production-ready NLP pipeline repository establishing standard modular utilities for tokenization, feature extraction, TF-IDF vectorization, and sentiment inference.",
-    image: "/documents/projects/nlp-repository.jpeg",
-    technologies: ["Python", "NLTK", "Scikit-Learn", "Pandas", "NLP", "Text Analytics"],
-    metrics: [
-      { label: "Domain", value: "NLP Suite", description: "Full lifecycle text processing" },
-      { label: "Vectorization", value: "TF-IDF / N-gram", description: "Semantic vector extraction" },
-      { label: "Modularity", value: "Reusable", description: "Modular pipelines for NLP apps" },
-    ],
-    githubUrl: "https://github.com/alekha1234/Natural-Language-Processing",
-    isFeatured: true,
-    highlights: [
-      "Engineered reusable pipeline components for regex cleaning, lemmatization, and stop-word filtering.",
-      "Constructed TF-IDF vectorizers and n-gram representations for downstream text classification.",
-      "Benchmarked sentiment scoring and text classification across diverse sentiment datasets.",
-    ],
-    caseStudy: {
-      problem: "Raw unstructured text from varied customer feedback channels is erratic, noisy, and inefficient to process without standardized preprocessing pipelines.",
-      data: "Multi-domain textual corpora comprising customer sentiment surveys, product reviews, and benchmark text collections.",
-      approach: "Developed modular text engineering workflow: noise cleaning, tokenization, lemmatization, stop-word removal, and vocabulary normalization.",
-      model: "Integrated TF-IDF vectorization with Naive Bayes, Logistic Regression, and neural text classifiers for sentiment scoring.",
-      evaluation: "Benchmarked classification accuracy, F1-macro metrics across sentiment polarities, and vocabulary sparsity efficiency.",
-      results: "Established a robust, modular code foundation that significantly accelerates downstream NLP experimentation and text mining.",
-      impact: "Reduces data preparation lead time for conversational, classification, and customer intelligence systems."
     }
   },
 ];
@@ -231,6 +231,33 @@ export interface ArchivedProject {
 }
 
 export const moreProjectsData: ArchivedProject[] = [
+  {
+    id: "cifar10-benchmark",
+    title: "CIFAR-10 Visual Recognition Engine",
+    category: "Computer Vision",
+    description: "Deep convolutional architecture extracting robust feature representations from noisy 32x32 color images across 10 balanced classes.",
+    technologies: ["TensorFlow", "Keras", "Python", "CNN", "Deep Learning"],
+    githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Object-Classification-Using-Cifar10.ipynb",
+    image: "/documents/projects/cifar10.png",
+  },
+  {
+    id: "clinical-liver-prediction",
+    title: "Clinical Liver Disease Diagnostic Predictor",
+    category: "Healthcare Analytics",
+    description: "Predictive diagnostic classification model using 10 biochemical blood biomarkers, achieving 82% diagnostic accuracy for early triage.",
+    technologies: ["Python", "Scikit-Learn", "Pandas", "Decision Trees"],
+    githubUrl: "https://github.com/alekha1234/LIver-Disease-Prediction",
+    image: "/documents/projects/liver-disease.jpeg",
+  },
+  {
+    id: "nlp-suite",
+    title: "Modular NLP Text Processing & Sentiment Suite",
+    category: "NLP & Text Analytics",
+    description: "Reusable text engineering repository covering tokenization, lemmatization, TF-IDF vectorization, and sentiment classification.",
+    technologies: ["Python", "NLTK", "Scikit-Learn", "Pandas", "TF-IDF"],
+    githubUrl: "https://github.com/alekha1234/Natural-Language-Processing",
+    image: "/documents/projects/nlp-repository.jpeg",
+  },
   {
     id: "cat-dog-resnet50",
     title: "Cat vs Dog Classification (ResNet50)",
@@ -293,15 +320,6 @@ export const moreProjectsData: ArchivedProject[] = [
     technologies: ["Python", "Machine Learning", "Feature Importance", "Seaborn"],
     githubUrl: "https://github.com/alekha1234/Employee-performance-of-INX-Future-Inc",
     image: "/documents/projects/enployee-performance.jpeg",
-  },
-  {
-    id: "end-to-end-ml-pipeline",
-    title: "End-to-End Machine Learning Serving Pipeline",
-    category: "MLOps & Engineering",
-    description: "Production-oriented machine learning lifecycle project featuring modular ingestion, automated feature transformers, and Flask serving.",
-    technologies: ["Python", "Flask", "Scikit-Learn", "Docker/Pipeline", "Modular Code"],
-    githubUrl: "https://github.com/alekha1234/End-to-End-Machine-Learning-Project",
-    image: "/documents/projects/end-to-end-ml.jpeg",
   },
   {
     id: "iris-flower-classification",

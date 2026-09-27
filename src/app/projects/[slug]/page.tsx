@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { featuredProjects, ProjectItem } from '@/data/projects';
+import { getAssetPath } from '@/utils/assets';
 import {
   ArrowLeft,
   Github,
@@ -139,7 +140,7 @@ export default function ProjectPage({ params }: PageProps) {
         {/* Project Image Banner */}
         <div className="relative aspect-video rounded-xl overflow-hidden border border-lab-border bg-lab-surface">
           <img
-            src={`https://raw.githubusercontent.com/alekha1234/gujurialekha.github.io/main${project.image}`}
+            src={getAssetPath(project.image)}
             alt={project.title}
             className="w-full h-full object-cover"
           />

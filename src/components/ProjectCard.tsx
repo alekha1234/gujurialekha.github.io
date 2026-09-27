@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ProjectItem } from '@/data/projects';
+import { getAssetPath } from '@/utils/assets';
 import { Github, ArrowUpRight, FileCode, CheckCircle, BarChart2 } from 'lucide-react';
 
 interface ProjectCardProps {
@@ -16,7 +17,7 @@ export default function ProjectCard({ project, onOpenCaseStudy }: ProjectCardPro
         {/* Project Thumbnail Image with Technical HUD Header */}
         <div className="relative aspect-video w-full overflow-hidden bg-lab-elevated border-b border-lab-border">
           <img
-            src={`https://raw.githubusercontent.com/alekha1234/gujurialekha.github.io/main${project.image}`}
+            src={getAssetPath(project.image)}
             alt={project.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
             loading="lazy"
