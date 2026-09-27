@@ -8,11 +8,25 @@ import { Github, ArrowUpRight, FileCode, CheckCircle, BarChart2 } from 'lucide-r
 interface ProjectCardProps {
   project: ProjectItem;
   onOpenCaseStudy: (project: ProjectItem) => void;
+  isFocused?: boolean;
+  onClick?: () => void;
 }
 
-export default function ProjectCard({ project, onOpenCaseStudy }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  onOpenCaseStudy,
+  isFocused = true,
+  onClick,
+}: ProjectCardProps) {
   return (
-    <div className="rounded-lg border border-lab-border bg-lab-surface/80 overflow-hidden flex flex-col justify-between hover:border-lab-border-subtle transition-all duration-300 group">
+    <div
+      onClick={onClick}
+      className={`rounded-xl border transition-all duration-500 flex flex-col justify-between overflow-hidden group ${
+        isFocused
+          ? 'border-lab-accent/80 bg-lab-surface shadow-lab-glow ring-1 ring-lab-accent/30 z-20 opacity-100 scale-100'
+          : 'border-lab-border bg-lab-surface/50 opacity-60 hover:opacity-85 scale-[0.96] cursor-pointer'
+      }`}
+    >
       <div>
         {/* Project Thumbnail Image with Technical HUD Header */}
         <div className="relative aspect-video w-full overflow-hidden bg-lab-elevated border-b border-lab-border">
