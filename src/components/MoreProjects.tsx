@@ -24,7 +24,7 @@ export default function MoreProjects() {
   });
 
   return (
-    <section id="more-projects" className="py-16 border-t border-lab-border bg-lab-surface/30">
+    <section id="more-projects" className="relative z-10 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
@@ -47,9 +47,10 @@ export default function MoreProjects() {
             <input
               type="text"
               placeholder="Filter by keyword or stack..."
+              aria-label="Filter archived projects by keyword or stack"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 rounded bg-lab-bg border border-lab-border text-xs font-mono text-lab-text-primary placeholder:text-lab-text-muted focus:outline-none focus:border-lab-accent transition-colors"
+              className="w-full pl-9 pr-4 py-2 rounded glass border border-lab-border text-xs font-mono text-lab-text-primary placeholder:text-lab-text-muted focus:outline-none focus:border-lab-accent transition-colors"
             />
           </div>
         </div>
@@ -59,7 +60,7 @@ export default function MoreProjects() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="rounded-lg border border-lab-border bg-lab-surface/60 p-5 flex flex-col justify-between hover:border-lab-border-subtle hover:bg-lab-surface transition-all duration-200 group"
+              className="glass rounded-xl p-5 flex flex-col justify-between hover:glass-glow transition-all duration-200 group"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -102,7 +103,7 @@ export default function MoreProjects() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1 font-mono text-[11px] text-lab-accent hover:text-emerald-300 font-semibold transition-colors"
+                  className="inline-flex items-center space-x-1 font-mono text-[11px] text-lab-accent hover:text-blue-300 font-semibold transition-colors"
                 >
                   <span>Code</span>
                   <ArrowUpRight className="w-3 h-3" />

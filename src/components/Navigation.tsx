@@ -19,11 +19,11 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
+    { label: 'Home', href: '#top' },
     { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Case Studies', href: '#case-studies' },
     { label: 'Skills', href: '#skills' },
-    { label: 'Education', href: '#education' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'AI Lab', href: '#ai-lab' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -36,13 +36,13 @@ export default function Navigation() {
 
       <header
         role="banner"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-lab-bg/90 backdrop-blur-md border-b border-lab-border py-3 shadow-lg shadow-black/40'
-            : 'bg-transparent py-5'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 transition-all duration-300 ${isScrolled ? 'pt-2' : 'pt-4'}`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          className={`max-w-6xl mx-auto rounded-xl px-3 sm:px-4 transition-all duration-300 ${
+            isScrolled ? 'glass border-lab-accent/25 py-2 shadow-[0_0_24px_-10px_rgba(59,130,246,0.6)]' : 'py-3 border border-transparent'
+          }`}
+        >
           <div className="flex items-center justify-between">
             {/* Identity & System Telemetry */}
             <Link
@@ -54,17 +54,17 @@ export default function Navigation() {
                 AG
               </div>
               <span className="font-display font-bold text-sm tracking-tight text-lab-text-primary group-hover:text-lab-accent transition-colors">
-                ALEKHA GUJURI
+                ALEKHA<span className="text-lab-cyan">.AI</span>
               </span>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8" aria-label="Main Navigation">
+            <nav className="hidden md:flex items-center space-x-5 lg:space-x-7" aria-label="Main Navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="font-mono text-xs text-lab-text-secondary hover:text-lab-accent transition-colors tracking-wide rounded focus-ring px-1 py-0.5"
+                  className="font-mono text-[11px] uppercase text-lab-text-secondary hover:text-white transition-colors tracking-[0.18em] rounded focus-ring px-1 py-0.5"
                 >
                   {link.label}
                 </a>
@@ -85,13 +85,6 @@ export default function Navigation() {
                 <ArrowUpRight className="w-3 h-3 text-lab-text-muted" aria-hidden="true" />
               </a>
 
-              <a
-                href="#contact"
-                className="inline-flex items-center space-x-1 px-3 py-1.5 rounded text-xs font-mono bg-lab-accent text-lab-bg font-semibold hover:bg-emerald-400 transition-colors shadow-lab-glow focus-ring"
-              >
-                <Terminal className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Initiate Contact</span>
-              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -112,7 +105,7 @@ export default function Navigation() {
         {mobileMenuOpen && (
           <div
             id="mobile-menu"
-            className="md:hidden bg-lab-bg/95 backdrop-blur-xl border-b border-lab-border px-4 pt-3 pb-6 space-y-3"
+            className="md:hidden glass max-w-6xl mx-auto mt-2 rounded-xl px-4 pt-3 pb-6 space-y-3"
           >
             <nav className="flex flex-col space-y-2 pt-2 border-t border-lab-border/50" aria-label="Mobile Navigation">
               {navLinks.map((link) => (

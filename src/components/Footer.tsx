@@ -22,7 +22,7 @@ export default function Footer() {
   };
 
   return (
-    <footer role="contentinfo" className="border-t border-lab-border bg-lab-bg py-12 font-mono text-xs">
+    <footer role="contentinfo" className="relative z-10 border-t border-white/5 bg-lab-bg/70 backdrop-blur-md py-12 font-mono text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-lab-border/50">
           {/* Identity */}
@@ -31,7 +31,7 @@ export default function Footer() {
               <span className="font-display font-bold text-sm text-lab-text-primary">
                 ALEKHA GUJURI
               </span>
-              <span className="text-lab-accent text-[11px] font-semibold">// DATA_SCIENTIST</span>
+              <span className="text-lab-accent text-[11px] font-semibold">// AI_ML_ENGINEER</span>
             </div>
             <p className="text-[11px] text-lab-text-muted">
               Bengaluru, Karnataka, India • Open for Applied AI & Data Science

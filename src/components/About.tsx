@@ -1,235 +1,149 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { personalData } from '@/data/personal';
-import { skillsData } from '@/data/skills';
-import {
-  Brain,
-  Cpu,
-  Server,
-  ChevronDown,
-  ChevronUp,
-  Compass,
-  Bot,
-} from 'lucide-react';
+import { getAssetPath } from '@/utils/assets';
+import { capabilities } from '@/lib/labContent';
+import { setLab, useLab } from '@/lib/labStore';
+import { LabSection, LabTag } from '@/components/ui';
+
+const facts = [
+  { k: 'CURRENT ENGAGEMENT', v: 'Trinity Mobility (Associate Data Scientist)' },
+  { k: 'EXPERIENCE', v: '2.5 years' },
+  { k: 'LOCATION', v: personalData.location },
+  { k: 'HIGHEST EDUCATION', v: 'MCA (AI & ML) — LPU (2025–2027)' },
+  { k: 'UNDERGRADUATE', v: 'B.Sc. Physics (Hons) — 7.7/10 CGPA' },
+  { k: 'CORE EXPERTISE', v: 'Time Series • FastAPI • Simulation • MLOps' },
+];
+
+const pillars = [
+  {
+    title: 'Time-Series Forecasting & Multi-Stage ML',
+    description:
+      'Designing chained predictive pipelines (e.g. Smart Irrigation) where soil and weather forecasts feed decision classifiers and duration regressors, returning unified operational commands.',
+    tools: ['Scikit-Learn', 'Time-Series', 'Lag Features', 'FastAPI', 'Pandas'],
+  },
+  {
+    title: 'Simulation Engines & Synthetic Telemetry',
+    description:
+      'Building physics-informed synthetic data engines and simulation pipelines (e.g. Smart Energy) for load curves, peak demand, and anomaly scenarios across 15-min to daily intervals.',
+    tools: ['Pandapower', 'NetworkX', 'Parquet', 'JSON', 'Synthetic Data'],
+  },
+  {
+    title: 'Generative AI, RAG & Agentic AI',
+    description:
+      'Integrating RAG pipelines and agentic AI workflows with municipal command centers (ICCC). Deploying LLM-based alert summarization with retrieval-augmented context so operators receive clear, grounded operational summaries.',
+    tools: ['GenAI / LLMs', 'RAG Pipelines', 'Agentic AI', 'Prompt Design', 'ICCC Integration'],
+  },
+  {
+    title: 'MLOps, Quality Gates & Microservice CI/CD',
+    description:
+      'Architecting Model Registries with Nexus, single-click deployment CI/CD workflows, and automated test execution with code coverage gates within Flask/FastAPI service pipelines.',
+    tools: ['FastAPI', 'Flask', 'MLflow', 'Evidently AI', 'Nexus', 'CI/CD'],
+  },
+];
 
 export default function About() {
-  const [expanded, setExpanded] = useState(false);
-
-  const pillars = [
-    {
-      code: 'PILLAR_01',
-      title: 'Time-Series Forecasting & Multi-Stage ML',
-      description:
-        'Designing chained predictive pipelines (e.g. Smart Irrigation) where soil and weather forecasts feed decision classifiers and duration regressors, returning unified operational commands.',
-      icon: Brain,
-      tools: ['Scikit-Learn', 'Time-Series', 'Lag Features', 'FastAPI', 'Pandas'],
-    },
-    {
-      code: 'PILLAR_02',
-      title: 'Simulation Engines & Synthetic Telemetry',
-      description:
-        'Building physics-informed synthetic data engines and simulation pipelines (e.g. Smart Energy) for load curves, peak demand, and anomaly scenarios across 15-min to daily intervals.',
-      icon: Cpu,
-      tools: ['Pandapower', 'NetworkX', 'Parquet', 'JSON', 'Synthetic Data'],
-    },
-    {
-      code: 'PILLAR_03',
-      title: 'Generative AI, RAG & Agentic AI',
-      description:
-        'Integrating RAG pipelines and agentic AI workflows with municipal command centers (ICCC). Deploying LLM-based alert summarization with retrieval-augmented context so operators receive clear, grounded operational summaries.',
-      icon: Bot,
-      tools: ['GenAI / LLMs', 'RAG Pipelines', 'Agentic AI', 'Prompt Design', 'ICCC Integration'],
-    },
-    {
-      code: 'PILLAR_04',
-      title: 'MLOps, Quality Gates & Microservice CI/CD',
-      description:
-        'Architecting Model Registries with Nexus, single-click deployment CI/CD workflows, and automated test execution with code coverage gates within Flask/FastAPI service pipelines.',
-      icon: Server,
-      tools: ['FastAPI', 'Flask', 'MLflow', 'Evidently AI', 'Nexus', 'CI/CD'],
-    },
-  ];
+  const active = useLab((s) => s.activeCapability);
 
   return (
-    <section id="about" aria-labelledby="about-heading" className="py-16 border-t border-lab-border bg-lab-surface/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="space-y-1.5 mb-8">
-          <div className="flex items-center space-x-2">
-            <span className="font-mono text-[10px] text-lab-accent tracking-widest">[01 // BACKGROUND & PRODUCTION PHILOSOPHY]</span>
-            <div className="h-[1px] bg-lab-border flex-1 max-w-xs" aria-hidden="true" />
-          </div>
-          <h2 id="about-heading" className="font-display font-bold text-2xl sm:text-3xl text-lab-text-primary tracking-tight">
-            About & Engineering Practice
-          </h2>
-        </div>
+    <>
+      <LabSection id="about" labelledBy="about-heading" side="right">
+        <LabTag>01 // Profile</LabTag>
+        <h2 id="about-heading" className="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-6">
+          The engineer behind the lab
+        </h2>
 
-        {/* Narrative & Profile Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10">
-          <div className="lg:col-span-7 space-y-3 text-lab-text-secondary leading-relaxed font-sans text-sm">
-            <p className="text-base text-lab-text-primary font-medium">
-              {personalData.shortBio}
-            </p>
-
-            <p>
-              Operating across the seam between applied data science and software delivery, my work centers on developing reliable, reusable, and production-ready machine learning solutions for Smart City IoT and enterprise systems at <strong>Trinity Mobility</strong>.
-            </p>
-
-            {expanded && (
-              <div className="space-y-3 pt-2 border-t border-lab-border/50 text-lab-text-secondary animate-fadeIn">
-                {personalData.extendedBio.map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
-                ))}
-              </div>
-            )}
-
-            <button
-              type="button"
-              onClick={() => setExpanded(!expanded)}
-              aria-expanded={expanded}
-              className="inline-flex items-center space-x-1.5 font-mono text-[10px] text-lab-accent hover:text-emerald-300 transition-colors pt-1 focus-ring rounded p-1"
-            >
-              <span>{expanded ? 'Collapse' : 'Read Full Background'}</span>
-              {expanded ? <ChevronUp className="w-3.5 h-3.5" aria-hidden="true" /> : <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />}
-            </button>
-          </div>
-
-          {/* Quick Facts Box */}
-          <div className="lg:col-span-5 bg-lab-surface border border-lab-border rounded-lg p-4 space-y-3">
-            <div className="flex items-center justify-between border-b border-lab-border pb-2">
-              <span className="font-mono text-[10px] text-lab-text-muted flex items-center space-x-1.5">
-                <Compass className="w-3 h-3 text-lab-accent" />
-                <span>VERIFIED_PROFILE</span>
-              </span>
-              <span className="font-mono text-[10px] text-lab-accent">2.5 YRS EXPERIENCE</span>
-            </div>
-
-            <div className="space-y-2 font-mono text-[10px]">
-              <div className="flex justify-between py-1 border-b border-lab-border/50">
-                <span className="text-lab-text-muted">CURRENT ENGAGEMENT</span>
-                <span className="text-lab-text-primary">Trinity Mobility (Associate Data Scientist)</span>
-              </div>
-              <div className="flex justify-between py-1 border-b border-lab-border/50">
-                <span className="text-lab-text-muted">LOCATION</span>
-                <span className="text-lab-text-primary">{personalData.location}</span>
-              </div>
-              <div className="flex justify-between py-1 border-b border-lab-border/50">
-                <span className="text-lab-text-muted">HIGHEST EDUCATION</span>
-                <span className="text-lab-text-primary">MCA (AI & ML) — LPU (2025–2027)</span>
-              </div>
-              <div className="flex justify-between py-1 border-b border-lab-border/50">
-                <span className="text-lab-text-muted">UNDERGRADUATE</span>
-                <span className="text-lab-text-primary">B.Sc. Physics (Hons) — 7.7/10 CGPA</span>
-              </div>
-              <div className="flex justify-between py-1">
-                <span className="text-lab-text-muted">CORE EXPERTISE</span>
-                <span className="text-lab-accent">Time Series • FastAPI • Simulation • MLOps</span>
-              </div>
+        <div className="glass holo-scan rounded-xl p-5 sm:p-6 space-y-5">
+          <div className="flex items-center gap-4">
+            <img
+              src={getAssetPath('/documents/logos/headshot.png')}
+              alt={`${personalData.formalName} — ${personalData.role}`}
+              width={72}
+              height={72}
+              loading="lazy"
+              className="w-16 h-16 rounded-lg object-cover object-top border border-lab-accent/40"
+            />
+            <div>
+              <p className="font-display font-semibold text-lg">{personalData.name}</p>
+              <p className="font-mono text-[11px] text-lab-cyan">{personalData.role.toUpperCase()} · VERIFIED_PROFILE</p>
             </div>
           </div>
+
+          <div className="space-y-3 text-sm text-lab-text-secondary leading-relaxed">
+            {personalData.extendedBio.map((p) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </div>
+
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 pt-4 border-t border-white/5 font-mono text-[11px]">
+            {facts.map((f) => (
+              <div key={f.k}>
+                <dt className="text-lab-text-muted">{f.k}</dt>
+                <dd className="text-lab-text-primary">{f.v}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        {/* What I Do — 4 Pillars */}
-        <div className="space-y-4 pt-4">
-          <div className="flex items-center space-x-3">
-            <h3 className="font-display font-bold text-xl text-lab-text-primary">
-              What I Do
-            </h3>
-            <span className="font-mono text-[10px] text-lab-text-muted">// PRODUCTION PILLARS</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {pillars.map((pillar) => {
-              const Icon = pillar.icon;
-              return (
-                <div
-                  key={pillar.code}
-                  className="rounded-lg border border-lab-border bg-lab-surface/60 p-4 flex flex-col justify-between hover:border-lab-accent/60 hover:bg-lab-surface transition-all duration-300 group"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-[9px] text-lab-text-muted">
-                        {pillar.code}
-                      </span>
-                      <Icon className="w-4 h-4 text-lab-accent group-hover:scale-110 transition-transform" />
-                    </div>
-
-                    <h4 className="font-display font-bold text-sm text-lab-text-primary leading-snug group-hover:text-lab-accent transition-colors">
-                      {pillar.title}
-                    </h4>
-
-                    <p className="text-[11px] text-lab-text-secondary leading-relaxed font-sans">
-                      {pillar.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-lab-border/50 flex flex-wrap gap-1 mt-3">
-                    {pillar.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-lab-elevated text-lab-text-secondary border border-lab-border/70"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Merged: Technical Competencies & Tooling Matrix */}
-        <div id="skills" className="mt-10 pt-6 border-t border-lab-border/60 scroll-mt-24">
-          <div className="space-y-1.5 mb-6">
-            <div className="flex items-center space-x-2">
-              <span className="font-mono text-[10px] text-lab-accent tracking-widest">[04 // TECH_MATRIX & TOOLING COMPETENCIES]</span>
-              <div className="h-[1px] bg-lab-border flex-1 max-w-xs" aria-hidden="true" />
-            </div>
-            <h3 className="font-display font-bold text-xl text-lab-text-primary">
-              Technical Competencies & Tooling Matrix
-            </h3>
-            <p className="font-mono text-[11px] text-lab-text-muted">
-              Production capabilities across applied modeling, time-series forecasting, APIs, MLOps, and big data infrastructure.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
-            {skillsData.map((category) => (
-              <div
-                key={category.code}
-                className="rounded-lg border border-lab-border bg-lab-surface/60 p-3 hover:border-lab-border-subtle transition-all duration-300"
+        <h3 className="font-mono text-[11px] tracking-[0.2em] text-lab-text-muted mt-8 mb-3">AI CAPABILITY MODULES</h3>
+        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          {capabilities.map((c) => (
+            <li key={c.id}>
+              <button
+                type="button"
+                onMouseEnter={() => setLab({ activeCapability: c.id })}
+                onMouseLeave={() => setLab({ activeCapability: null })}
+                onFocus={() => setLab({ activeCapability: c.id })}
+                onBlur={() => setLab({ activeCapability: null })}
+                aria-describedby={`cap-${c.id}`}
+                className={`w-full text-left rounded-lg p-3 glass transition-all focus-ring ${active === c.id ? 'glass-glow' : ''}`}
               >
-                <div className="flex items-center justify-between border-b border-lab-border pb-2 mb-2">
-                  <span className="font-mono text-[9px] text-lab-accent">{category.code}</span>
-                </div>
+                <span className="block font-mono text-[10px] text-lab-cyan">{c.short}</span>
+                <span className="block text-xs font-semibold text-lab-text-primary">{c.title}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        <div className="min-h-[64px] mt-3" aria-live="polite">
+          {capabilities.map((c) => (
+            <p
+              key={c.id}
+              id={`cap-${c.id}`}
+              className={`text-xs text-lab-text-secondary leading-relaxed ${active === c.id ? '' : 'hidden'}`}
+            >
+              <span className="font-mono text-lab-cyan">{c.source} → </span>
+              {c.evidence}
+            </p>
+          ))}
+          {!active && <p className="text-xs text-lab-text-muted font-mono">Hover a module to trace it to real work.</p>}
+        </div>
+      </LabSection>
 
-                <h4 className="font-display font-bold text-xs text-lab-text-primary mb-1">
-                  {category.title}
-                </h4>
-
-                <div className="space-y-1 pt-1">
-                  {category.skills.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className="flex items-center justify-between py-0.5 text-[10px] font-mono"
-                    >
-                      <span className={`flex items-center space-x-1.5 ${skill.highlight ? 'text-lab-text-primary' : 'text-lab-text-secondary'}`}>
-                        {skill.highlight && (
-                          <span className="w-1 h-1 rounded-full bg-lab-accent inline-block" />
-                        )}
-                        <span>{skill.name}</span>
-                      </span>
-                      <span className="text-[9px] text-lab-text-muted">{skill.level}</span>
-                    </div>
+      <section aria-labelledby="pillars-heading" className="relative z-10 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <LabTag>01.b // Production pillars</LabTag>
+          <h2 id="pillars-heading" className="font-display font-bold text-2xl sm:text-3xl tracking-tight mb-6">
+            What I build in production
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {pillars.map((p, i) => (
+              <article key={p.title} className="glass rounded-xl p-5 flex flex-col">
+                <span className="font-mono text-[10px] text-lab-accent">PILLAR_0{i + 1}</span>
+                <h3 className="font-display font-semibold text-base mt-1 mb-2">{p.title}</h3>
+                <p className="text-xs text-lab-text-secondary leading-relaxed flex-1">{p.description}</p>
+                <ul className="flex flex-wrap gap-1 mt-4">
+                  {p.tools.map((t) => (
+                    <li key={t} className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white/5 text-lab-text-secondary">
+                      {t}
+                    </li>
                   ))}
-                </div>
-              </div>
+                </ul>
+              </article>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

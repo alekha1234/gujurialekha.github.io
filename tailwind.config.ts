@@ -11,14 +11,16 @@ const config: Config = {
     extend: {
       colors: {
         lab: {
-          bg: '#080C14',
-          surface: '#0E1726',
-          elevated: '#162032',
+          bg: '#05070D',
+          surface: '#0B1120',
+          elevated: '#111A2E',
           border: '#1E293B',
           'border-subtle': '#334155',
-          accent: '#10B981',
-          'accent-glow': 'rgba(16, 185, 129, 0.15)',
-          cyan: '#06B6D4',
+          accent: '#3B82F6',
+          'accent-glow': 'rgba(59, 130, 246, 0.15)',
+          cyan: '#22D3EE',
+          violet: '#8B5CF6',
+          green: '#34D399',
           amber: '#F59E0B',
           text: {
             primary: '#F8FAFC',
@@ -36,8 +38,8 @@ const config: Config = {
         'grid-pattern': "radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px)",
       },
       boxShadow: {
-        'lab-glow': '0 0 25px -5px rgba(16, 185, 129, 0.2)',
-        'cyan-glow': '0 0 25px -5px rgba(6, 182, 212, 0.2)',
+        'lab-glow': '0 0 25px -5px rgba(59, 130, 246, 0.35)',
+        'cyan-glow': '0 0 25px -5px rgba(34, 211, 238, 0.3)',
       },
     },
   },

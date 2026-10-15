@@ -6,7 +6,7 @@ import { BookOpen, ArrowUpRight, Clock, Tag } from 'lucide-react';
 
 export default function Writing() {
   return (
-    <section id="writing" aria-labelledby="writing-heading" className="py-20 border-t border-lab-border bg-lab-bg">
+    <section id="writing" aria-labelledby="writing-heading" className="relative z-10 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -27,7 +27,7 @@ export default function Writing() {
             href="https://alekhagujuri.blogspot.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 font-mono text-xs text-lab-accent hover:text-emerald-300 font-semibold self-start md:self-auto focus-ring rounded p-1"
+            className="inline-flex items-center space-x-2 font-mono text-xs text-lab-accent hover:text-blue-300 font-semibold self-start md:self-auto focus-ring rounded p-1"
             aria-label="Visit Complete Blog Platform on Blogspot (opens in new tab)"
           >
             <span>Visit Complete Blog Platform</span>
@@ -43,7 +43,7 @@ export default function Writing() {
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-lab-border bg-lab-surface/70 p-6 flex flex-col justify-between hover:border-lab-accent/60 hover:bg-lab-surface transition-all duration-300 group focus-ring"
+              className="glass rounded-xl p-6 flex flex-col justify-between hover:glass-glow transition-all duration-300 group focus-ring"
               aria-label={`Read article: ${post.title} (opens in new tab)`}
             >
               <div className="space-y-4">

@@ -24,7 +24,7 @@ export interface LinkButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorEl
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-lab-accent text-lab-bg font-semibold hover:bg-emerald-400 border border-lab-accent/80 shadow-lab-glow',
+    'bg-lab-accent text-lab-bg font-semibold hover:bg-blue-400 border border-lab-accent/80 shadow-lab-glow',
   secondary:
     'bg-lab-elevated text-lab-text-primary hover:bg-lab-surface hover:text-lab-accent border border-lab-border hover:border-lab-accent/50',
   outline:

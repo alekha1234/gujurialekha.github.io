@@ -211,7 +211,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <Link
                 href={`/projects/${project.slug}/`}
                 onClick={onClose}
-                className="inline-flex items-center space-x-2 px-5 py-2.5 rounded font-mono text-xs font-semibold bg-lab-accent text-lab-bg hover:bg-emerald-400 transition-colors shadow-lab-glow"
+                className="inline-flex items-center space-x-2 px-5 py-2.5 rounded font-mono text-xs font-semibold bg-lab-accent text-lab-bg hover:bg-blue-400 transition-colors shadow-lab-glow"
               >
                 <span>Open Dedicated Case Study Page</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

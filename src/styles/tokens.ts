@@ -15,27 +15,27 @@ export const tokens = {
       subtle: '#1E293B',
       default: '#293548',
       hover: '#3D4D66',
-      accent: '#10B981',
-      accentGlow: 'rgba(16, 185, 129, 0.3)',
+      accent: '#3B82F6',
+      accentGlow: 'rgba(59, 130, 246, 0.3)',
       cyan: '#06B6D4',
     },
     text: {
       primary: '#F8FAFC',    // 16.5:1 contrast against canvas (AAA)
       secondary: '#CBD5E1',  // 10.8:1 contrast against canvas (AAA)
       muted: '#94A3B8',      // 6.2:1 contrast against canvas (AA compliant, >4.5:1)
-      accent: '#10B981',     // 6.8:1 contrast against canvas
+      accent: '#3B82F6',     // 6.8:1 contrast against canvas
       cyan: '#06B6D4',       // 6.4:1 contrast against canvas
       amber: '#F59E0B',      // 7.1:1 contrast against canvas
       danger: '#EF4444',
     },
     accent: {
-      emerald: '#10B981',
+      emerald: '#3B82F6',
       emeraldHover: '#34D399',
       cyan: '#06B6D4',
       cyanHover: '#22D3EE',
       amber: '#F59E0B',
       danger: '#EF4444',
-      glow: 'rgba(16, 185, 129, 0.15)',
+      glow: 'rgba(59, 130, 246, 0.15)',
     },
   },
   typography: {

@@ -13,7 +13,10 @@ import {
   Terminal,
   MapPin,
   X,
+  FileText,
 } from 'lucide-react';
+import { getAssetPath } from '@/utils/assets';
+import ContactTerminal from './ContactTerminal';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -148,26 +151,28 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="py-20 border-t border-lab-border bg-lab-surface/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <section id="contact" aria-labelledby="contact-heading" className="relative z-10 min-h-screen flex items-center py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Left Column: Direct Coordinates & Status */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-6 xl:col-span-5 space-y-6">
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <span className="font-mono text-xs text-lab-accent tracking-widest">[07 // INITIATE TRANSMISSION]</span>
+                <span className="font-mono text-[11px] text-lab-cyan tracking-[0.2em]">09 // AI TERMINAL</span>
                 <div className="h-[1px] bg-lab-border flex-1 max-w-xs" aria-hidden="true" />
               </div>
               <h2 id="contact-heading" className="font-display font-bold text-3xl sm:text-4xl text-lab-text-primary tracking-tight">
-                Let’s Discuss Data Science & AI Opportunities
+                LET’S BUILD INTELLIGENT SYSTEMS.
               </h2>
               <p className="text-sm text-lab-text-secondary leading-relaxed font-sans pt-2">
                 Whether you have an applied machine learning project, an engineering role, or a technical inquiry, my inbox is always open.
               </p>
             </div>
 
+            <ContactTerminal />
+
             {/* Direct Coordinates Card */}
-            <div className="rounded-lg border border-lab-border bg-lab-surface p-6 space-y-4 font-mono text-xs">
+            <div className="glass rounded-xl p-6 space-y-4 font-mono text-xs">
               <div className="flex items-center justify-between border-b border-lab-border pb-3">
                 <span className="text-lab-text-muted flex items-center space-x-2">
                   <Terminal className="w-4 h-4 text-lab-accent" aria-hidden="true" />
@@ -225,13 +230,23 @@ export default function Contact() {
                 >
                   <span>Kaggle</span>
                 </a>
+                <a
+                  href={getAssetPath(personalData.resume.viewUrl)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded bg-lab-elevated border border-lab-border text-lab-text-secondary hover:text-lab-accent hover:border-lab-accent transition-colors focus-ring"
+                  aria-label="View resume PDF (opens in new tab)"
+                >
+                  <FileText className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>Resume</span>
+                </a>
               </div>
             </div>
           </div>
 
           {/* Right Column: Terminal Inquiry Form */}
-          <div className="lg:col-span-7">
-            <div className="rounded-xl border border-lab-border bg-lab-surface p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+          <div className="lg:col-span-6 xl:col-span-5 lg:col-start-1 xl:col-start-1">
+            <div className="glass rounded-xl p-6 sm:p-8 relative overflow-hidden">
               <div className="flex items-center justify-between border-b border-lab-border pb-4 mb-6">
                 <div className="flex items-center space-x-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" aria-hidden="true" />

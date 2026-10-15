@@ -343,7 +343,7 @@ export default function ProjectPage({ params }: PageProps) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded font-mono text-xs font-semibold bg-lab-accent text-lab-bg hover:bg-emerald-400 transition-colors shadow-lab-glow"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded font-mono text-xs font-semibold bg-lab-accent text-lab-bg hover:bg-blue-400 transition-colors shadow-lab-glow"
           >
             <Github className="w-4 h-4" />
             <span>Open GitHub Notebook</span>
