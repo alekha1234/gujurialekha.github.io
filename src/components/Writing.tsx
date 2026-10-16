@@ -24,11 +24,11 @@ export default function Writing() {
           </div>
 
           <a
-            href="https://alekhagujuri.blogspot.com/"
+            href="https://alekha1234.github.io/blog/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 font-mono text-xs text-lab-accent hover:text-blue-300 font-semibold self-start md:self-auto focus-ring rounded p-1"
-            aria-label="Visit Complete Blog Platform on Blogspot (opens in new tab)"
+            aria-label="Visit Complete Blog Platform (opens in new tab)"
           >
             <span>Visit Complete Blog Platform</span>
             <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />

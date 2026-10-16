@@ -14,7 +14,7 @@ export const blogsData: BlogPost[] = [
     date: "Technical Discourse",
     category: "Machine Learning",
     readTime: "6 min read",
-    url: "https://alekhagujuri.blogspot.com/",
+    url: "https://alekha1234.github.io/blog/",
   },
   {
     title: "Feature Engineering Strategies for Imbalanced Tabular Data",
@@ -22,7 +22,7 @@ export const blogsData: BlogPost[] = [
     date: "Applied Data Science",
     category: "Feature Engineering",
     readTime: "8 min read",
-    url: "https://alekhagujuri.blogspot.com/",
+    url: "https://alekha1234.github.io/blog/",
   },
   {
     title: "Practical Computer Vision: Fine-Tuning YOLOv5 for Custom Object Detection",
@@ -30,6 +30,6 @@ export const blogsData: BlogPost[] = [
     date: "Deep Learning & Vision",
     category: "Computer Vision",
     readTime: "7 min read",
-    url: "https://alekhagujuri.blogspot.com/",
+    url: "https://alekha1234.github.io/blog/",
   },
 ];
