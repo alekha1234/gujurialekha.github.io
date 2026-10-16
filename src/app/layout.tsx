@@ -161,7 +161,7 @@ const jsonLd = {
         'https://www.linkedin.com/in/gujuri-alekha/',
         'https://www.kaggle.com/gujurialekha',
         'https://x.com/Alekha81293434',
-        'https://alekhagujuri.blogspot.com/',
+        'https://alekha1234.github.io/blog/',
       ],
     },
     {

@@ -86,9 +86,9 @@ export const personalData: PersonalData = {
     },
     {
       label: "Technical Blog",
-      url: "https://alekhagujuri.blogspot.com/",
+      url: "https://alekha1234.github.io/blog/",
       iconName: "blog",
-      display: "alekhagujuri.blogspot.com",
+      display: "alekha1234.github.io/blog",
     },
   ],
   contact: {
