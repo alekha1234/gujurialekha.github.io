@@ -4,6 +4,8 @@ import Script from 'next/script';
 import './globals.css';
 import { personalData } from '@/data/personal';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
@@ -87,8 +89,8 @@ export const metadata: Metadata = {
     images: ['https://alekha1234.github.io/gujurialekha.github.io/documents/logos/profile-img.png'],
   },
   icons: {
-    icon: '/documents/logos/profile-img.png',
-    apple: '/documents/logos/profile-img.png',
+    icon: `${basePath}/documents/logos/profile-img.png`,
+    apple: `${basePath}/documents/logos/profile-img.png`,
   },
 };
 
