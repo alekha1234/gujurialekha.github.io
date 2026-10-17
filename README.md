@@ -35,7 +35,10 @@ Requires Node.js 20.
 npm ci
 npm run dev        # http://localhost:3000
 npm run build      # static site in out/
+npm run preview    # build, then serve out/ at http://localhost:4173 (gzip, like GitHub Pages)
 ```
+
+**Lighthouse / PageSpeed:** measure `npm run preview` or the live URL, never `npm run dev` (unminified dev code scores far lower). Keep the tab in the foreground while it runs, or Lighthouse stops with `NO_FCP`. Stop `npm run dev` before `npm run preview`, because both use `.next/`.
 
 **Checks:** with `npm run dev` running and Google Chrome installed, run:
 

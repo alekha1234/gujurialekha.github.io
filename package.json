@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "preview": "next build && node tests/serve-out.cjs out 4173",
     "verify": "node tests/verify.cjs http://localhost:3000"
   },
   "dependencies": {
