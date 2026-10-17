@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Daily rebuild so the blog cards baked into the HTML stay current for crawlers
+  schedule:
+    - cron: "30 2 * * *"
 
 permissions:
   contents: read
@@ -21,24 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/package-lock.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "Unable to determine package manager" >> 2
-            exit 1
-          fi
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: npm
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -46,10 +36,10 @@ jobs:
           static_site_generator: next
 
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: npm ci
 
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: npx next build
         env:
           NEXT_PUBLIC_BASE_PATH: /gujurialekha.github.io
 

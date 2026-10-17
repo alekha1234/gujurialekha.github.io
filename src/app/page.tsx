@@ -1,4 +1,5 @@
 import React from 'react';
+import { getLatestPosts } from '@/lib/blogFeed';
 import Navigation from '@/components/Navigation';
 import LabBackground from '@/components/lab/LabBackground';
 import Hero from '@/components/Hero';
@@ -14,7 +15,8 @@ import Footer from '@/components/Footer';
 
 // Section order matches STATIONS in components/lab/layout.ts: scrolling a section into view
 // flies the camera to its station.
-export default function Home() {
+export default async function Home() {
+  const posts = await getLatestPosts();
   return (
     <>
       <LabBackground />
@@ -27,7 +29,7 @@ export default function Home() {
         <FeaturedProjects />
         <MoreProjects />
         <Timeline />
-        <Writing />
+        <Writing initialPosts={posts} />
         <Contact />
         <Footer />
       </main>

@@ -19,3 +19,18 @@
 - **Microservices & APIs:** FastAPI, Pydantic, REST API Design, Flask, Docker, Municipal Command Center Integrations.
 - **MLOps & Quality Gates:** Model Registry (Nexus), MLflow, CI/CD Pipelines, Automated Unit Testing with Code Coverage Gates.
 - **Languages & Frameworks:** Python, TensorFlow, Keras, PySpark, Pandas, NumPy, SQL, Linux.
+
+## Contact & Identity
+
+- **Name:** Alekha Gujuri (formal name: Gujuri Alekha)
+- **Role:** Associate Data Scientist, Trinity Mobility, Bengaluru, India
+- **Email:** gujurialekha@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/gujuri-alekha/
+- **GitHub:** https://github.com/alekha1234
+- **Kaggle:** https://www.kaggle.com/gujurialekha
+- **Blog:** https://alekha1234.github.io/blog/ (Python notebooks on time series, statistics, and machine learning)
+- **Resume (PDF):** https://alekha1234.github.io/gujurialekha.github.io/my_documents/resume/gujuri_alekha_resume.pdf
+
+## Optional
+
+- [Full technical documentation](https://alekha1234.github.io/gujurialekha.github.io/llms-full.txt): Detailed case studies, experience, and education.

@@ -125,7 +125,8 @@ const jsonLd = {
       '@type': 'Person',
       '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
       name: 'Alekha Gujuri',
-      additionalName: 'Gujuri Alekha',
+      alternateName: 'Gujuri Alekha',
+      email: 'mailto:gujurialekha@gmail.com',
       jobTitle: 'Associate Data Scientist',
       worksFor: {
         '@type': 'Organization',
@@ -143,7 +144,7 @@ const jsonLd = {
         },
       ],
       url: 'https://alekha1234.github.io/gujurialekha.github.io/',
-      image: 'https://alekha1234.github.io/gujurialekha.github.io/documents/logos/headshot.png',
+      image: 'https://alekha1234.github.io/gujurialekha.github.io/documents/logos/profile-img.png',
       description: personalData.shortBio,
       knowsAbout: [
         'Machine Learning',

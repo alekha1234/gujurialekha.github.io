@@ -192,7 +192,7 @@ export default function ProjectPage({ params }: PageProps) {
             '@type': 'ListItem',
             position: 2,
             name: 'Case Studies',
-            item: 'https://alekha1234.github.io/gujurialekha.github.io/#case-studies',
+            item: 'https://alekha1234.github.io/gujurialekha.github.io/#projects',
           },
           {
             '@type': 'ListItem',
@@ -217,7 +217,7 @@ export default function ProjectPage({ params }: PageProps) {
         {/* Top Back Navigation */}
         <div className="flex items-center justify-between border-b border-lab-border pb-6">
           <Link
-            href="/#case-studies"
+            href="/#projects"
             className="inline-flex items-center space-x-2 font-mono text-xs text-lab-text-secondary hover:text-lab-accent transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -266,6 +266,16 @@ export default function ProjectPage({ params }: PageProps) {
             height={675}
             className="w-full h-full object-cover"
           />
+        </div>
+
+        {/* Key Contributions */}
+        <div className="rounded-xl border border-lab-border bg-lab-surface/70 p-6 space-y-3">
+          <h2 className="font-display font-bold text-2xl text-lab-text-primary">Key contributions</h2>
+          <ul className="list-disc pl-5 space-y-2 text-sm text-lab-text-secondary leading-relaxed">
+            {project.highlights.map((h) => (
+              <li key={h}>{h}</li>
+            ))}
+          </ul>
         </div>
 
         {/* 7-Step Case Study Deep Dive */}

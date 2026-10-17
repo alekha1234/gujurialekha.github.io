@@ -1,10 +1,23 @@
 'use client';
 
-import React from 'react';
-import { blogsData } from '@/data/blogs';
-import { BookOpen, ArrowUpRight, Clock, Tag } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { FEED_URL, parseFeed, type BlogPost } from '@/lib/blogFeed';
+import { ArrowUpRight, Calendar, Tag } from 'lucide-react';
 
-export default function Writing() {
+// Posts baked in at build time (for crawlers), then refreshed from the live feed so new posts show up without a redeploy.
+export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) {
+  const [posts, setPosts] = useState(initialPosts);
+
+  useEffect(() => {
+    fetch(FEED_URL, { cache: 'no-store' })
+      .then((r) => (r.ok ? r.text() : ''))
+      .then((xml) => {
+        const latest = parseFeed(xml);
+        if (latest.length) setPosts(latest);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <section id="writing" aria-labelledby="writing-heading" className="relative z-10 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +32,7 @@ export default function Writing() {
               Technical Writing & Tutorials
             </h2>
             <p className="text-xs sm:text-sm text-lab-text-muted font-mono max-w-2xl">
-              Articles and engineering walkthroughs exploring machine learning lifecycles, data pipelines, and applied computer vision.
+              Hands-on Python notebooks on time series, statistics, and machine learning.
             </p>
           </div>
 
@@ -36,10 +49,10 @@ export default function Writing() {
         </div>
 
         {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {blogsData.map((post, idx) => (
+        <div className={`grid grid-cols-1 gap-6 ${posts.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+          {posts.map((post) => (
             <a
-              key={idx}
+              key={post.url}
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -52,19 +65,23 @@ export default function Writing() {
                     <Tag className="w-3 h-3" aria-hidden="true" />
                     <span>{post.category}</span>
                   </span>
-                  <span className="text-lab-text-muted flex items-center space-x-1">
-                    <Clock className="w-3 h-3" aria-hidden="true" />
-                    <span>{post.readTime}</span>
-                  </span>
+                  {post.date && (
+                    <span className="text-lab-text-muted flex items-center space-x-1">
+                      <Calendar className="w-3 h-3" aria-hidden="true" />
+                      <span>{post.date}</span>
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="font-display font-bold text-base sm:text-lg text-lab-text-primary group-hover:text-lab-accent transition-colors leading-snug">
                   {post.title}
                 </h3>
 
-                <p className="text-xs text-lab-text-secondary leading-relaxed font-sans line-clamp-3">
-                  {post.excerpt}
-                </p>
+                {post.excerpt && (
+                  <p className="text-xs text-lab-text-secondary leading-relaxed font-sans line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                )}
               </div>
 
               <div className="pt-6 mt-4 border-t border-lab-border/40 flex items-center justify-between font-mono text-xs text-lab-accent">

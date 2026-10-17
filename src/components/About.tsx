@@ -57,7 +57,7 @@ export default function About() {
         <div className="glass holo-scan rounded-xl p-5 sm:p-6 space-y-5">
           <div className="flex items-center gap-4">
             <img
-              src={getAssetPath('/documents/logos/headshot.png')}
+              src={getAssetPath('/documents/logos/profile-img.png')}
               alt={`${personalData.formalName} — ${personalData.role}`}
               width={72}
               height={72}

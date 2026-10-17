@@ -136,13 +136,13 @@ export default function Contact() {
       const result = await response.json();
       if (result.success) {
         setStatus('success');
-        setResponseMsg('Transmission dispatched successfully. I will review and reply within 24 hours.');
+        setResponseMsg('Message sent. I will reply within 24 hours.');
         setFormData({ name: '', email: '', phone: '', message: '' });
         setErrors({});
         setShowSuccessModal(true);
       } else {
         setStatus('error');
-        setResponseMsg(result.message || 'Dispatch error occurred. Please email directly to gujurialekha@gmail.com.');
+        setResponseMsg(result.message || 'Message could not be sent. Please email gujurialekha@gmail.com directly.');
       }
     } catch (err) {
       setStatus('error');
@@ -176,7 +176,7 @@ export default function Contact() {
               <div className="flex items-center justify-between border-b border-lab-border pb-3">
                 <span className="text-lab-text-muted flex items-center space-x-2">
                   <Terminal className="w-4 h-4 text-lab-accent" aria-hidden="true" />
-                  <span>DIRECT_COORDINATES</span>
+                  <span>Contact details</span>
                 </span>
                 <span className="text-lab-accent text-[10px] font-semibold">VERIFIED</span>
               </div>
@@ -311,13 +311,11 @@ export default function Contact() {
 
                 <Button
                   type="submit"
-                  variant="primary"
-                  size="lg"
                   isLoading={status === 'submitting'}
                   leftIcon={<Send className="w-4 h-4" aria-hidden="true" />}
                   className="w-full uppercase tracking-wider font-semibold"
                 >
-                  {status === 'submitting' ? 'Transmitting Data...' : 'Dispatch Transmission'}
+                  {status === 'submitting' ? 'Sending...' : 'Send message'}
                 </Button>
               </form>
             </div>
@@ -355,7 +353,7 @@ export default function Contact() {
 
             <div className="space-y-1">
               <span className="font-mono text-[9px] text-lab-accent tracking-widest uppercase font-semibold">
-                [TRANSMISSION_DELIVERED]
+                Thank you
               </span>
               <h3 id="success-popup-title" className="font-display font-bold text-base text-lab-text-primary">
                 Message Sent Successfully!

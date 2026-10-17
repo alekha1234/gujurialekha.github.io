@@ -1,6 +1,6 @@
 # Gujuri Alekha - Data Scientist
 
-<img src="https://github.com/alekha1234/gujurialekha.github.io/blob/main/my_documents/my-photos/Alekha%20Image.jpeg" alt="Profile image" width="200" height="200">
+<img src="https://github.com/alekha1234/gujurialekha.github.io/blob/main/public/my_documents/my-photos/Alekha%20Image.jpeg" alt="Profile image" width="200" height="200">
 
 Welcome to my Data Science Portfolio! I am passionate about leveraging data to solve complex problems and develop innovative AI solutions. As a data scientist, I explore the realms of machine learning, data analysis, and natural language processing to extract meaningful insights.
 
