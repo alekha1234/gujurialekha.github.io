@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import type { Tier } from './layout';
 
 // three.js and the whole scene live in this lazy chunk; the page's HTML never waits on it.
+// Rendered only inside the hero; the rest of the page sits on the static .lab-backdrop.
 const Scene = dynamic(() => import('./Scene'), { ssr: false });
 
 function hasWebGL() {
@@ -26,6 +27,8 @@ function pickTier(): Tier {
 export default function LabBackground() {
   const [cfg, setCfg] = useState<{ tier: Tier; reduced: boolean } | null>(null);
   const [shown, setShown] = useState(false);
+  const [active, setActive] = useState(true);
+  const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Phones get the static backdrop: the scene costs seconds of main-thread time on mobile CPUs.
@@ -46,14 +49,26 @@ export default function LabBackground() {
   useEffect(() => {
     if (!cfg) return;
     const id = setTimeout(() => setShown(true), 60);
-    return () => clearTimeout(id);
+    // Stop rendering frames while the hero is scrolled out of view.
+    const io = new IntersectionObserver(([e]) => setActive(e.isIntersecting));
+    io.observe(root.current!);
+    return () => {
+      clearTimeout(id);
+      io.disconnect();
+    };
   }, [cfg]);
 
   return (
-    <div aria-hidden="true" className="fixed inset-0 z-0 lab-backdrop pointer-events-none">
+    // -z-10 keeps it under the hero content; the mask fades the canvas into the page backdrop.
+    // Hidden on phones (no 3D there): the masked layer alone delayed the hero paint by ~0.8 s on mobile.
+    <div
+      ref={root}
+      aria-hidden="true"
+      className="hidden md:block absolute inset-0 -z-10 pointer-events-none [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"
+    >
       {cfg && (
         <div className={`absolute inset-0 transition-opacity duration-[1400ms] ${shown ? 'opacity-100' : 'opacity-0'}`}>
-          <Scene tier={cfg.tier} reduced={cfg.reduced} />
+          <Scene tier={cfg.tier} reduced={cfg.reduced} active={active} />
         </div>
       )}
       {/* Keeps text readable over the scene without hiding it */}

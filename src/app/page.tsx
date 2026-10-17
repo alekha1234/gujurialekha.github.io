@@ -1,7 +1,6 @@
 import React from 'react';
 import { getLatestPosts } from '@/lib/blogFeed';
 import Navigation from '@/components/Navigation';
-import LabBackground from '@/components/lab/LabBackground';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
@@ -13,13 +12,11 @@ import Writing from '@/components/Writing';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
-// Section order matches STATIONS in components/lab/layout.ts: scrolling a section into view
-// flies the camera to its station.
 export default async function Home() {
   const posts = await getLatestPosts();
   return (
     <>
-      <LabBackground />
+      <div aria-hidden="true" className="fixed inset-0 z-0 lab-backdrop pointer-events-none" />
       <main id="main-content" className="relative min-h-screen text-lab-text-primary selection:bg-lab-accent selection:text-white">
         <Navigation />
         <Hero />

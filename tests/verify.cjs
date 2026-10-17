@@ -31,6 +31,8 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
   await p.goto(BASE + '/', { waitUntil: 'networkidle', timeout: 180000 });
   await p.waitForTimeout(2000);
 
+  const deskScreens = await p.evaluate(() => document.documentElement.scrollHeight / innerHeight);
+  check('Desktop page ≤ 9.5 screens', deskScreens <= 9.5, `${deskScreens.toFixed(1)} screens`);
   check('Analytics not loaded before interaction', gaRequests.length === 0, `${gaRequests.length} gtag requests`);
   check('3D scene waits for interaction', (await p.locator('canvas').count()) === 0);
   await p.mouse.move(700, 450);
@@ -60,20 +62,22 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
 
   const body = await p.locator('body').innerText();
   const banned = ['VERIFIED', '256-BIT', 'UTC_CLOCK', 'Apache-2.0', 'YOUR_NAME', 'PROJECT_OR_INQUIRY_BRIEF', 'Inspect', 'Hover ', 'min read',
-    'particles in the pipeline', 'MODEL CARDS', 'NODE_INSPECTOR', 'CASE_STUDY', 'DATA_SOURCE'];
+    'particles in the pipeline', 'MODEL CARDS', 'NODE_INSPECTOR', 'CASE_STUDY', 'DATA_SOURCE', 'INITIALIZE CONNECTION', 'PILLAR_0'];
   const found = banned.filter((b) => body.includes(b));
   check('Removed copy is gone', found.length === 0, found.join(', ') || 'none found');
   for (const label of ['09 // WRITING', '10 // CONTACT', '07.B // ARCHIVE', '08 // DATA PATH']) check(`Section label "${label}"`, body.toUpperCase().includes(label));
-  check('AI Lab has one work link per section (4)', (await p.locator('#ai-lab h3 + a').count()) === 4, `${await p.locator('#ai-lab h3 + a').count()} links`);
+  const labCards = await p.locator('#ai-lab article').evaluateAll((as) => as.map((a) => ({ id: a.id, links: a.querySelectorAll('a[href]').length })));
+  check('AI Lab is one section of 4 cards, one work link each', labCards.length === 4 && labCards.every((c) => c.links === 1), JSON.stringify(labCards));
 
-  const tabs = await p.locator('[aria-label="Career milestones"] [role="tab"]').allInnerTexts();
-  const selected = await p.locator('[aria-label="Career milestones"] [aria-selected="true"]').innerText();
-  check('Experience newest first', tabs[0].trim() === 'LPU' && /Science College/.test(tabs.at(-1)), tabs.map((t) => t.trim()).join(' | '));
-  check('Experience default = Trinity Mobility', /Trinity Mobility/.test(selected), selected.trim());
+  const exp = await p.locator('#experience').innerText();
+  check('Experience & education side by side', /Experience/i.test(exp) && /Education/i.test(exp) && (await p.locator('#experience details').count()) >= 1);
+  check('Experience newest first (Trinity Mobility first)', exp.indexOf('Trinity Mobility') > -1 && exp.indexOf('Trinity Mobility') < exp.indexOf('Rubixe'), `Trinity@${exp.indexOf('Trinity Mobility')} Rubixe@${exp.indexOf('Rubixe')}`);
 
-  const thumbs = await p.locator('#projects li img').evaluateAll((imgs) => imgs.map((i) => ({ src: i.getAttribute('src'), ok: i.complete && i.naturalWidth > 0 })));
-  check('Featured images are the project visuals and load', thumbs.length === 6 && thumbs.every((t) => /\/documents\/projects\/[a-z0-9-]+\.jpg$/.test(t.src) && t.ok), thumbs.map((t) => t.src.split('/').pop()).join(', '));
-  const cards = p.locator('#projects li');
+  const thumbs = await p.locator('#projects img').evaluateAll((imgs) => imgs.map((i) => ({ src: i.getAttribute('src'), ok: i.complete && i.naturalWidth > 0 })));
+  check('Featured: 4 projects with their visuals', thumbs.length === 4 && thumbs.every((t) => /\/documents\/projects\/[a-z0-9-]+\.jpg$/.test(t.src) && t.ok), thumbs.map((t) => t.src.split('/').pop()).join(', '));
+  const projectsText = await p.locator('#projects').innerText();
+  check('Featured excludes Bank & Jellyfish', !/Portuguese Bank|Jellyfish/.test(projectsText));
+  const cards = p.locator('#projects').locator('article, li');
   const irrigation = cards.filter({ hasText: 'Smart Irrigation' }).first();
   const composer = cards.filter({ hasText: 'ML Composer' }).first();
   check('Smart Irrigation card says Proprietary (no Code link)', (await irrigation.getByText('Proprietary').count()) === 1 && (await irrigation.getByRole('link', { name: /^Code:/ }).count()) === 0);
@@ -87,14 +91,24 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
   await p.waitForTimeout(500);
   check('Modal closes', (await p.getByRole('dialog').count()) === 0);
 
+  const archiveCode = p.locator('#more-projects-grid > *');
+  const before = await archiveCode.count();
+  check('Archive shows 4 projects first', before === 4, `${before} visible`);
+  const viewAll = p.locator('#more-projects').getByRole('button', { name: /View all/ });
+  await viewAll.click();
+  await p.waitForTimeout(400);
+  const after = await archiveCode.count();
+  const archiveText = await p.locator('#more-projects').innerText();
+  check('"View all" reveals the rest (incl. Bank & Jellyfish)', after > 4 && /Portuguese Bank/.test(archiveText) && /Jellyfish/.test(archiveText), `${after} after View all`);
+
   const blogCards = await p.locator('#writing a[href*="/blog/"][href$=".html"]').evaluateAll((as) => as.map((a) => a.href));
-  check('Blog cards link to real articles', blogCards.length >= 2, blogCards.join(' , '));
+  check('Blog cards link to real articles', blogCards.length >= 2 && blogCards.length <= 4, blogCards.join(' , '));
+  check('Writing has a "Visit the blog" button', (await p.locator('#writing').getByRole('link', { name: /Visit the blog/ }).getAttribute('href')) === 'https://alekha1234.github.io/blog/');
 
   const labels = await p.locator('#contact form label').allInnerTexts();
   check('Contact labels are plain', ['Name', 'Email', 'Phone', 'Message'].every((l, i) => labels[i]?.startsWith(l)), labels.map((l) => l.trim().split('\n')[0]).join(' | '));
-  const formY = await p.locator('#contact form').evaluate((f) => f.getBoundingClientRect().top);
-  const termY = await p.getByText('INITIALIZE CONNECTION').evaluate((b) => b.getBoundingClientRect().top);
-  check('Desktop: terminal sits below the form', termY > formY);
+  const [detailsBox, formBox] = await Promise.all([p.getByText('Contact details').boundingBox(), p.locator('#contact form').boundingBox()]);
+  check('Contact: details and form side by side', detailsBox && formBox && formBox.x > detailsBox.x + 200, `details.x=${Math.round(detailsBox?.x)} form.x=${Math.round(formBox?.x)}`);
   await p.locator('#contact form button[type="submit"]').click();
   await p.waitForTimeout(400);
   const fieldErrs = await p.locator('#contact form [role="alert"], #contact form .text-red-400').count();
@@ -137,8 +151,11 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
   check('Phone: "View projects" visible on first screen', ctaBottom < 844, `bottom=${Math.round(ctaBottom)}px`);
   check('Phone: focus chips hidden', !(await mp.locator('[aria-label="Focus areas"]').isVisible()));
   check('Phone: status badge on one line', (await mp.locator('#top .rounded-full.glass').evaluate((e) => e.getBoundingClientRect().height)) < 34);
-  check('Phone: no horizontal scroll', await mp.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-  check('Phone: contact terminal hidden', !(await mp.getByText('INITIALIZE CONNECTION').isVisible()));
+  const layoutWidth = await mp.evaluate(() => document.documentElement.scrollWidth);
+  check('Phone: layout stays 390px wide (no sideways page scroll)', layoutWidth <= 390, `${layoutWidth}px`);
+  check('Phone: card rows swipe sideways', (await mp.locator('.rail').evaluateAll((rs) => rs.filter((r) => getComputedStyle(r).display === 'flex' && r.scrollWidth > r.clientWidth).length)) >= 6);
+  const phoneScreens = await mp.evaluate(() => document.documentElement.scrollHeight / innerHeight);
+  check('Phone page ≤ 11.5 screens', phoneScreens <= 11.5, `${phoneScreens.toFixed(1)} screens`);
   await mp.getByRole('button', { name: /Open Navigation Menu/ }).click();
   const mobileNav = mp.locator('nav[aria-label="Mobile Navigation"]');
   check('Phone menu lists Experience & Blogs', (await mobileNav.getByRole('link', { name: /Experience/ }).count()) === 1 && (await mobileNav.getByRole('link', { name: /Blogs/ }).count()) === 1);

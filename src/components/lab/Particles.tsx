@@ -50,7 +50,7 @@ export default function Particles({ count = 2000 }: { count?: number }) {
     for (let i = 0; i < count; i++) {
       pos[i * 3] = (Math.random() - 0.5) * 36;
       pos[i * 3 + 1] = -7 + Math.random() * 16;
-      pos[i * 3 + 2] = 12 - Math.random() * 158;
+      pos[i * 3 + 2] = 12 - Math.random() * 60; // only the hero camera's depth is ever seen
       seed[i] = Math.random();
       palette[i % 7 === 0 ? 2 : i % 5 === 0 ? 3 : i % 2].toArray(color, i * 3);
     }

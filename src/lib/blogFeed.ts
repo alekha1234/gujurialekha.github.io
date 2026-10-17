@@ -24,7 +24,7 @@ const text = (s: string) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-export function parseFeed(xml: string, limit = 3): BlogPost[] {
+export function parseFeed(xml: string, limit = 4): BlogPost[] {
   return Array.from(xml.matchAll(/<item>([\s\S]*?)<\/item>/g)).slice(0, limit).map(([, item]) => {
     const excerpt = text(pick(item, 'description'));
     const date = new Date(pick(item, 'pubDate'));

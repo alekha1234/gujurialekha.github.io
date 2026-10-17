@@ -7,25 +7,22 @@ import { LabTag } from '@/components/ui';
 
 export default function MoreProjects() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('ALL');
+  const [showAll, setShowAll] = useState(false);
 
-  const categories = ['ALL', 'Computer Vision', 'Predictive Modeling', 'Healthcare Analytics', 'Business Analytics'];
+  const q = searchQuery.toLowerCase();
+  const filteredProjects = moreProjectsData.filter(
+    (project) =>
+      project.title.toLowerCase().includes(q) ||
+      project.description.toLowerCase().includes(q) ||
+      project.technologies.some((t) => t.toLowerCase().includes(q))
+  );
 
-  const filteredProjects = moreProjectsData.filter((project) => {
-    const matchesSearch =
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.technologies.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
-
-    const matchesCategory =
-      selectedCategory === 'ALL' ||
-      project.category.toLowerCase().includes(selectedCategory.toLowerCase());
-
-    return matchesSearch && matchesCategory;
-  });
+  // An active search always shows every match; otherwise only the first row until expanded.
+  const searching = searchQuery.trim() !== '';
+  const visibleProjects = searching || showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
-    <section id="more-projects" className="relative z-10 py-16">
+    <section id="more-projects" className="relative z-10 py-16 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
@@ -54,8 +51,8 @@ export default function MoreProjects() {
         </div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
+        <div id="more-projects-grid" className="rail grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {visibleProjects.map((project) => (
             <div
               key={project.id}
               className="glass rounded-xl p-5 flex flex-col justify-between hover:glass-glow transition-all duration-200 group"
@@ -70,7 +67,7 @@ export default function MoreProjects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-lab-text-muted hover:text-lab-accent transition-colors"
-                    aria-label={`GitHub link for ${project.title}`}
+                    aria-label={`GitHub link for ${project.title} (opens in new tab)`}
                   >
                     <FolderGit2 className="w-4 h-4" />
                   </a>
@@ -103,13 +100,27 @@ export default function MoreProjects() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1 font-mono text-xs text-lab-accent hover:text-blue-300 font-semibold transition-colors"
                 >
-                  <span>Code</span>
+                  <span>Code<span className="sr-only">: {project.title} (opens in new tab)</span></span>
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
               </div>
             </div>
           ))}
         </div>
+
+        {!searching && filteredProjects.length > 4 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              aria-expanded={showAll}
+              aria-controls="more-projects-grid"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-md glass font-mono text-xs font-semibold tracking-wider text-lab-text-primary hover:glass-glow transition-shadow focus-ring"
+            >
+              {showAll ? 'Show fewer' : `View all ${filteredProjects.length} projects`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

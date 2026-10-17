@@ -62,25 +62,6 @@ export function labelTexture(text: string, { sub, color = '#7dd3fc', width = 512
   return { tex, aspect: width / h };
 }
 
-// Multi-line terminal screen.
-export function screenTexture(lines: string[], color = '#67e8f9') {
-  const c = document.createElement('canvas');
-  c.width = 768;
-  c.height = 460;
-  const g = c.getContext('2d')!;
-  g.fillStyle = '#030a16';
-  g.fillRect(0, 0, c.width, c.height);
-  g.font = `500 30px ${monoFamily()}`;
-  g.textBaseline = 'top';
-  lines.forEach((l, i) => {
-    g.fillStyle = i === 0 ? '#e2e8f0' : color;
-    g.fillText(l, 36, 36 + i * 52);
-  });
-  const tex = new CanvasTexture(c);
-  tex.colorSpace = SRGBColorSpace;
-  return tex;
-}
-
 let dot: CanvasTexture | null = null;
 // Soft round sprite shared by every Points material.
 export function dotTexture() {

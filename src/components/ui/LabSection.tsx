@@ -3,24 +3,15 @@ import React from 'react';
 interface LabSectionProps {
   id: string;
   labelledBy?: string;
-  // Which half of the screen the content occupies; the 3D station shows on the other half.
-  side?: 'left' | 'right' | 'full';
   className?: string;
   children: React.ReactNode;
 }
 
-export function LabSection({ id, labelledBy, side = 'left', className = '', children }: LabSectionProps) {
-  const col =
-    side === 'full'
-      ? 'lg:col-span-12'
-      : side === 'left'
-        ? 'lg:col-span-6 xl:col-span-5'
-        : 'lg:col-span-6 xl:col-span-5 lg:col-start-7 xl:col-start-8';
+// Compact full-width section: content sizes the section, no forced screen height.
+export function LabSection({ id, labelledBy, className = '', children }: LabSectionProps) {
   return (
-    <section id={id} aria-labelledby={labelledBy} className={`relative z-10 min-h-screen flex items-center py-24 scroll-mt-16 ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div className={col}>{children}</div>
-      </div>
+    <section id={id} aria-labelledby={labelledBy} className={`relative z-10 py-16 scroll-mt-16 ${className}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">{children}</div>
     </section>
   );
 }

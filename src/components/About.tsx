@@ -4,7 +4,6 @@ import React from 'react';
 import { personalData } from '@/data/personal';
 import { getAssetPath } from '@/utils/assets';
 import { capabilities } from '@/lib/labContent';
-import { setLab, useLab } from '@/lib/labStore';
 import { LabSection, LabTag } from '@/components/ui';
 
 const facts = [
@@ -44,79 +43,62 @@ const pillars = [
 ];
 
 export default function About() {
-  const active = useLab((s) => s.activeCapability);
-
   return (
     <>
-      <LabSection id="about" labelledBy="about-heading" side="right">
+      <LabSection id="about" labelledBy="about-heading">
         <LabTag>01 // Profile</LabTag>
         <h2 id="about-heading" className="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-6">
           The engineer behind the lab
         </h2>
 
-        <div className="glass holo-scan rounded-xl p-5 sm:p-6 space-y-5">
-          <div className="flex items-center gap-4">
-            <img
-              src={getAssetPath('/documents/logos/avatar-144.jpg')}
-              alt={`${personalData.formalName} — ${personalData.role}`}
-              width={72}
-              height={72}
-              loading="lazy"
-              className="w-16 h-16 rounded-lg object-cover object-top border border-lab-accent/40"
-            />
-            <div>
-              <p className="font-display font-semibold text-lg">{personalData.name}</p>
-              <p className="font-mono text-xs text-lab-cyan">{personalData.role.toUpperCase()}</p>
-            </div>
-          </div>
-
-          <div className="space-y-3 text-sm text-lab-text-secondary leading-relaxed">
-            {personalData.extendedBio.map((p) => (
-              <p key={p.slice(0, 24)}>{p}</p>
-            ))}
-          </div>
-
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 pt-4 border-t border-white/5 font-mono text-xs">
-            {facts.map((f) => (
-              <div key={f.k}>
-                <dt className="text-lab-text-muted">{f.k}</dt>
-                <dd className="text-lab-text-primary">{f.v}</dd>
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="glass holo-scan rounded-xl p-5 sm:p-6 space-y-5">
+            <div className="flex items-center gap-4">
+              <img
+                src={getAssetPath('/documents/logos/avatar-144.jpg')}
+                alt={`${personalData.formalName} — ${personalData.role}`}
+                width={72}
+                height={72}
+                loading="lazy"
+                className="w-16 h-16 rounded-lg object-cover object-top border border-lab-accent/40"
+              />
+              <div>
+                <p className="font-display font-semibold text-lg">{personalData.name}</p>
+                <p className="font-mono text-xs text-lab-cyan">{personalData.role.toUpperCase()}</p>
               </div>
-            ))}
-          </dl>
-        </div>
+            </div>
 
-        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-8 mb-3">AI CAPABILITY MODULES</h3>
-        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {capabilities.map((c) => (
-            <li key={c.id}>
-              <button
-                type="button"
-                onMouseEnter={() => setLab({ activeCapability: c.id })}
-                onMouseLeave={() => setLab({ activeCapability: null })}
-                onFocus={() => setLab({ activeCapability: c.id })}
-                onBlur={() => setLab({ activeCapability: null })}
-                aria-describedby={`cap-${c.id}`}
-                className={`w-full text-left rounded-lg p-3 glass transition-all focus-ring ${active === c.id ? 'glass-glow' : ''}`}
-              >
-                <span className="block font-mono text-[11px] text-lab-cyan">{c.short}</span>
-                <span className="block text-xs font-semibold text-lab-text-primary">{c.title}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-        <div className="min-h-[64px] mt-3" aria-live="polite">
-          {capabilities.map((c) => (
-            <p
-              key={c.id}
-              id={`cap-${c.id}`}
-              className={`text-xs text-lab-text-secondary leading-relaxed ${active === c.id ? '' : 'hidden'}`}
-            >
-              <span className="font-mono text-lab-cyan">{c.source} → </span>
-              {c.evidence}
-            </p>
-          ))}
-          {!active && <p className="text-xs text-lab-text-muted font-mono">Select a module to trace it to real work.</p>}
+            <div className="space-y-3 text-sm text-lab-text-secondary leading-relaxed">
+              {personalData.extendedBio.map((p) => (
+                <p key={p.slice(0, 24)}>{p}</p>
+              ))}
+            </div>
+
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 pt-4 border-t border-white/5 font-mono text-xs">
+              {facts.map((f) => (
+                <div key={f.k}>
+                  <dt className="text-lab-text-muted">{f.k}</dt>
+                  <dd className="text-lab-text-primary">{f.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="flex flex-col">
+            <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mb-3">AI CAPABILITY MODULES</h3>
+            <ul className="rail grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1 focus-ring" tabIndex={0} aria-label="AI capability modules">
+              {capabilities.map((c) => (
+                <li key={c.id} className="glass rounded-lg p-4 flex flex-col">
+                  <span className="font-mono text-[11px] text-lab-cyan">{c.short}</span>
+                  <span className="text-sm font-semibold text-lab-text-primary mt-0.5 mb-1.5">{c.title}</span>
+                  <p className="text-xs text-lab-text-secondary leading-relaxed">
+                    <span className="font-mono text-lab-cyan">{c.source} → </span>
+                    {c.evidence}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </LabSection>
 
@@ -126,10 +108,10 @@ export default function About() {
           <h2 id="pillars-heading" className="font-display font-bold text-2xl sm:text-3xl tracking-tight mb-6">
             What I build in production
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rail grid gap-4 sm:grid-cols-2 lg:grid-cols-4 focus-ring" tabIndex={0} aria-label="Production pillars">
             {pillars.map((p, i) => (
               <article key={p.title} className="glass rounded-xl p-5 flex flex-col">
-                <span className="font-mono text-[11px] text-lab-accent">PILLAR_0{i + 1}</span>
+                <span className="font-mono text-[11px] text-lab-accent">Pillar 0{i + 1}</span>
                 <h3 className="font-display font-semibold text-base mt-1 mb-2">{p.title}</h3>
                 <p className="text-xs text-lab-text-secondary leading-relaxed flex-1">{p.description}</p>
                 <ul className="flex flex-wrap gap-1 mt-4">

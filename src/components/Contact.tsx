@@ -16,7 +16,6 @@ import {
   FileText,
 } from 'lucide-react';
 import { getAssetPath } from '@/utils/assets';
-import ContactTerminal from './ContactTerminal';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -151,11 +150,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="relative z-10 min-h-screen flex items-center py-24">
+    <section id="contact" aria-labelledby="contact-heading" className="relative z-10 py-16 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Left Column: Direct Coordinates & Status */}
-          <div className="lg:col-span-6 xl:col-span-5 space-y-6">
+          <div className="space-y-6">
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <span className="font-mono text-xs text-lab-cyan tracking-[0.2em]">10 // CONTACT</span>
@@ -242,7 +241,7 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Terminal Inquiry Form */}
-          <div className="lg:col-span-6 xl:col-span-5 lg:col-start-1 xl:col-start-1">
+          <div>
             <div className="glass rounded-xl p-6 sm:p-8 relative overflow-hidden">
               <div className="flex items-center justify-between border-b border-lab-border pb-4 mb-6">
                 <div className="flex items-center space-x-2">
@@ -314,11 +313,6 @@ export default function Contact() {
                   {status === 'submitting' ? 'Sending...' : 'Send message'}
                 </Button>
               </form>
-            </div>
-
-            {/* Lights up the 3D terminal next to it, so desktop only (phones have no 3D scene) */}
-            <div className="hidden lg:block mt-6">
-              <ContactTerminal />
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import LabBackground from '@/components/lab/LabBackground';
 import { personalData } from '@/data/personal';
 import { getAssetPath } from '@/utils/assets';
 import { ArrowRight, FileText, Github, Linkedin, FlaskConical } from 'lucide-react';
@@ -7,11 +8,12 @@ const social = (label: string) => personalData.socials.find((s) => s.label === l
 
 export default function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-heading" className="relative z-10 min-h-screen flex items-center pt-28 pb-16">
+    <section id="top" aria-labelledby="hero-heading" className="relative z-10 min-h-screen flex items-center pt-24 pb-10">
+      <LabBackground />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12">
         {/* On tablets the robot sits in this gap above the text (phones get no 3D scene) */}
         <div className="hidden md:block lg:hidden h-[30vh]" aria-hidden="true" />
-        <div className="lg:col-span-7 xl:col-span-6 space-y-6">
+        <div className="lg:col-span-7 xl:col-span-6 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass">
             <span className="relative flex w-2 h-2">
               <span className="absolute inset-0 rounded-full bg-lab-green animate-ping opacity-60" />
@@ -22,11 +24,11 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             <p className="font-mono text-xs text-lab-cyan tracking-[0.3em]">AI RESEARCH LAB // ONLINE</p>
             <h1 id="hero-heading" className="font-display font-bold tracking-tight leading-[1.02]">
-              <span className="block text-4xl sm:text-6xl xl:text-7xl text-lab-text-primary">I&apos;M ALEKHA GUJURI</span>
-              <span className="block mt-3 text-2xl sm:text-4xl xl:text-5xl text-gradient-lab">AI / ML ENGINEER</span>
+              <span className="block text-4xl sm:text-5xl xl:text-6xl text-lab-text-primary">I&apos;M ALEKHA GUJURI</span>
+              <span className="block mt-2 text-2xl sm:text-3xl xl:text-4xl text-gradient-lab">AI / ML ENGINEER</span>
               <span className="sr-only"> — {personalData.formalName}, {personalData.role} &amp; Machine Learning Engineer</span>
             </h1>
             <p className="font-mono text-xs sm:text-sm text-lab-text-secondary">
@@ -34,7 +36,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <p className="text-base sm:text-lg text-lab-text-secondary leading-relaxed max-w-xl">{personalData.shortBio}</p>
+          <p className="text-base text-lab-text-secondary leading-relaxed max-w-xl">{personalData.shortBio}</p>
 
           {/* Hidden on phones so the call-to-action buttons stay on the first screen; Skills covers these */}
           <ul className="hidden sm:flex flex-wrap gap-2" aria-label="Focus areas">
@@ -45,23 +47,23 @@ export default function Hero() {
             ))}
           </ul>
 
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-wrap gap-3 pt-1">
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 px-5 py-3 rounded-md bg-blue-600 text-white font-mono text-xs font-semibold tracking-wider shadow-lab-glow hover:bg-blue-500 transition-colors focus-ring"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-blue-600 text-white font-mono text-xs font-semibold tracking-wider shadow-lab-glow hover:bg-blue-500 transition-colors focus-ring"
             >
               View projects
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-md glass font-mono text-xs font-semibold tracking-wider text-lab-text-primary hover:glass-glow transition-shadow focus-ring"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md glass font-mono text-xs font-semibold tracking-wider text-lab-text-primary hover:glass-glow transition-shadow focus-ring"
             >
               Contact me
             </a>
             <a
               href="#ai-lab"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-lab-cyan/40 font-mono text-xs font-semibold tracking-wider text-lab-cyan hover:bg-lab-cyan/10 transition-colors focus-ring"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-lab-cyan/40 font-mono text-xs font-semibold tracking-wider text-lab-cyan hover:bg-lab-cyan/10 transition-colors focus-ring"
             >
               <FlaskConical className="w-4 h-4" aria-hidden="true" />
               Explore my AI lab
@@ -82,7 +84,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <a href="#about" className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 font-mono text-[11px] tracking-[0.3em] text-lab-text-muted hover:text-lab-text-secondary focus-ring rounded">
+      <a href="#about" className="hidden sm:[@media(min-height:880px)]:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 font-mono text-[11px] tracking-[0.3em] text-lab-text-muted hover:text-lab-text-secondary focus-ring rounded">
         SCROLL TO ENTER
         <span className="w-px h-10 bg-gradient-to-b from-lab-cyan to-transparent" aria-hidden="true" />
       </a>

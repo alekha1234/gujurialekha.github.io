@@ -18,8 +18,8 @@ import {
 } from 'three';
 import HoloLabel, { glow } from './HoloLabel';
 import { beamTexture } from './textures';
-import { rig, STATIONS } from './layout';
-import { getLab, pointer } from '@/lib/labStore';
+import { HERO, rig } from './layout';
+import { pointer } from '@/lib/labStore';
 
 const { damp } = MathUtils;
 
@@ -32,8 +32,6 @@ const LABELS: { text: string; pos: [number, number, number]; anchor: [number, nu
 ];
 
 const off = new Vector3();
-const next = new Vector3();
-const PARKED = new Vector3(0, -12, -7);
 
 function Arm({ side, mats, armRef }: { side: 1 | -1; mats: Mats; armRef: React.RefObject<Group> }) {
   return (
@@ -94,7 +92,6 @@ export default function Robot() {
   const ringB = useRef<Mesh>(null);
   const antenna = useRef<Mesh>(null);
   const bars = useRef<InstancedMesh>(null);
-  const hud = useRef<Group>(null);
   const dummy = useMemo(() => new Object3D(), []);
 
   const connectors = useMemo(() => {
@@ -108,27 +105,17 @@ export default function Robot() {
     const r = root.current;
     if (!r) return;
 
-    // Companion position: offset from the camera base, blended between stations.
-    // Phones: the robot only appears in the hero, shrunk into the gap above the headline.
-    const pick = (i: number) => (rig.narrow && i > 0 ? null : STATIONS[i].robot);
-    const a = pick(rig.seg);
-    const b = pick(Math.min(rig.seg + 1, STATIONS.length - 1));
-    off.set(...((a ?? PARKED.toArray()) as [number, number, number]));
-    next.set(...((b ?? PARKED.toArray()) as [number, number, number]));
-    off.lerp(next, rig.ease);
+    // Offset from the camera base; narrow screens shrink it into the gap above the headline.
+    off.set(...HERO.robot);
     if (rig.narrow) {
       off.x = 0;
       off.y += 2.3;
     }
     r.scale.setScalar(rig.narrow ? 0.6 : 1);
-    if (getLab().terminalActive && rig.seg >= STATIONS.length - 2) off.x -= 0.25;
     const tx = rig.base.x + off.x;
     const ty = rig.base.y + off.y + Math.sin(t * 1.1) * 0.04;
     const tz = rig.base.z + off.z;
     r.position.set(damp(r.position.x, tx, 3, dt), damp(r.position.y, ty, 3, dt), damp(r.position.z, tz, 3, dt));
-    r.visible = r.position.y - rig.base.y > -7;
-    // Name labels only in the hero; elsewhere they would crowd the stations and the terminal.
-    if (hud.current) hud.current.visible = rig.f < 0.6;
     r.rotation.y = damp(r.rotation.y, -off.x * 0.09 + pointer.x * 0.08, 3, dt);
 
     // Breathing, servo micro-motion.
@@ -172,7 +159,7 @@ export default function Robot() {
 
   return (
     <group ref={root} position={[2.1, -1.9, 2.2]}>
-      {/* Local lights so the robot is lit wherever it travels */}
+      {/* Local lights so the robot stands out from the backdrop */}
       <pointLight position={[-1.2, 2.6, -1]} color="#22d3ee" intensity={6} distance={5} />
       <pointLight position={[1.4, 1.6, 1.6]} color="#93c5fd" intensity={3} distance={5} />
 
@@ -280,7 +267,7 @@ export default function Robot() {
         <torusGeometry args={[1.12, 0.003, 6, 96, Math.PI * 1.1]} />
       </mesh>
 
-      <group ref={hud}>
+      <group>
         <group position={[-1.05, 0.72, 0.25]} rotation={[0, 0.35, 0]}>
           <mesh>
             <planeGeometry args={[0.56, 0.34]} />

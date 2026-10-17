@@ -174,7 +174,7 @@ export const featuredProjects: ProjectItem[] = [
       { label: "Lead Tier", value: "Top 20%", description: "Captures majority of subscribers" },
     ],
     githubUrl: "https://github.com/alekha1234/Portuguese-Bank-Marketing-Campaign",
-    isFeatured: true,
+    isFeatured: false,
     highlights: [
       "Mitigated severe class imbalance between subscribers and non-subscribers.",
       "Identified call duration, prior campaign status, and Euribor index as paramount conversion signals.",
@@ -205,7 +205,7 @@ export const featuredProjects: ProjectItem[] = [
       { label: "Optimization", value: "Adam + Dropout", description: "Overfitting prevention" },
     ],
     githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Jelly-Fish-Classification-Using-Computer-Vision.ipynb",
-    isFeatured: true,
+    isFeatured: false,
     highlights: [
       "Custom CNN architecture extracting morphological features from underwater imagery.",
       "Applied spatial data augmentation to counter water turbidity and illumination variance.",
@@ -233,6 +233,22 @@ export interface ArchivedProject {
 }
 
 export const moreProjectsData: ArchivedProject[] = [
+  {
+    id: "portuguese-bank-marketing",
+    title: "Portuguese Bank Direct Marketing Optimization",
+    category: "Predictive Analytics",
+    description: "Predictive customer conversion modeling on 45,000+ interactions to maximize term deposit subscriptions while reducing cold-calling operational overhead.",
+    technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy"],
+    githubUrl: "https://github.com/alekha1234/Portuguese-Bank-Marketing-Campaign",
+  },
+  {
+    id: "jellyfish-marine-classification",
+    title: "Marine Jellyfish Species Classifier",
+    category: "Computer Vision",
+    description: "Convolutional neural network for marine organism classification to support ecological surveys and automated taxonomic indexing from underwater imagery.",
+    technologies: ["TensorFlow", "Keras", "Python", "CNN"],
+    githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Jelly-Fish-Classification-Using-Computer-Vision.ipynb",
+  },
   {
     id: "cifar10-benchmark",
     title: "CIFAR-10 Visual Recognition Engine",

@@ -20,10 +20,10 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
   }, []);
 
   return (
-    <section id="writing" aria-labelledby="writing-heading" className="relative z-10 py-20">
+    <section id="writing" aria-labelledby="writing-heading" className="relative z-10 py-16 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div className="space-y-2">
             <LabTag>09 // Writing</LabTag>
             <h2 id="writing-heading" className="font-display font-bold text-2xl sm:text-3xl text-lab-text-primary tracking-tight">
@@ -33,21 +33,10 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
               Hands-on Python notebooks on time series, statistics, and machine learning.
             </p>
           </div>
-
-          <a
-            href="https://alekha1234.github.io/blog/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 font-mono text-xs text-lab-accent hover:text-blue-300 font-semibold self-start md:self-auto focus-ring rounded p-1"
-            aria-label="Visit Complete Blog Platform (opens in new tab)"
-          >
-            <span>Visit Complete Blog Platform</span>
-            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
-          </a>
         </div>
 
         {/* Blog Cards Grid */}
-        <div className={`grid grid-cols-1 gap-6 ${posts.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+        <div className="rail grid gap-6 md:grid-cols-2">
           {posts.map((post) => (
             <a
               key={post.url}
@@ -89,6 +78,18 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
               </div>
             </a>
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <a
+            href="https://alekha1234.github.io/blog/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-md glass font-mono text-xs font-semibold tracking-wider text-lab-text-primary hover:glass-glow transition-shadow focus-ring"
+          >
+            Visit the blog<span className="sr-only"> (opens in new tab)</span>
+            <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>
