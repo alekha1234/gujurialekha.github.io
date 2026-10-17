@@ -42,7 +42,7 @@ export const featuredProjects: ProjectItem[] = [
     category: "Smart City IoT & Time-Series",
     subtitle: "Chained Forecasting, Decisioning & Duration Microservices",
     summary: "Sequential 3-stage predictive pipeline forecasting environmental conditions, classifying irrigation necessity, and regressing duration—exposed via FastAPI with AI-generated alert summaries for city command center operators.",
-    image: "/documents/projects/machine-learning.jpeg",
+    image: "/documents/projects/smart-irrigation-pipeline.jpg",
     technologies: ["Python", "FastAPI", "Scikit-Learn", "Pandas", "NumPy", "PySpark", "Delta Lake", "Pydantic"],
     metrics: [
       { label: "Pipeline Stages", value: "3 Chained", description: "Forecast → Decision → Duration" },
@@ -73,7 +73,7 @@ export const featuredProjects: ProjectItem[] = [
     category: "ML Engineering & MLOps",
     subtitle: "Automated Ingestion, Model Validation & Nexus Registry CI/CD",
     summary: "Enterprise platform enabling non-ML specialists to ingest data from SQL/APIs, clean, train regression/classification/clustering models, enforce automated quality gates, and deploy via a Nexus Model Registry.",
-    image: "/documents/projects/end-to-end-ml.jpeg",
+    image: "/documents/projects/ml-composer-platform.jpg",
     technologies: ["Python", "Flask", "FastAPI", "Scikit-Learn", "PySpark", "MLflow", "Evidently AI", "Nexus", "CI/CD"],
     metrics: [
       { label: "Deployment", value: "Single-Click", description: "Nexus CI/CD deployment path" },
@@ -104,7 +104,7 @@ export const featuredProjects: ProjectItem[] = [
     category: "Simulation & Synthetic Data",
     subtitle: "High-Resolution Demand Analysis & Anomaly Detection Telemetry",
     summary: "Physics-informed simulation engine and synthetic dataset generator modeling distribution grid loads, peak demands, and electrical anomalies across 15-minute, hourly, and daily resolutions for ICCC dashboards.",
-    image: "/documents/projects/total-sales.jpeg",
+    image: "/documents/projects/smart-energy-grid-simulation.jpg",
     technologies: ["Python", "Pandapower", "NetworkX", "NumPy", "Parquet", "JSON", "Time-Series", "ICCC Telemetry"],
     metrics: [
       { label: "Time Granularity", value: "15m / 1h / 1d", description: "Multi-resolution simulation" },
@@ -135,7 +135,7 @@ export const featuredProjects: ProjectItem[] = [
     category: "Computer Vision & Edge AI",
     subtitle: "High-Throughput Object Localization with YOLOv5 Architecture",
     summary: "Automated real-time computer vision system built on custom-trained YOLOv5 to detect face mask compliance in high-density public environments.",
-    image: "/documents/projects/face-mask.jpeg",
+    image: "/documents/projects/real-time-face-mask-detection.jpg",
     technologies: ["YOLOv5", "PyTorch", "Python", "OpenCV", "Matplotlib", "Computer Vision"],
     metrics: [
       { label: "Model Family", value: "YOLOv5", description: "Single-stage detector" },
@@ -166,7 +166,7 @@ export const featuredProjects: ProjectItem[] = [
     category: "Predictive Analytics & FinTech",
     subtitle: "Customer Lead Scoring & Campaign ROI Maximization",
     summary: "Predictive customer conversion modeling on 45,000+ interactions to maximize term deposit subscriptions while reducing cold-calling operational overhead.",
-    image: "/documents/projects/bank-marketing.jpeg",
+    image: "/documents/projects/portuguese-bank-marketing.jpg",
     technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
     metrics: [
       { label: "Data Scale", value: "45,211", description: "Customer interactions analyzed" },
@@ -197,7 +197,7 @@ export const featuredProjects: ProjectItem[] = [
     category: "Deep Learning & Marine Bio-Vision",
     subtitle: "Automated Species Identification using Convolutional Neural Networks",
     summary: "Convolutional neural network for marine organism classification to support ecological surveys and automated taxonomic indexing from underwater imagery.",
-    image: "/documents/projects/jellyfish.jpeg",
+    image: "/documents/projects/jellyfish-marine-classification.jpg",
     technologies: ["TensorFlow", "Keras", "Python", "NumPy", "Matplotlib", "CNN"],
     metrics: [
       { label: "Architecture", value: "Custom CNN", description: "Multi-layer feature hierarchy" },
@@ -230,7 +230,6 @@ export interface ArchivedProject {
   description: string;
   technologies: string[];
   githubUrl: string;
-  image: string;
 }
 
 export const moreProjectsData: ArchivedProject[] = [
@@ -241,7 +240,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Deep convolutional architecture extracting robust feature representations from noisy 32x32 color images across 10 balanced classes.",
     technologies: ["TensorFlow", "Keras", "Python", "CNN", "Deep Learning"],
     githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Object-Classification-Using-Cifar10.ipynb",
-    image: "/documents/projects/cifar10.png",
   },
   {
     id: "clinical-liver-prediction",
@@ -250,7 +248,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Predictive diagnostic classification model using 10 biochemical blood biomarkers, achieving 82% diagnostic accuracy for early triage.",
     technologies: ["Python", "Scikit-Learn", "Pandas", "Decision Trees"],
     githubUrl: "https://github.com/alekha1234/LIver-Disease-Prediction",
-    image: "/documents/projects/liver-disease.jpeg",
   },
   {
     id: "nlp-suite",
@@ -259,7 +256,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Reusable text engineering repository covering tokenization, lemmatization, TF-IDF vectorization, and sentiment classification.",
     technologies: ["Python", "NLTK", "Scikit-Learn", "Pandas", "TF-IDF"],
     githubUrl: "https://github.com/alekha1234/Natural-Language-Processing",
-    image: "/documents/projects/nlp-repository.jpeg",
   },
   {
     id: "cat-dog-resnet50",
@@ -268,7 +264,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Deep transfer learning implementation utilizing pretrained ResNet50 architecture for fine-grained binary animal image classification.",
     technologies: ["Python", "ResNet50", "PyTorch/Keras", "Transfer Learning"],
     githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Cat-Dog-Classification-Using-ResNet50.ipynb",
-    image: "/documents/projects/cat-dog.jpeg",
   },
   {
     id: "sales-effectiveness-ficzon",
@@ -277,7 +272,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Comprehensive enterprise sales data analysis, pipeline velocity tracking, and conversion bottleneck identification for FicZon.",
     technologies: ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "Seaborn"],
     githubUrl: "https://github.com/alekha1234/FicZon-Sales-Effectiveness/blob/main/FicZon-Sales-Effectiveness.ipynb",
-    image: "/documents/projects/sales-effectiveness.jpeg",
   },
   {
     id: "employee-attrition-random-forest",
@@ -286,7 +280,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Decision Tree and Random Forest modeling to identify leading organizational and compensation drivers of voluntary staff attrition.",
     technologies: ["Python", "Random Forest", "Decision Trees", "Scikit-Learn"],
     githubUrl: "https://github.com/alekha1234/Machine-Learning-Projects/blob/main/Employee-Attrition-Using-Decision-Tree-and-Random-Forest.ipynb",
-    image: "/documents/projects/employee-attrition.jpeg",
   },
   {
     id: "loan-status-svm",
@@ -295,7 +288,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Support Vector Machines (SVM) with radial basis kernel applied to credit history and applicant financial attributes for automated loan underwriting.",
     technologies: ["Python", "SVM", "Scikit-Learn", "Pandas"],
     githubUrl: "https://github.com/alekha1234/Machine-Learning-Projects/blob/main/Loan-Status-Classification-Using-Support-Vector-Machines.ipynb",
-    image: "/documents/projects/loan-status.jpeg",
   },
   {
     id: "total-sales-forecasting",
@@ -304,7 +296,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Linear regression modeling and trend decomposition to predict retail revenue trajectories across marketing budget allocations.",
     technologies: ["Python", "Linear Regression", "NumPy", "Matplotlib"],
     githubUrl: "https://github.com/alekha1234/Machine-Learning-Projects/blob/main/Total-Sales-Prediction-Using-Linear-Regression.ipynb",
-    image: "/documents/projects/total-sales.jpeg",
   },
   {
     id: "diabetic-risk-prediction",
@@ -313,7 +304,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Logistic regression model trained on diagnostic metabolic markers (glucose, insulin, BMI) for binary diabetic vulnerability scoring.",
     technologies: ["Python", "Logistic Regression", "Scikit-Learn", "EDA"],
     githubUrl: "https://github.com/alekha1234/Machine-Learning-Projects/blob/main/Diabetic-Prediction-Using-Logistic-Regression.ipynb",
-    image: "/documents/projects/diabetic.jpeg",
   },
   {
     id: "inx-employee-performance",
@@ -322,7 +312,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "In-depth workforce productivity analysis identifying key drivers of high performance and structural impediments across business units.",
     technologies: ["Python", "Machine Learning", "Feature Importance", "Seaborn"],
     githubUrl: "https://github.com/alekha1234/Employee-performance-of-INX-Future-Inc",
-    image: "/documents/projects/enployee-performance.jpeg",
   },
   {
     id: "iris-flower-classification",
@@ -331,7 +320,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Comprehensive benchmark comparison of KNN, Decision Trees, and SVM algorithms on the foundational Iris morphometric dataset.",
     technologies: ["Python", "Scikit-Learn", "Matplotlib", "Classification"],
     githubUrl: "https://github.com/alekha1234/Iris_dataset",
-    image: "/documents/projects/iris.jpeg",
   },
   {
     id: "fifa-world-cup-analytics",
@@ -340,7 +328,6 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "Exploratory data analysis and unsupervised pattern discovery evaluating national squad metrics, player attributes, and match results.",
     technologies: ["Python", "Unsupervised Learning", "Pandas", "Seaborn"],
     githubUrl: "https://github.com/alekha1234/FIFA-World-Cup-2020",
-    image: "/documents/projects/fifa.jpeg",
   },
   {
     id: "house-price-advanced-regression",
@@ -349,6 +336,5 @@ export const moreProjectsData: ArchivedProject[] = [
     description: "High-dimensional Ames housing valuation modeling utilizing ensemble gradient boosters (XGBoost, LightGBM) with extensive feature engineering.",
     technologies: ["Python", "XGBoost", "LightGBM", "Scikit-Learn", "Advanced Regression"],
     githubUrl: "https://github.com/alekha1234/House_price_prediction_Advance_Regression/blob/main/House_Price_Advance_Regression.ipynb",
-    image: "/documents/projects/house-price.jpeg",
   },
 ];

@@ -83,7 +83,9 @@ const NLP_STEPS = [
 
 const project = (id: string) => featuredProjects.find((p) => p.id === id)!;
 const archived = (id: string) => moreProjectsData.find((p) => p.id === id)!;
-const genAiWork = experienceData[0].highlights.filter((h) => /RAG|LLM|Agentic/.test(h));
+// The RAG highlight from current work doubles as the LLM section's production example.
+const [ragHead, ...ragRest] = experienceData[0].highlights.find((h) => /RAG/.test(h))!.split(': ');
+const ragBody = ragRest.join(': ');
 
 export default function AILab() {
   const nlpStep = useStepper(pipelines.nlp.length, 2200);
@@ -100,18 +102,13 @@ export default function AILab() {
           Every model I ship follows the same path, from raw sensor or business data to a prediction an operator can act on.
         </p>
         <StageFlow stages={pipelines.ml} color="#3b82f6" />
-        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">MODEL CARDS</h3>
-        <div className="grid gap-2 sm:grid-cols-2">
-          {featuredProjects
-            .filter((p) => !/Vision|Deep Learning/.test(p.category))
-            .map((p) => (
-              <div key={p.id} className="glass rounded-lg p-3">
-                <p className="font-mono text-[11px] text-lab-accent">{p.category.toUpperCase()}</p>
-                <p className="text-sm font-semibold mt-0.5">{p.title.split(':')[0]}</p>
-                <p className="text-xs text-lab-text-secondary mt-1 line-clamp-3">{p.caseStudy?.model}</p>
-              </div>
-            ))}
-        </div>
+        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">IN PRODUCTION · TRINITY MOBILITY</h3>
+        <WorkLink
+          internal
+          title={project('ml-composer-platform').title}
+          sub={project('ml-composer-platform').summary}
+          href={`/projects/${project('ml-composer-platform').slug}/`}
+        />
       </LabSection>
 
       {/* ---------- NLP ---------- */}
@@ -159,25 +156,12 @@ export default function AILab() {
         </p>
         <StageFlow stages={pipelines.rag} color="#8b5cf6" />
         <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">IN PRODUCTION · TRINITY MOBILITY</h3>
-        <ul className="space-y-2">
-          {genAiWork.map((h) => {
-            const [head, ...rest] = h.split(': ');
-            return (
-              <li key={head} className="glass rounded-lg p-3">
-                <p className="text-sm font-semibold">{head}</p>
-                <p className="text-xs text-lab-text-secondary mt-1 leading-relaxed">{rest.join(': ')}</p>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="mt-2">
-          <WorkLink
-            internal
-            title={project('smart-irrigation-pipeline').title}
-            sub="LLM summaries published to the ICCC platform for operators."
-            href={`/projects/${project('smart-irrigation-pipeline').slug}/`}
-          />
-        </div>
+        <WorkLink
+          internal
+          title={ragHead}
+          sub={ragBody}
+          href={`/projects/${project('smart-irrigation-pipeline').slug}/`}
+        />
       </LabSection>
 
       {/* ---------- Computer vision ---------- */}
@@ -191,15 +175,13 @@ export default function AILab() {
           localizes it with bounding boxes.
         </p>
         <StageFlow stages={pipelines.cv} color="#34d399" />
-        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">VISION PROJECTS</h3>
-        <div className="grid gap-2 sm:grid-cols-2">
-          {['real-time-face-mask-detection', 'jellyfish-marine-classification'].map((id) => (
-            <WorkLink key={id} internal title={project(id).title} sub={project(id).subtitle} href={`/projects/${project(id).slug}/`} />
-          ))}
-          {['cifar10-benchmark', 'cat-dog-resnet50'].map((id) => (
-            <WorkLink key={id} title={archived(id).title} sub={archived(id).description} href={archived(id).githubUrl} />
-          ))}
-        </div>
+        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">IN MY WORK</h3>
+        <WorkLink
+          internal
+          title={project('real-time-face-mask-detection').title}
+          sub={project('real-time-face-mask-detection').subtitle}
+          href={`/projects/${project('real-time-face-mask-detection').slug}/`}
+        />
       </LabSection>
     </div>
   );

@@ -190,20 +190,29 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        {/* Google Analytics & Tag Manager */}
-        <Script
-          strategy="lazyOnload"
-          src={`https://www.googletagmanager.com/gtag/js?id=${personalData.analytics.googleAnalyticsId}`}
-        />
+        {/* Google Analytics, loaded on the first interaction so its 175 KB never competes with page load.
+            ponytail: visitors who leave without scrolling/tapping aren't counted; load on idle if that matters. */}
         <Script
           id="google-analytics"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${personalData.analytics.googleAnalyticsId}');
+              (function () {
+                var id = '${personalData.analytics.googleAnalyticsId}';
+                var events = ['pointerdown', 'keydown', 'scroll', 'touchstart', 'wheel'];
+                function load() {
+                  events.forEach(function (e) { removeEventListener(e, load); });
+                  var s = document.createElement('script');
+                  s.async = true;
+                  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+                  document.head.appendChild(s);
+                  window.dataLayer = window.dataLayer || [];
+                  window.gtag = function () { dataLayer.push(arguments); };
+                  gtag('js', new Date());
+                  gtag('config', id);
+                }
+                events.forEach(function (e) { addEventListener(e, load, { passive: true }); });
+              })();
             `,
           }}
         />

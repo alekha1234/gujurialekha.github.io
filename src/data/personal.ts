@@ -45,7 +45,7 @@ export const personalData: PersonalData = {
     "FastAPI & Microservices"
   ],
   tagline: "Carrying machine learning from initial problem statements through to resilient production delivery for Smart City, IoT, and enterprise systems.",
-  status: "Available for Applied AI, ML Engineering & Data Science Roles",
+  status: "Open to AI/ML & Data Science Roles",
   location: "Bengaluru, Karnataka, India",
   phone: "+91 9348673473",
   shortBio: "Applied Data Scientist with 2.5 years of experience carrying machine learning work from raw problem statements through to production. Specializing in time-series forecasting, multi-stage decision pipelines, synthetic data simulation, and MLOps tooling that bridges data science with robust software delivery.",

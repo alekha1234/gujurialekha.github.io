@@ -30,3 +30,6 @@ Thumbs.db
 # Python
 __pycache__/
 *.pyc
+
+# Playwright verify screenshots
+test-results/

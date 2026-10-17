@@ -30,14 +30,17 @@ export default function LabBackground() {
   useEffect(() => {
     // Phones get the static backdrop: the scene costs seconds of main-thread time on mobile CPUs.
     if (window.innerWidth < 768 || !hasWebGL() || new URLSearchParams(location.search).has('no3d')) return;
-    const start = () =>
+    // Start on the first interaction so three.js (~1.3 s of main-thread work) never delays the first paint.
+    // ponytail: a visitor who never moves the mouse or scrolls sees the static backdrop; add a timeout fallback if that matters.
+    const events = ['pointermove', 'pointerdown', 'scroll', 'wheel', 'keydown', 'touchstart'] as const;
+    const start = () => {
+      events.forEach((e) => removeEventListener(e, start));
       document.fonts.ready.then(() =>
         setCfg({ tier: pickTier(), reduced: window.matchMedia('(prefers-reduced-motion: reduce)').matches })
       );
-    const ric = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number })
-      .requestIdleCallback;
-    if (ric) ric(start, { timeout: 1500 });
-    else setTimeout(start, 400);
+    };
+    events.forEach((e) => addEventListener(e, start, { passive: true }));
+    return () => events.forEach((e) => removeEventListener(e, start));
   }, []);
 
   useEffect(() => {

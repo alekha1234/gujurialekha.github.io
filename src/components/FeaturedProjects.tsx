@@ -53,7 +53,7 @@ export default function FeaturedProjects() {
                         {p.title}
                       </button>
                     </h3>
-                    <p className={`text-xs text-lab-text-secondary mt-1 leading-relaxed ${on ? '' : 'line-clamp-2'}`}>{p.summary}</p>
+                    <p className={`text-xs text-lab-text-secondary mt-1 leading-relaxed ${on ? '' : 'line-clamp-3'}`}>{p.summary}</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5 px-3 pb-3">

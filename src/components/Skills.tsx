@@ -63,13 +63,13 @@ export default function Skills() {
         {activeSkill && activeCat ? (
           <>
             <p className="text-lab-text-primary text-sm font-semibold">{activeSkill.name}</p>
-            <p className="text-lab-cyan mt-1">LEVEL: {activeSkill.level.toUpperCase()}</p>
+            <p className="text-lab-cyan mt-1">Level: {activeSkill.level}</p>
             <p className="text-lab-text-muted mt-0.5">
               {activeCat.code} · {activeCat.description}
             </p>
           </>
         ) : (
-          <p className="text-lab-text-muted">NODE_INSPECTOR // awaiting selection</p>
+          <p className="text-lab-text-muted">Select a skill to see its level and area.</p>
         )}
       </div>
     </LabSection>

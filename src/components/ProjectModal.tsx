@@ -46,49 +46,49 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       title: 'Problem Formulation',
       content: caseStudy.problem,
       icon: AlertCircle,
-      tag: 'CHALLENGE',
+      tag: 'Challenge',
     },
     {
       num: '02',
       title: 'Dataset & Feature Space',
       content: caseStudy.data,
       icon: Database,
-      tag: 'DATA_SOURCE',
+      tag: 'Data source',
     },
     {
       num: '03',
       title: 'Methodology & Engineering',
       content: caseStudy.approach,
       icon: Layers,
-      tag: 'DATA_PREPARATION',
+      tag: 'Data preparation',
     },
     {
       num: '04',
       title: 'Model Architecture & Training',
       content: caseStudy.model,
       icon: Cpu,
-      tag: 'MODEL_DESIGN',
+      tag: 'Model design',
     },
     {
       num: '05',
       title: 'Validation & Evaluation Protocol',
       content: caseStudy.evaluation,
       icon: BarChart3,
-      tag: 'METRICS_EVAL',
+      tag: 'Evaluation',
     },
     {
       num: '06',
       title: 'Empirical Results & Findings',
       content: caseStudy.results,
       icon: CheckCircle2,
-      tag: 'OUTCOMES',
+      tag: 'Outcomes',
     },
     {
       num: '07',
       title: 'Production & Operational Impact',
       content: caseStudy.impact,
       icon: TrendingUp,
-      tag: 'BUSINESS_IMPACT',
+      tag: 'Business impact',
     },
   ];
 
@@ -109,7 +109,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="flex items-center space-x-3">
             <span className="w-2.5 h-2.5 rounded-full bg-lab-accent inline-block" aria-hidden="true" />
             <div className="font-mono text-xs text-lab-text-muted">
-              CASE_STUDY_INSPECTOR // {project.id.toUpperCase()}
+              Case study
             </div>
           </div>
           <button
@@ -191,7 +191,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Technologies Used */}
           <div className="space-y-2 pt-2">
             <span className="font-mono text-xs text-lab-text-muted uppercase block">
-              STACK_COMPONENTS:
+              Tech stack
             </span>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (

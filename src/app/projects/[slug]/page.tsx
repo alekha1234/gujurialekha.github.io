@@ -89,49 +89,49 @@ export default function ProjectPage({ params }: PageProps) {
       title: 'Problem Formulation',
       content: caseStudy.problem,
       icon: AlertCircle,
-      tag: 'OPERATIONAL_CHALLENGE',
+      tag: 'Challenge',
     },
     {
       num: '02',
       title: 'Data Ingestion & Feature Space',
       content: caseStudy.data,
       icon: Database,
-      tag: 'DATASET_TELEMETRY',
+      tag: 'Data',
     },
     {
       num: '03',
       title: 'Preprocessing & Methodology',
       content: caseStudy.approach,
       icon: Layers,
-      tag: 'FEATURE_ENGINEERING',
+      tag: 'Features',
     },
     {
       num: '04',
       title: 'Model Architecture & Training',
       content: caseStudy.model,
       icon: Cpu,
-      tag: 'ALGORITHM_DESIGN',
+      tag: 'Model',
     },
     {
       num: '05',
       title: 'Validation & Evaluation Protocol',
       content: caseStudy.evaluation,
       icon: BarChart3,
-      tag: 'PERFORMANCE_METRICS',
+      tag: 'Evaluation',
     },
     {
       num: '06',
       title: 'Empirical Results & Discoveries',
       content: caseStudy.results,
       icon: CheckCircle2,
-      tag: 'FINDINGS',
+      tag: 'Findings',
     },
     {
       num: '07',
       title: 'Production & Business Impact',
       content: caseStudy.impact,
       icon: TrendingUp,
-      tag: 'STRATEGIC_VALUE',
+      tag: 'Impact',
     },
   ];
 
@@ -225,7 +225,7 @@ export default function ProjectPage({ params }: PageProps) {
           </Link>
 
           <span className="font-mono text-xs text-lab-text-muted">
-            CASE_STUDY // {project.id.toUpperCase()}
+            Case study
           </span>
         </div>
 
@@ -324,7 +324,7 @@ export default function ProjectPage({ params }: PageProps) {
         {/* Tech Stack Breakdown */}
         <div className="rounded-xl border border-lab-border bg-lab-surface p-6 space-y-4">
           <h3 className="font-mono text-xs text-lab-text-muted uppercase tracking-wider">
-            TECHNICAL_ENVIRONMENT_COMPONENTS:
+            Tech stack
           </h3>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
