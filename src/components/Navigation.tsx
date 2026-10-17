@@ -50,14 +50,14 @@ export default function Navigation() {
             <Link
               href="#top"
               className="group flex items-center space-x-3 rounded focus-ring p-1"
-              aria-label="Alekha Gujuri Home"
             >
-              <div className="w-8 h-8 rounded border border-lab-border bg-lab-surface flex items-center justify-center text-lab-accent font-mono text-xs font-bold transition-colors group-hover:border-lab-accent group-hover:shadow-lab-glow">
+              <div aria-hidden="true" className="w-8 h-8 rounded border border-lab-border bg-lab-surface flex items-center justify-center text-lab-accent font-mono text-xs font-bold transition-colors group-hover:border-lab-accent group-hover:shadow-lab-glow">
                 AG
               </div>
               <span className="font-display font-bold text-sm tracking-tight text-lab-text-primary group-hover:text-lab-accent transition-colors">
                 ALEKHA<span className="text-lab-cyan">.AI</span>
               </span>
+              <span className="sr-only">home</span>
             </Link>
 
             {/* Desktop Navigation Links */}

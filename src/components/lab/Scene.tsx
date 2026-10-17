@@ -85,7 +85,6 @@ const CA_OFFSET = new Vector2(0.0005, 0.0006);
 
 export default function Scene({ tier: initialTier, reduced }: { tier: Tier; reduced: boolean }) {
   const [tier, setTier] = useState<Tier>(initialTier);
-  const full = tier !== 'min';
 
   return (
     <Canvas
@@ -123,41 +122,37 @@ export default function Scene({ tier: initialTier, reduced }: { tier: Tier; redu
         fadeStrength={1.6}
       />
 
-      <Particles count={tier === 'high' ? 2400 : tier === 'mid' ? 900 : 280} />
-      <Robot lite={!full} />
+      <Particles count={tier === 'high' ? 2400 : 900} />
+      <Robot />
 
-      {full && (
-        <>
-          <NeuralNetwork position={[0, 0.6, -9]} nodeSize={0.07} pulses={tier === 'high' ? 150 : 70} />
-          <Near id="about">
-            <CapabilityHub position={at('about')} />
-            <NeuralNetwork position={[-3, 0.5, -30]} layers={[5, 8, 8, 5]} spread={[9, 4, 3]} pulses={30} seed={19} />
-          </Near>
-          <Near id="skills">
-            <SkillCore position={at('skills')} />
-          </Near>
-          <Near id="ml-lab">
-            <FlowStation position={at('ml-lab')} stages={pipelines.ml} color="#3b82f6" variant="ml" />
-          </Near>
-          <Near id="nlp-lab">
-            <FlowStation position={at('nlp-lab')} stages={pipelines.nlp} color="#22d3ee" variant="nlp" />
-          </Near>
-          <Near id="llm-lab">
-            <FlowStation position={at('llm-lab')} stages={pipelines.rag} color="#8b5cf6" variant="rag" />
-          </Near>
-          <Near id="vision-lab">
-            <FlowStation position={at('vision-lab')} stages={pipelines.cv} color="#34d399" variant="cv" />
-          </Near>
-          <Near id="projects">
-            <Suspense fallback={null}>
-              <ProjectModules position={at('projects')} />
-            </Suspense>
-          </Near>
-          <Near id="experience">
-            <DataPath position={at('experience')} />
-          </Near>
-        </>
-      )}
+      <NeuralNetwork position={[0, 0.6, -9]} nodeSize={0.07} pulses={tier === 'high' ? 150 : 70} />
+      <Near id="about">
+        <CapabilityHub position={at('about')} />
+        <NeuralNetwork position={[-3, 0.5, -30]} layers={[5, 8, 8, 5]} spread={[9, 4, 3]} pulses={30} seed={19} />
+      </Near>
+      <Near id="skills">
+        <SkillCore position={at('skills')} />
+      </Near>
+      <Near id="ml-lab">
+        <FlowStation position={at('ml-lab')} stages={pipelines.ml} color="#3b82f6" variant="ml" />
+      </Near>
+      <Near id="nlp-lab">
+        <FlowStation position={at('nlp-lab')} stages={pipelines.nlp} color="#22d3ee" variant="nlp" />
+      </Near>
+      <Near id="llm-lab">
+        <FlowStation position={at('llm-lab')} stages={pipelines.rag} color="#8b5cf6" variant="rag" />
+      </Near>
+      <Near id="vision-lab">
+        <FlowStation position={at('vision-lab')} stages={pipelines.cv} color="#34d399" variant="cv" />
+      </Near>
+      <Near id="projects">
+        <Suspense fallback={null}>
+          <ProjectModules position={at('projects')} />
+        </Suspense>
+      </Near>
+      <Near id="experience">
+        <DataPath position={at('experience')} />
+      </Near>
       <Near id="contact">
         <Terminal position={at('contact')} />
       </Near>

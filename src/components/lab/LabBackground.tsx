@@ -19,7 +19,6 @@ function hasWebGL() {
 function pickTier(): Tier {
   const w = window.innerWidth;
   const cores = navigator.hardwareConcurrency || 4;
-  if (w < 768) return 'min';
   if (w < 1200 || cores <= 4) return 'mid';
   return 'high';
 }
@@ -29,7 +28,8 @@ export default function LabBackground() {
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    if (!hasWebGL() || new URLSearchParams(location.search).has('no3d')) return;
+    // Phones get the static backdrop: the scene costs seconds of main-thread time on mobile CPUs.
+    if (window.innerWidth < 768 || !hasWebGL() || new URLSearchParams(location.search).has('no3d')) return;
     const start = () =>
       document.fonts.ready.then(() =>
         setCfg({ tier: pickTier(), reduced: window.matchMedia('(prefers-reduced-motion: reduce)').matches })

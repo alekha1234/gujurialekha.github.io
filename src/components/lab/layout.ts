@@ -1,6 +1,6 @@
 import { Vector3 } from 'three';
 
-export type Tier = 'high' | 'mid' | 'min';
+export type Tier = 'high' | 'mid';
 type V3 = [number, number, number];
 
 // One station per HTML section, in page order. `target` is where that section's 3D object

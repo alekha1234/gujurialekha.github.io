@@ -9,19 +9,19 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
+  display: 'optional', // no late font swap, so the centered hero never shifts (CLS)
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
-  display: 'swap',
+  display: 'optional',
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains-mono',
-  display: 'swap',
+  display: 'optional',
 });
 
 export const metadata: Metadata = {
@@ -89,8 +89,8 @@ export const metadata: Metadata = {
     images: ['https://alekha1234.github.io/gujurialekha.github.io/documents/logos/profile-img.png'],
   },
   icons: {
-    icon: `${basePath}/documents/logos/profile-img.png`,
-    apple: `${basePath}/documents/logos/profile-img.png`,
+    icon: `${basePath}/favicon-48.png`,
+    apple: `${basePath}/apple-touch-icon.png`,
   },
 };
 
@@ -192,12 +192,12 @@ export default function RootLayout({
       <head>
         {/* Google Analytics & Tag Manager */}
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src={`https://www.googletagmanager.com/gtag/js?id=${personalData.analytics.googleAnalyticsId}`}
         />
         <Script
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];

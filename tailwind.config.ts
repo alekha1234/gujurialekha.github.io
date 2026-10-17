@@ -25,7 +25,7 @@ const config: Config = {
           text: {
             primary: '#F8FAFC',
             secondary: '#94A3B8',
-            muted: '#64748B',
+            muted: '#7C8BA1', // 4.5:1+ on every lab surface (WCAG AA)
           },
         },
       },

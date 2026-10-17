@@ -9,8 +9,8 @@ export default function Hero() {
   return (
     <section id="top" aria-labelledby="hero-heading" className="relative z-10 min-h-screen flex items-center pt-28 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12">
-        {/* On phones the robot sits in this gap above the text */}
-        <div className="h-[30vh] lg:hidden" aria-hidden="true" />
+        {/* On tablets the robot sits in this gap above the text (phones get no 3D scene) */}
+        <div className="hidden md:block lg:hidden h-[30vh]" aria-hidden="true" />
         <div className="lg:col-span-7 xl:col-span-6 space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass">
             <span className="relative flex w-2 h-2">

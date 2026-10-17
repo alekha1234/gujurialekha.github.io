@@ -80,7 +80,7 @@ function makeMats() {
   };
 }
 
-export default function Robot({ lite = false }: { lite?: boolean }) {
+export default function Robot() {
   const mats = useMemo(makeMats, []);
   const root = useRef<Group>(null);
   const body = useRef<Group>(null);
@@ -177,20 +177,18 @@ export default function Robot({ lite = false }: { lite?: boolean }) {
       <pointLight position={[1.4, 1.6, 1.6]} color="#93c5fd" intensity={3} distance={5} />
 
       {/* Fake volumetric beam from above */}
-      {!lite && (
-        <mesh position={[0, 3.2, -0.2]}>
-          <cylinderGeometry args={[0.35, 1.3, 3.6, 32, 1, true]} />
-          <meshBasicMaterial
-            color="#60a5fa"
-            alphaMap={beamTexture()}
-            transparent
-            opacity={0.08}
-            blending={AdditiveBlending}
-            depthWrite={false}
-            side={DoubleSide}
-          />
-        </mesh>
-      )}
+      <mesh position={[0, 3.2, -0.2]}>
+        <cylinderGeometry args={[0.35, 1.3, 3.6, 32, 1, true]} />
+        <meshBasicMaterial
+          color="#60a5fa"
+          alphaMap={beamTexture()}
+          transparent
+          opacity={0.08}
+          blending={AdditiveBlending}
+          depthWrite={false}
+          side={DoubleSide}
+        />
+      </mesh>
 
       {/* Hover base */}
       <mesh position={[0, 0.06, 0]} rotation={[Math.PI / 2, 0, 0]} material={mats.glow}>
@@ -282,28 +280,26 @@ export default function Robot({ lite = false }: { lite?: boolean }) {
         <torusGeometry args={[1.12, 0.003, 6, 96, Math.PI * 1.1]} />
       </mesh>
 
-      {!lite && (
-        <group ref={hud}>
-          <group position={[-1.05, 0.72, 0.25]} rotation={[0, 0.35, 0]}>
-            <mesh>
-              <planeGeometry args={[0.56, 0.34]} />
-              <meshBasicMaterial color="#0b1b33" transparent opacity={0.55} depthWrite={false} />
-            </mesh>
-            <instancedMesh ref={bars} args={[undefined, undefined, 8]} material={mats.holo}>
-              <boxGeometry args={[0.035, 1, 0.005]} />
-            </instancedMesh>
-          </group>
-          {LABELS.map((l) => (
-            <HoloLabel key={l.text} text={l.text} position={l.pos} height={0.1} />
-          ))}
-          <lineSegments>
-            <bufferGeometry>
-              <bufferAttribute attach="attributes-position" args={[connectors, 3]} />
-            </bufferGeometry>
-            <lineBasicMaterial color="#38bdf8" transparent opacity={0.35} depthWrite={false} />
-          </lineSegments>
+      <group ref={hud}>
+        <group position={[-1.05, 0.72, 0.25]} rotation={[0, 0.35, 0]}>
+          <mesh>
+            <planeGeometry args={[0.56, 0.34]} />
+            <meshBasicMaterial color="#0b1b33" transparent opacity={0.55} depthWrite={false} />
+          </mesh>
+          <instancedMesh ref={bars} args={[undefined, undefined, 8]} material={mats.holo}>
+            <boxGeometry args={[0.035, 1, 0.005]} />
+          </instancedMesh>
         </group>
-      )}
+        {LABELS.map((l) => (
+          <HoloLabel key={l.text} text={l.text} position={l.pos} height={0.1} />
+        ))}
+        <lineSegments>
+          <bufferGeometry>
+            <bufferAttribute attach="attributes-position" args={[connectors, 3]} />
+          </bufferGeometry>
+          <lineBasicMaterial color="#38bdf8" transparent opacity={0.35} depthWrite={false} />
+        </lineSegments>
+      </group>
     </group>
   );
 }

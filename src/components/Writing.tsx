@@ -57,7 +57,6 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
               target="_blank"
               rel="noopener noreferrer"
               className="glass rounded-xl p-6 flex flex-col justify-between hover:glass-glow transition-all duration-300 group focus-ring"
-              aria-label={`Read article: ${post.title} (opens in new tab)`}
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between font-mono text-[11px]">
@@ -85,7 +84,9 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
               </div>
 
               <div className="pt-6 mt-4 border-t border-lab-border/40 flex items-center justify-between font-mono text-xs text-lab-accent">
-                <span>Read Full Article</span>
+                <span>
+                  Read Full Article<span className="sr-only"> (opens in new tab)</span>
+                </span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
               </div>
             </a>

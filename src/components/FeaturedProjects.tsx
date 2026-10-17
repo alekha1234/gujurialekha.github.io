@@ -80,7 +80,7 @@ export default function FeaturedProjects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 font-mono text-[11px] text-lab-text-secondary hover:text-white focus-ring rounded px-1"
-                    aria-label={`${p.title} on GitHub (opens in new tab)`}
+                    aria-label={`Code: ${p.title} on GitHub (opens in new tab)`}
                   >
                     <Github className="w-3 h-3" aria-hidden="true" /> Code
                   </a>
@@ -90,7 +90,7 @@ export default function FeaturedProjects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 font-mono text-[11px] text-lab-green hover:text-white focus-ring rounded px-1"
-                      aria-label={`${p.title} live demo (opens in new tab)`}
+                      aria-label={`Live: ${p.title} demo (opens in new tab)`}
                     >
                       <ExternalLink className="w-3 h-3" aria-hidden="true" /> Live
                     </a>
