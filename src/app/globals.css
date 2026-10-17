@@ -187,3 +187,13 @@ body {
   color: #22d3ee;
   animation: caret-blink 1s steps(1) infinite;
 }
+
+/* Phones run no 3D scene, so the glass blur only softens a static grid; skipping it saves paint time.
+   (content-visibility was tried here too: it broke first-time nav anchor jumps, so it stays out.) */
+@media (max-width: 767px) {
+  .glass {
+    background: linear-gradient(180deg, rgba(17, 26, 46, 0.9), rgba(8, 12, 22, 0.88));
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
