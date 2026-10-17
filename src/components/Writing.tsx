@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { FEED_URL, parseFeed, type BlogPost } from '@/lib/blogFeed';
 import { ArrowUpRight, Calendar, Tag } from 'lucide-react';
+import { LabTag } from '@/components/ui';
 
 // Posts baked in at build time (for crawlers), then refreshed from the live feed so new posts show up without a redeploy.
 export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) {
@@ -24,10 +25,7 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <span className="font-mono text-xs text-lab-accent tracking-widest">[06 // TECHNICAL DISCOURSE]</span>
-              <div className="h-[1px] bg-lab-border flex-1 max-w-xs" aria-hidden="true" />
-            </div>
+            <LabTag>09 // Writing</LabTag>
             <h2 id="writing-heading" className="font-display font-bold text-2xl sm:text-3xl text-lab-text-primary tracking-tight">
               Technical Writing & Tutorials
             </h2>
@@ -59,7 +57,7 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
               className="glass rounded-xl p-6 flex flex-col justify-between hover:glass-glow transition-all duration-300 group focus-ring"
             >
               <div className="space-y-4">
-                <div className="flex items-center justify-between font-mono text-[11px]">
+                <div className="flex items-center justify-between font-mono text-xs">
                   <span className="text-lab-cyan flex items-center space-x-1.5">
                     <Tag className="w-3 h-3" aria-hidden="true" />
                     <span>{post.category}</span>

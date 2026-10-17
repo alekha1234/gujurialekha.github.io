@@ -11,7 +11,7 @@ import { LabSection, LabTag } from '@/components/ui';
 function StageFlow({ stages, color, active }: { stages: string[]; color: string; active?: number }) {
   return (
     <div className="glass rounded-xl p-4">
-      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-2 font-mono text-[10px] sm:text-[11px]">
+      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-2 font-mono text-[11px] sm:text-xs">
         {stages.map((s, i) => (
           <li key={s} className="flex items-center gap-1.5">
             <span
@@ -97,17 +97,16 @@ export default function AILab() {
           The training environment
         </h2>
         <p className="text-sm text-lab-text-secondary leading-relaxed mb-5">
-          Every model I ship follows the same path, from raw sensor or business data to a prediction an operator can act on. The
-          particles in the pipeline are records moving through it.
+          Every model I ship follows the same path, from raw sensor or business data to a prediction an operator can act on.
         </p>
         <StageFlow stages={pipelines.ml} color="#3b82f6" />
-        <h3 className="font-mono text-[11px] tracking-[0.2em] text-lab-text-muted mt-6 mb-2">MODEL CARDS</h3>
+        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">MODEL CARDS</h3>
         <div className="grid gap-2 sm:grid-cols-2">
           {featuredProjects
             .filter((p) => !/Vision|Deep Learning/.test(p.category))
             .map((p) => (
               <div key={p.id} className="glass rounded-lg p-3">
-                <p className="font-mono text-[10px] text-lab-accent">{p.category.toUpperCase()}</p>
+                <p className="font-mono text-[11px] text-lab-accent">{p.category.toUpperCase()}</p>
                 <p className="text-sm font-semibold mt-0.5">{p.title.split(':')[0]}</p>
                 <p className="text-xs text-lab-text-secondary mt-1 line-clamp-3">{p.caseStudy?.model}</p>
               </div>
@@ -129,7 +128,7 @@ export default function AILab() {
           <div className="flex flex-wrap gap-2" aria-hidden="true">
             {TOKENS.map((t) => (
               <div key={t} className={`rounded-md border px-2 py-1.5 transition-colors ${nlpStep >= 1 ? 'border-lab-violet/50' : 'border-white/10'}`}>
-                <p className={`font-mono text-[11px] ${nlpStep === 0 ? 'text-lab-cyan' : 'text-lab-text-secondary'}`}>{t}</p>
+                <p className={`font-mono text-xs ${nlpStep === 0 ? 'text-lab-cyan' : 'text-lab-text-secondary'}`}>{t}</p>
                 <div className={`flex items-end gap-[2px] h-5 mt-1 transition-opacity ${nlpStep >= 1 ? 'opacity-100' : 'opacity-20'}`}>
                   {Array.from({ length: 6 }, (_, d) => (
                     <span key={d} className="w-1 bg-lab-violet rounded-sm" style={{ height: `${vec(t, d)}%` }} />
@@ -144,7 +143,7 @@ export default function AILab() {
             {NLP_STEPS[nlpStep]}
           </p>
         </div>
-        <h3 className="font-mono text-[11px] tracking-[0.2em] text-lab-text-muted mt-6 mb-2">IN MY WORK</h3>
+        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">IN MY WORK</h3>
         <WorkLink title={archived('nlp-suite').title} sub={archived('nlp-suite').description} href={archived('nlp-suite').githubUrl} />
       </LabSection>
 
@@ -159,7 +158,7 @@ export default function AILab() {
           to real data. It is the pattern behind the alert summaries I deployed for city operators.
         </p>
         <StageFlow stages={pipelines.rag} color="#8b5cf6" />
-        <h3 className="font-mono text-[11px] tracking-[0.2em] text-lab-text-muted mt-6 mb-2">IN PRODUCTION · TRINITY MOBILITY</h3>
+        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">IN PRODUCTION · TRINITY MOBILITY</h3>
         <ul className="space-y-2">
           {genAiWork.map((h) => {
             const [head, ...rest] = h.split(': ');
@@ -192,7 +191,7 @@ export default function AILab() {
           localizes it with bounding boxes.
         </p>
         <StageFlow stages={pipelines.cv} color="#34d399" />
-        <h3 className="font-mono text-[11px] tracking-[0.2em] text-lab-text-muted mt-6 mb-2">VISION PROJECTS</h3>
+        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-6 mb-2">VISION PROJECTS</h3>
         <div className="grid gap-2 sm:grid-cols-2">
           {['real-time-face-mask-detection', 'jellyfish-marine-classification'].map((id) => (
             <WorkLink key={id} internal title={project(id).title} sub={project(id).subtitle} href={`/projects/${project(id).slug}/`} />

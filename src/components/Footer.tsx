@@ -1,22 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { personalData } from '@/data/personal';
 import { ArrowUp, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 export default function Footer() {
-  const [utcTime, setUtcTime] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setUtcTime(now.toUTCString().replace('GMT', 'UTC'));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -31,9 +19,9 @@ export default function Footer() {
               <span className="font-display font-bold text-sm text-lab-text-primary">
                 ALEKHA GUJURI
               </span>
-              <span className="text-lab-accent text-[11px] font-semibold">// AI_ML_ENGINEER</span>
+              <span className="text-lab-accent text-xs font-semibold">AI / ML Engineer</span>
             </div>
-            <p className="text-[11px] text-lab-text-muted">
+            <p className="text-xs text-lab-text-muted">
               Bengaluru, Karnataka, India • Open for Applied AI & Data Science
             </p>
           </div>
@@ -88,15 +76,9 @@ export default function Footer() {
           </button>
         </div>
 
-        {/* Bottom Metadata & Telemetry */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-lab-text-muted gap-4">
-          <div className="flex items-center space-x-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-lab-accent" />
-            <span>UTC_CLOCK: {utcTime || 'SYNCHRONIZING...'}</span>
-          </div>
-
+        <div className="pt-6 text-center text-xs text-lab-text-muted">
           <div>
-            Licensed under Apache-2.0 • © {new Date().getFullYear()} Alekha Gujuri.
+            © {new Date().getFullYear()} Alekha Gujuri
           </div>
         </div>
       </div>

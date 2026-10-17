@@ -31,6 +31,9 @@ export interface ProjectItem {
   highlights: string[];
 }
 
+// Work built at Trinity Mobility has no public repo; its githubUrl is just the profile page.
+export const hasRepo = (url: string) => new URL(url).pathname.split('/').filter(Boolean).length > 1;
+
 export const featuredProjects: ProjectItem[] = [
   {
     id: "smart-irrigation-pipeline",

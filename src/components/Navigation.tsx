@@ -61,13 +61,13 @@ export default function Navigation() {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7" aria-label="Main Navigation">
+            <nav className="hidden lg:flex items-center space-x-3 xl:space-x-7" aria-label="Main Navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   {...(link.external && ext)}
-                  className="inline-flex items-center gap-1 font-mono text-[11px] uppercase text-lab-text-secondary hover:text-white transition-colors tracking-[0.18em] rounded focus-ring px-1 py-0.5"
+                  className="inline-flex items-center gap-1 whitespace-nowrap font-mono text-[11px] uppercase text-lab-text-secondary hover:text-white transition-colors tracking-[0.18em] rounded focus-ring px-1 py-0.5"
                 >
                   {link.label}
                   {link.external && <ArrowUpRight className="w-3 h-3" aria-label="(opens in new tab)" />}

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { ProjectItem } from '@/data/projects';
+import { hasRepo, ProjectItem } from '@/data/projects';
 import {
   X,
   Github,
@@ -142,10 +142,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="grid grid-cols-3 gap-3 p-4 rounded-lg bg-lab-bg border border-lab-border font-mono">
             {project.metrics.map((metric, idx) => (
               <div key={idx} className="space-y-0.5">
-                <div className="text-[10px] text-lab-text-muted uppercase">{metric.label}</div>
+                <div className="text-[11px] text-lab-text-muted uppercase">{metric.label}</div>
                 <div className="text-lg font-bold text-lab-accent">{metric.value}</div>
                 {metric.description && (
-                  <div className="text-[10px] text-lab-text-secondary truncate">{metric.description}</div>
+                  <div className="text-[11px] text-lab-text-secondary truncate">{metric.description}</div>
                 )}
               </div>
             ))}
@@ -175,7 +175,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                           {step.title}
                         </h5>
                       </div>
-                      <span className="font-mono text-[9px] px-2 py-0.5 rounded bg-lab-surface text-lab-text-muted border border-lab-border/50">
+                      <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-lab-surface text-lab-text-muted border border-lab-border/50">
                         {step.tag}
                       </span>
                     </div>
@@ -217,15 +217,19 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
 
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 px-4 py-2.5 rounded font-mono text-xs border border-lab-border text-lab-text-secondary hover:text-lab-text-primary hover:bg-lab-elevated transition-colors"
-              >
-                <Github className="w-4 h-4" />
-                <span>GitHub Source</span>
-              </a>
+              {hasRepo(project.githubUrl) ? (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 px-4 py-2.5 rounded font-mono text-xs border border-lab-border text-lab-text-secondary hover:text-lab-text-primary hover:bg-lab-elevated transition-colors"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>GitHub Source</span>
+                </a>
+              ) : (
+                <span className="font-mono text-xs text-lab-text-muted">Proprietary · built at Trinity Mobility</span>
+              )}
             </div>
 
             <button
@@ -233,7 +237,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               onClick={onClose}
               className="px-4 py-2 rounded font-mono text-xs border border-lab-border text-lab-text-secondary hover:text-lab-text-primary hover:bg-lab-elevated transition-colors"
             >
-              Close Inspector
+              Close
             </button>
           </div>
         </div>

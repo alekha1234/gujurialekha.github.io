@@ -41,8 +41,7 @@ export default function Timeline() {
         Experience &amp; education
       </h2>
       <p className="text-sm text-lab-text-secondary mb-5">
-        Each node on the path is a milestone, oldest first. Select one to
-        inspect it.
+        Each milestone, newest first. Select one to see the details.
       </p>
 
       <div
@@ -50,7 +49,7 @@ export default function Timeline() {
         aria-label="Career milestones"
         className="relative flex flex-wrap gap-1.5 mb-4"
       >
-        {milestones.map((x) => (
+        {[...milestones].reverse().map((x) => (
           <button
             key={x.id}
             role="tab"
@@ -58,7 +57,7 @@ export default function Timeline() {
             aria-selected={sel === x.id}
             aria-controls={`panel-${x.id}`}
             onClick={() => setSel(x.id)}
-            className={`inline-flex items-center gap-1.5 font-mono text-[10px] px-2 py-1.5 rounded-md border transition-all focus-ring ${
+            className={`inline-flex items-center gap-1.5 font-mono text-[11px] px-2 py-1.5 rounded-md border transition-all focus-ring ${
               sel === x.id
                 ? "border-lab-accent/60 bg-lab-accent/10 text-white"
                 : "border-white/10 text-lab-text-secondary hover:border-white/25"
@@ -89,11 +88,11 @@ export default function Timeline() {
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span
-                className={`font-mono text-[10px] tracking-widest ${k.text}`}
+                className={`font-mono text-[11px] tracking-widest ${k.text}`}
               >
                 {k.label}
               </span>
-              <span className="font-mono text-[11px] text-lab-text-muted">
+              <span className="font-mono text-xs text-lab-text-muted">
                 {m.period}
               </span>
             </div>
@@ -135,7 +134,7 @@ export default function Timeline() {
                 {m.technologies.map((t) => (
                   <li
                     key={t}
-                    className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white/5 text-lab-text-secondary"
+                    className="font-mono text-[11px] px-1.5 py-0.5 rounded bg-white/5 text-lab-text-secondary"
                   >
                     {t}
                   </li>
@@ -147,7 +146,7 @@ export default function Timeline() {
                 href={m.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-mono text-[11px] text-lab-cyan hover:text-white focus-ring rounded"
+                className="inline-flex items-center gap-1 font-mono text-xs text-lab-cyan hover:text-white focus-ring rounded"
               >
                 {m.org} website{" "}
                 <ArrowUpRight className="w-3 h-3" aria-hidden="true" />

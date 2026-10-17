@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { moreProjectsData, ArchivedProject } from '@/data/projects';
 import { Github, ArrowUpRight, Search, FolderGit2 } from 'lucide-react';
+import { LabTag } from '@/components/ui';
 
 export default function MoreProjects() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,10 +30,7 @@ export default function MoreProjects() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <span className="font-mono text-xs text-lab-cyan tracking-widest">[ARCHIVE // EXPLORATORY & BENCHMARKS]</span>
-              <div className="h-[1px] bg-lab-border flex-1 max-w-xs" />
-            </div>
+            <LabTag>07.b // Archive</LabTag>
             <h3 className="font-display font-bold text-2xl sm:text-3xl text-lab-text-primary tracking-tight">
               More Projects & Experimental Repositories
             </h3>
@@ -64,7 +62,7 @@ export default function MoreProjects() {
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] text-lab-cyan px-2 py-0.5 rounded bg-lab-bg border border-lab-border">
+                  <span className="font-mono text-[11px] text-lab-cyan px-2 py-0.5 rounded bg-lab-bg border border-lab-border">
                     {project.category}
                   </span>
                   <a
@@ -92,7 +90,7 @@ export default function MoreProjects() {
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-lab-elevated text-lab-text-muted"
+                      className="font-mono text-[11px] px-1.5 py-0.5 rounded bg-lab-elevated text-lab-text-muted"
                     >
                       {tech}
                     </span>
@@ -103,7 +101,7 @@ export default function MoreProjects() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1 font-mono text-[11px] text-lab-accent hover:text-blue-300 font-semibold transition-colors"
+                  className="inline-flex items-center space-x-1 font-mono text-xs text-lab-accent hover:text-blue-300 font-semibold transition-colors"
                 >
                   <span>Code</span>
                   <ArrowUpRight className="w-3 h-3" />

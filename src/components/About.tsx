@@ -66,7 +66,7 @@ export default function About() {
             />
             <div>
               <p className="font-display font-semibold text-lg">{personalData.name}</p>
-              <p className="font-mono text-[11px] text-lab-cyan">{personalData.role.toUpperCase()} · VERIFIED_PROFILE</p>
+              <p className="font-mono text-xs text-lab-cyan">{personalData.role.toUpperCase()}</p>
             </div>
           </div>
 
@@ -76,7 +76,7 @@ export default function About() {
             ))}
           </div>
 
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 pt-4 border-t border-white/5 font-mono text-[11px]">
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 pt-4 border-t border-white/5 font-mono text-xs">
             {facts.map((f) => (
               <div key={f.k}>
                 <dt className="text-lab-text-muted">{f.k}</dt>
@@ -86,7 +86,7 @@ export default function About() {
           </dl>
         </div>
 
-        <h3 className="font-mono text-[11px] tracking-[0.2em] text-lab-text-muted mt-8 mb-3">AI CAPABILITY MODULES</h3>
+        <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-8 mb-3">AI CAPABILITY MODULES</h3>
         <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {capabilities.map((c) => (
             <li key={c.id}>
@@ -99,7 +99,7 @@ export default function About() {
                 aria-describedby={`cap-${c.id}`}
                 className={`w-full text-left rounded-lg p-3 glass transition-all focus-ring ${active === c.id ? 'glass-glow' : ''}`}
               >
-                <span className="block font-mono text-[10px] text-lab-cyan">{c.short}</span>
+                <span className="block font-mono text-[11px] text-lab-cyan">{c.short}</span>
                 <span className="block text-xs font-semibold text-lab-text-primary">{c.title}</span>
               </button>
             </li>
@@ -116,7 +116,7 @@ export default function About() {
               {c.evidence}
             </p>
           ))}
-          {!active && <p className="text-xs text-lab-text-muted font-mono">Hover a module to trace it to real work.</p>}
+          {!active && <p className="text-xs text-lab-text-muted font-mono">Select a module to trace it to real work.</p>}
         </div>
       </LabSection>
 
@@ -129,12 +129,12 @@ export default function About() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((p, i) => (
               <article key={p.title} className="glass rounded-xl p-5 flex flex-col">
-                <span className="font-mono text-[10px] text-lab-accent">PILLAR_0{i + 1}</span>
+                <span className="font-mono text-[11px] text-lab-accent">PILLAR_0{i + 1}</span>
                 <h3 className="font-display font-semibold text-base mt-1 mb-2">{p.title}</h3>
                 <p className="text-xs text-lab-text-secondary leading-relaxed flex-1">{p.description}</p>
                 <ul className="flex flex-wrap gap-1 mt-4">
                   {p.tools.map((t) => (
-                    <li key={t} className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white/5 text-lab-text-secondary">
+                    <li key={t} className="font-mono text-[11px] px-1.5 py-0.5 rounded bg-white/5 text-lab-text-secondary">
                       {t}
                     </li>
                   ))}

@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { featuredProjects, ProjectItem } from '@/data/projects';
+import { featuredProjects, hasRepo, ProjectItem } from '@/data/projects';
 import { getAssetPath } from '@/utils/assets';
 import {
   ArrowLeft,
@@ -172,7 +172,7 @@ export default function ProjectPage({ params }: PageProps) {
         '@type': 'SoftwareSourceCode',
         '@id': `${canonicalUrl}#code`,
         name: project.title,
-        codeRepository: project.githubUrl,
+        ...(hasRepo(project.githubUrl) && { codeRepository: project.githubUrl }),
         programmingLanguage: 'Python',
         author: {
           '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
@@ -247,7 +247,7 @@ export default function ProjectPage({ params }: PageProps) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 rounded-xl bg-lab-surface border border-lab-border font-mono">
             {project.metrics.map((metric, idx) => (
               <div key={idx} className="space-y-1">
-                <div className="text-[11px] text-lab-text-muted uppercase">{metric.label}</div>
+                <div className="text-xs text-lab-text-muted uppercase">{metric.label}</div>
                 <div className="text-2xl font-bold text-lab-accent">{metric.value}</div>
                 {metric.description && (
                   <div className="text-xs text-lab-text-secondary">{metric.description}</div>
@@ -307,7 +307,7 @@ export default function ProjectPage({ params }: PageProps) {
                         {step.title}
                       </h3>
                     </div>
-                    <span className="font-mono text-[10px] text-lab-text-muted hidden sm:inline-block">
+                    <span className="font-mono text-[11px] text-lab-text-muted hidden sm:inline-block">
                       {step.tag}
                     </span>
                   </div>
@@ -338,11 +338,12 @@ export default function ProjectPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Action Call to Action */}
+        {/* Action Call to Action (only when there's public source to open) */}
+        {hasRepo(project.githubUrl) && (
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-xl border border-lab-border bg-lab-surface/90">
           <div className="space-y-1 text-center sm:text-left">
             <h3 className="font-display font-bold text-lg text-lab-text-primary">
-              Ready to Inspect the Source Code?
+              Want to see the source code?
             </h3>
             <p className="text-xs font-mono text-lab-text-muted">
               Access the complete Jupyter notebook, preprocessing routines, and evaluation logs.
@@ -360,6 +361,7 @@ export default function ProjectPage({ params }: PageProps) {
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
+        )}
 
         {/* Directional Internal Link Conduits: Previous / Next Case Study */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-lab-border">
@@ -367,7 +369,7 @@ export default function ProjectPage({ params }: PageProps) {
             href={`/projects/${prevProject.slug}/`}
             className="group flex flex-col p-4 rounded-xl border border-lab-border bg-lab-surface/60 hover:border-lab-accent/60 transition-all"
           >
-            <span className="font-mono text-[10px] text-lab-text-muted uppercase flex items-center space-x-1 group-hover:text-lab-accent">
+            <span className="font-mono text-[11px] text-lab-text-muted uppercase flex items-center space-x-1 group-hover:text-lab-accent">
               <ArrowLeft className="w-3 h-3" />
               <span>Previous Case Study</span>
             </span>
@@ -380,7 +382,7 @@ export default function ProjectPage({ params }: PageProps) {
             href={`/projects/${nextProject.slug}/`}
             className="group flex flex-col items-end text-right p-4 rounded-xl border border-lab-border bg-lab-surface/60 hover:border-lab-accent/60 transition-all"
           >
-            <span className="font-mono text-[10px] text-lab-text-muted uppercase flex items-center space-x-1 group-hover:text-lab-accent">
+            <span className="font-mono text-[11px] text-lab-text-muted uppercase flex items-center space-x-1 group-hover:text-lab-accent">
               <span>Next Case Study</span>
               <ArrowUpRight className="w-3 h-3" />
             </span>

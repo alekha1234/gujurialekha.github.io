@@ -48,7 +48,7 @@ export default function ContactTerminal() {
   return (
     <div className="glass rounded-xl overflow-hidden">
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/5">
-        <span className="font-mono text-[11px] text-lab-text-muted">ai_lab://terminal</span>
+        <span className="font-mono text-xs text-lab-text-muted">ai_lab://terminal</span>
         <span className={`w-2 h-2 rounded-full ${lines.length ? 'bg-lab-green' : 'bg-lab-text-muted'}`} aria-hidden="true" />
       </div>
       <div className="px-4 py-3 font-mono text-xs min-h-[172px] space-y-1" role="log" aria-live="polite">

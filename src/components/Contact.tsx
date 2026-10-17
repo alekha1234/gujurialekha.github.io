@@ -158,7 +158,7 @@ export default function Contact() {
           <div className="lg:col-span-6 xl:col-span-5 space-y-6">
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <span className="font-mono text-[11px] text-lab-cyan tracking-[0.2em]">09 // AI TERMINAL</span>
+                <span className="font-mono text-xs text-lab-cyan tracking-[0.2em]">10 // CONTACT</span>
                 <div className="h-[1px] bg-lab-border flex-1 max-w-xs" aria-hidden="true" />
               </div>
               <h2 id="contact-heading" className="font-display font-bold text-3xl sm:text-4xl text-lab-text-primary tracking-tight">
@@ -169,8 +169,6 @@ export default function Contact() {
               </p>
             </div>
 
-            <ContactTerminal />
-
             {/* Direct Coordinates Card */}
             <div className="glass rounded-xl p-6 space-y-4 font-mono text-xs">
               <div className="flex items-center justify-between border-b border-lab-border pb-3">
@@ -178,7 +176,6 @@ export default function Contact() {
                   <Terminal className="w-4 h-4 text-lab-accent" aria-hidden="true" />
                   <span>Contact details</span>
                 </span>
-                <span className="text-lab-accent text-[10px] font-semibold">VERIFIED</span>
               </div>
 
               <div className="space-y-3">
@@ -252,35 +249,34 @@ export default function Contact() {
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" aria-hidden="true" />
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" aria-hidden="true" />
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" aria-hidden="true" />
-                  <span className="font-mono text-xs text-lab-text-muted ml-2">secure_dispatch_channel.sh</span>
+                  <span className="font-mono text-xs text-lab-text-muted ml-2">Send a message</span>
                 </div>
-                <span className="font-mono text-[10px] text-lab-accent font-semibold">256-BIT SSL</span>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <FormField label="YOUR_NAME" id="contact-name" required error={errors.name}>
+                  <FormField label="Name" id="contact-name" required error={errors.name}>
                     <Input
                       type="text"
                       autoComplete="name"
-                      placeholder="e.g. Dr. Jane Doe"
+                      placeholder="Your name"
                       value={formData.name}
                       onChange={(e) => handleFieldChange('name', e.target.value)}
                     />
                   </FormField>
 
-                  <FormField label="EMAIL_ADDRESS" id="contact-email" required error={errors.email}>
+                  <FormField label="Email" id="contact-email" required error={errors.email}>
                     <Input
                       type="email"
                       autoComplete="email"
-                      placeholder="jane@organization.com"
+                      placeholder="you@company.com"
                       value={formData.email}
                       onChange={(e) => handleFieldChange('email', e.target.value)}
                     />
                   </FormField>
                 </div>
 
-                <FormField label="PHONE_NUMBER" id="contact-phone" optionalLabel="Optional" error={errors.phone}>
+                <FormField label="Phone" id="contact-phone" optionalLabel="Optional" error={errors.phone}>
                   <Input
                     type="tel"
                     autoComplete="tel"
@@ -290,10 +286,10 @@ export default function Contact() {
                   />
                 </FormField>
 
-                <FormField label="PROJECT_OR_INQUIRY_BRIEF" id="contact-message" required error={errors.message}>
+                <FormField label="Message" id="contact-message" required error={errors.message}>
                   <Textarea
                     rows={4}
-                    placeholder="Describe your initiative, dataset challenge, or role details..."
+                    placeholder="The role, project, or question you have in mind..."
                     value={formData.message}
                     onChange={(e) => handleFieldChange('message', e.target.value)}
                   />
@@ -318,6 +314,11 @@ export default function Contact() {
                   {status === 'submitting' ? 'Sending...' : 'Send message'}
                 </Button>
               </form>
+            </div>
+
+            {/* Lights up the 3D terminal next to it, so desktop only (phones have no 3D scene) */}
+            <div className="hidden lg:block mt-6">
+              <ContactTerminal />
             </div>
           </div>
         </div>
@@ -352,7 +353,7 @@ export default function Contact() {
             </div>
 
             <div className="space-y-1">
-              <span className="font-mono text-[9px] text-lab-accent tracking-widest uppercase font-semibold">
+              <span className="font-mono text-[11px] text-lab-accent tracking-widest uppercase font-semibold">
                 Thank you
               </span>
               <h3 id="success-popup-title" className="font-display font-bold text-base text-lab-text-primary">
@@ -368,7 +369,7 @@ export default function Contact() {
               <div className="h-full bg-lab-accent animate-shrink2s" />
             </div>
 
-            <div className="pt-1 flex items-center justify-between font-mono text-[10px] text-lab-text-muted">
+            <div className="pt-1 flex items-center justify-between font-mono text-[11px] text-lab-text-muted">
               <span>Auto-closing in 2s</span>
               <button
                 type="button"

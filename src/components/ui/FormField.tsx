@@ -50,19 +50,19 @@ export function FormField({
         {label}{' '}
         {required && <span className="text-lab-accent" aria-hidden="true">*</span>}
         {required && <span className="sr-only">(required)</span>}
-        {optionalLabel && <span className="text-[10px] text-lab-text-muted font-normal">({optionalLabel})</span>}
+        {optionalLabel && <span className="text-[11px] text-lab-text-muted font-normal">({optionalLabel})</span>}
       </label>
 
       {clonedChild}
 
       {error && (
-        <p id={errorId} role="alert" className="font-mono text-[11px] text-red-400">
+        <p id={errorId} role="alert" className="font-mono text-xs text-red-400">
           {error}
         </p>
       )}
 
       {helperText && !error && (
-        <p id={helperId} className="font-mono text-[10px] text-lab-text-muted">
+        <p id={helperId} className="font-mono text-[11px] text-lab-text-muted">
           {helperText}
         </p>
       )}

@@ -17,7 +17,7 @@ export default function Hero() {
               <span className="absolute inset-0 rounded-full bg-lab-green animate-ping opacity-60" />
               <span className="relative w-2 h-2 rounded-full bg-lab-green" />
             </span>
-            <span className="font-mono text-[10px] sm:text-[11px] text-lab-text-secondary uppercase tracking-wider">
+            <span className="font-mono text-[11px] text-lab-text-secondary uppercase tracking-wider">
               {personalData.status}
             </span>
           </div>
@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="space-y-3">
             <p className="font-mono text-xs text-lab-cyan tracking-[0.3em]">AI RESEARCH LAB // ONLINE</p>
             <h1 id="hero-heading" className="font-display font-bold tracking-tight leading-[1.02]">
-              <span className="block text-4xl sm:text-6xl xl:text-7xl text-lab-text-primary">HELLO, I&apos;M ALEKHA</span>
+              <span className="block text-4xl sm:text-6xl xl:text-7xl text-lab-text-primary">I&apos;M ALEKHA GUJURI</span>
               <span className="block mt-3 text-2xl sm:text-4xl xl:text-5xl text-gradient-lab">AI / ML ENGINEER</span>
               <span className="sr-only"> — {personalData.formalName}, {personalData.role} &amp; Machine Learning Engineer</span>
             </h1>
@@ -36,9 +36,10 @@ export default function Hero() {
 
           <p className="text-base sm:text-lg text-lab-text-secondary leading-relaxed max-w-xl">{personalData.shortBio}</p>
 
-          <ul className="flex flex-wrap gap-2" aria-label="Focus areas">
+          {/* Hidden on phones so the call-to-action buttons stay on the first screen; Skills covers these */}
+          <ul className="hidden sm:flex flex-wrap gap-2" aria-label="Focus areas">
             {personalData.subRoles.map((r) => (
-              <li key={r} className="font-mono text-[11px] px-2.5 py-1 rounded-full border border-lab-accent/25 bg-lab-accent/5 text-blue-200">
+              <li key={r} className="font-mono text-xs px-2.5 py-1 rounded-full border border-lab-accent/25 bg-lab-accent/5 text-blue-200">
                 {r}
               </li>
             ))}
@@ -46,24 +47,24 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-3 pt-2">
             <a
-              href="#ai-lab"
+              href="#projects"
               className="group inline-flex items-center gap-2 px-5 py-3 rounded-md bg-blue-600 text-white font-mono text-xs font-semibold tracking-wider shadow-lab-glow hover:bg-blue-500 transition-colors focus-ring"
             >
-              <FlaskConical className="w-4 h-4" aria-hidden="true" />
-              EXPLORE MY AI LAB
+              View projects
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </a>
             <a
-              href="#projects"
+              href="#contact"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-md glass font-mono text-xs font-semibold tracking-wider text-lab-text-primary hover:glass-glow transition-shadow focus-ring"
             >
-              VIEW PROJECTS
+              Contact me
             </a>
             <a
-              href="#contact"
+              href="#ai-lab"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-lab-cyan/40 font-mono text-xs font-semibold tracking-wider text-lab-cyan hover:bg-lab-cyan/10 transition-colors focus-ring"
             >
-              CONTACT ME
+              <FlaskConical className="w-4 h-4" aria-hidden="true" />
+              Explore my AI lab
             </a>
           </div>
 
@@ -81,7 +82,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <a href="#about" className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 font-mono text-[10px] tracking-[0.3em] text-lab-text-muted hover:text-lab-text-secondary focus-ring rounded">
+      <a href="#about" className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 font-mono text-[11px] tracking-[0.3em] text-lab-text-muted hover:text-lab-text-secondary focus-ring rounded">
         SCROLL TO ENTER
         <span className="w-px h-10 bg-gradient-to-b from-lab-cyan to-transparent" aria-hidden="true" />
       </a>

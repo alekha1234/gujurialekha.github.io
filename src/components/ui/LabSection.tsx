@@ -28,7 +28,7 @@ export function LabSection({ id, labelledBy, side = 'left', className = '', chil
 export function LabTag({ children, color = 'text-lab-cyan' }: { children: React.ReactNode; color?: string }) {
   return (
     <div className="flex items-center gap-3 mb-3">
-      <span className={`font-mono text-[11px] tracking-[0.2em] uppercase ${color}`}>{children}</span>
+      <span className={`font-mono text-xs tracking-[0.2em] uppercase ${color}`}>{children}</span>
       <span className="h-px flex-1 max-w-[120px] bg-gradient-to-r from-lab-accent/60 to-transparent" aria-hidden="true" />
     </div>
   );

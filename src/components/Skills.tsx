@@ -23,13 +23,13 @@ export default function Skills() {
         Technical skills
       </h2>
       <p className="text-sm text-lab-text-secondary mb-6">
-        Every node orbiting the core is a skill I use. Hover or focus one to light up its connection.
+        Grouped by area. Brighter chips are the tools I use most in production.
       </p>
 
       <div className="space-y-5">
         {skillsData.map((cat, ci) => (
           <div key={cat.code}>
-            <h3 className="flex items-center gap-2 font-mono text-[11px] tracking-wider text-lab-text-muted mb-2">
+            <h3 className="flex items-center gap-2 font-mono text-xs tracking-wider text-lab-text-muted mb-2">
               <span className={`w-2 h-2 rounded-full ${DOT[ci]}`} aria-hidden="true" />
               {cat.title}
             </h3>
@@ -42,7 +42,7 @@ export default function Skills() {
                     onMouseLeave={off}
                     onFocus={on(s.name)}
                     onBlur={off}
-                    className={`font-mono text-[11px] px-2.5 py-1 rounded-md border transition-all focus-ring ${
+                    className={`font-mono text-xs px-2.5 py-1 rounded-md border transition-all focus-ring ${
                       active === s.name
                         ? 'border-lab-accent bg-lab-accent/15 text-white shadow-lab-glow'
                         : s.highlight

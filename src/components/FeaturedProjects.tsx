@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { featuredProjects, ProjectItem } from '@/data/projects';
+import { featuredProjects, hasRepo, ProjectItem } from '@/data/projects';
 import { getAssetPath } from '@/utils/assets';
 import { setLab, useLab } from '@/lib/labStore';
 import { LabSection, LabTag } from '@/components/ui';
@@ -20,7 +20,7 @@ export default function FeaturedProjects() {
           Featured case studies
         </h2>
         <p className="text-sm text-lab-text-secondary mb-6">
-          Hover a module to activate it in the lab. Select it to open the full case study.
+          Select a project for the full case study.
         </p>
 
         <ul className="space-y-2.5">
@@ -47,7 +47,7 @@ export default function FeaturedProjects() {
                     className={`w-20 h-16 sm:w-24 sm:h-[72px] rounded-md object-cover shrink-0 border border-white/10 transition-all ${on ? 'brightness-110' : 'brightness-75 saturate-50'}`}
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="font-mono text-[10px] text-lab-cyan truncate">{p.category.toUpperCase()}</p>
+                    <p className="font-mono text-[11px] text-lab-cyan truncate">{p.category.toUpperCase()}</p>
                     <h3 className="text-sm sm:text-[15px] font-semibold leading-snug">
                       <button type="button" onClick={() => setOpen(p)} className="text-left hover:text-blue-300 focus-ring rounded">
                         {p.title}
@@ -60,7 +60,7 @@ export default function FeaturedProjects() {
                   {p.technologies.map((t) => (
                     <span
                       key={t}
-                      className={`font-mono text-[10px] px-1.5 py-0.5 rounded border transition-colors ${
+                      className={`font-mono text-[11px] px-1.5 py-0.5 rounded border transition-colors ${
                         on ? 'border-lab-accent/40 bg-lab-accent/10 text-blue-100' : 'border-transparent bg-white/5 text-lab-text-muted'
                       }`}
                     >
@@ -71,25 +71,29 @@ export default function FeaturedProjects() {
                   <button
                     type="button"
                     onClick={() => setOpen(p)}
-                    className="inline-flex items-center gap-1 font-mono text-[11px] text-lab-cyan hover:text-white focus-ring rounded px-1"
+                    className="inline-flex items-center gap-1 font-mono text-xs text-lab-cyan hover:text-white focus-ring rounded px-1"
                   >
-                    <Maximize2 className="w-3 h-3" aria-hidden="true" /> Inspect
+                    <Maximize2 className="w-3 h-3" aria-hidden="true" /> Details
                   </button>
-                  <a
-                    href={p.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-mono text-[11px] text-lab-text-secondary hover:text-white focus-ring rounded px-1"
-                    aria-label={`Code: ${p.title} on GitHub (opens in new tab)`}
-                  >
-                    <Github className="w-3 h-3" aria-hidden="true" /> Code
-                  </a>
+                  {hasRepo(p.githubUrl) ? (
+                    <a
+                      href={p.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-mono text-xs text-lab-text-secondary hover:text-white focus-ring rounded px-1"
+                      aria-label={`Code: ${p.title} on GitHub (opens in new tab)`}
+                    >
+                      <Github className="w-3 h-3" aria-hidden="true" /> Code
+                    </a>
+                  ) : (
+                    <span className="font-mono text-xs text-lab-text-muted px-1">Proprietary</span>
+                  )}
                   {p.liveUrl && (
                     <a
                       href={p.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 font-mono text-[11px] text-lab-green hover:text-white focus-ring rounded px-1"
+                      className="inline-flex items-center gap-1 font-mono text-xs text-lab-green hover:text-white focus-ring rounded px-1"
                       aria-label={`Live: ${p.title} demo (opens in new tab)`}
                     >
                       <ExternalLink className="w-3 h-3" aria-hidden="true" /> Live
