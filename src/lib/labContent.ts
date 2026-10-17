@@ -3,7 +3,7 @@
 import { experienceData } from '@/data/experience';
 import { educationData, certificationsData } from '@/data/education';
 
-export interface Capability {
+interface Capability {
   id: string;
   short: string;
   title: string;
@@ -56,9 +56,9 @@ export const capabilities: Capability[] = [
   },
 ];
 
-export type MilestoneKind = 'work' | 'education' | 'cert';
+type MilestoneKind = 'work' | 'education' | 'cert';
 
-export interface Milestone {
+interface Milestone {
   id: string;
   kind: MilestoneKind;
   title: string;

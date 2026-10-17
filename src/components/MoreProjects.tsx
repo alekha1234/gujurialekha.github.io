@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { moreProjectsData, ArchivedProject } from '@/data/projects';
-import { Github, ArrowUpRight, Search, FolderGit2 } from 'lucide-react';
+import { moreProjectsData } from '@/data/projects';
+import { ArrowUpRight, Search, FolderGit2 } from 'lucide-react';
 import { LabTag } from '@/components/ui';
 
 export default function MoreProjects() {

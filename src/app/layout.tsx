@@ -188,7 +188,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         {/* Google Analytics, loaded on the first interaction so its 175 KB never competes with page load.
             ponytail: visitors who leave without scrolling/tapping aren't counted; load on idle if that matters. */}

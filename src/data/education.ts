@@ -1,4 +1,4 @@
-export interface EducationItem {
+interface EducationItem {
   degree: string;
   institution: string;
   location?: string;
@@ -8,7 +8,7 @@ export interface EducationItem {
   grade?: string;
 }
 
-export interface CertificationItem {
+interface CertificationItem {
   title: string;
   issuer: string;
   date: string;

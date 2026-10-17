@@ -2,18 +2,16 @@
 
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Billboard } from '@react-three/drei';
 import { Color, Mesh, MeshBasicMaterial } from 'three';
-import { labelTexture, LabelOpts } from './textures';
+import { labelTexture } from './textures';
 
-// Emissive colour pushed above 1.0 so it crosses the bloom threshold.
+// Emissive colour pushed above 1.0 for a bright, un-tonemapped glow.
 export const glow = (hex: string, k = 2.2) => new Color(hex).multiplyScalar(k);
 
-interface Props extends LabelOpts {
+interface Props {
   text: string;
   position?: [number, number, number];
   height?: number;
-  billboard?: boolean;
   flicker?: boolean;
   opacity?: number;
 }
@@ -22,12 +20,10 @@ export default function HoloLabel({
   text,
   position = [0, 0, 0],
   height = 0.14,
-  billboard = false,
   flicker = true,
   opacity = 0.92,
-  ...opts
 }: Props) {
-  const { tex, aspect } = useMemo(() => labelTexture(text, opts), [text, opts.sub, opts.color, opts.width, opts.frame]);
+  const { tex, aspect } = useMemo(() => labelTexture(text), [text]);
   useEffect(() => () => tex.dispose(), [tex]);
   const mesh = useRef<Mesh>(null);
   const seed = useMemo(() => Math.random() * 100, []);
@@ -46,5 +42,5 @@ export default function HoloLabel({
       <meshBasicMaterial map={tex} transparent opacity={opacity} depthWrite={false} toneMapped={false} />
     </mesh>
   );
-  return billboard ? <Billboard position={position}>{plane}</Billboard> : <group position={position}>{plane}</group>;
+  return <group position={position}>{plane}</group>;
 }

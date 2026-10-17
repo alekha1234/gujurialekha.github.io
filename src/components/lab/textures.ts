@@ -5,42 +5,35 @@ const monoFamily = () =>
     getComputedStyle(document.body).getPropertyValue('--font-jetbrains-mono').trim()) ||
   'ui-monospace, monospace';
 
-export interface LabelOpts {
-  sub?: string;
-  color?: string;
-  width?: number;
-  frame?: boolean;
-}
-
 // Holographic label drawn to a canvas: thin frame, corner ticks, mono text.
-export function labelTexture(text: string, { sub, color = '#7dd3fc', width = 512, frame = true }: LabelOpts = {}) {
-  const h = sub ? 150 : 110;
+export function labelTexture(text: string) {
+  const color = '#7dd3fc';
+  const width = 512;
+  const h = 110;
   const c = document.createElement('canvas');
   c.width = width;
   c.height = h;
   const g = c.getContext('2d')!;
   const mono = monoFamily();
-  if (frame) {
-    g.fillStyle = 'rgba(6, 16, 34, 0.62)';
-    g.fillRect(4, 4, width - 8, h - 8);
-    g.strokeStyle = color + '66';
-    g.lineWidth = 2;
-    g.strokeRect(4, 4, width - 8, h - 8);
-    g.strokeStyle = color;
-    g.lineWidth = 4;
-    const t = 18;
-    for (const [x, y, dx, dy] of [
-      [4, 4, 1, 1],
-      [width - 4, 4, -1, 1],
-      [4, h - 4, 1, -1],
-      [width - 4, h - 4, -1, -1],
-    ]) {
-      g.beginPath();
-      g.moveTo(x + dx * t, y);
-      g.lineTo(x, y);
-      g.lineTo(x, y + dy * t);
-      g.stroke();
-    }
+  g.fillStyle = 'rgba(6, 16, 34, 0.62)';
+  g.fillRect(4, 4, width - 8, h - 8);
+  g.strokeStyle = color + '66';
+  g.lineWidth = 2;
+  g.strokeRect(4, 4, width - 8, h - 8);
+  g.strokeStyle = color;
+  g.lineWidth = 4;
+  const t = 18;
+  for (const [x, y, dx, dy] of [
+    [4, 4, 1, 1],
+    [width - 4, 4, -1, 1],
+    [4, h - 4, 1, -1],
+    [width - 4, h - 4, -1, -1],
+  ]) {
+    g.beginPath();
+    g.moveTo(x + dx * t, y);
+    g.lineTo(x, y);
+    g.lineTo(x, y + dy * t);
+    g.stroke();
   }
   g.fillStyle = color;
   g.textBaseline = 'middle';
@@ -50,12 +43,7 @@ export function labelTexture(text: string, { sub, color = '#7dd3fc', width = 512
     size -= 2;
     g.font = `600 ${size}px ${mono}`;
   }
-  g.fillText(text, 28, sub ? 58 : h / 2 + 2);
-  if (sub) {
-    g.fillStyle = '#94a3b8';
-    g.font = `400 26px ${mono}`;
-    g.fillText(sub, 28, 110);
-  }
+  g.fillText(text, 28, h / 2 + 2);
   const tex = new CanvasTexture(c);
   tex.colorSpace = SRGBColorSpace;
   tex.anisotropy = 4;

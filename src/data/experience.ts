@@ -1,4 +1,4 @@
-export interface ExperienceItem {
+interface ExperienceItem {
   id: string;
   company: string;
   role: string;

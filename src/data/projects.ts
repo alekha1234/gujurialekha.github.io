@@ -1,4 +1,4 @@
-export interface CaseStudy {
+interface CaseStudy {
   problem: string;
   data: string;
   approach: string;
@@ -8,7 +8,7 @@ export interface CaseStudy {
   impact: string;
 }
 
-export interface MetricItem {
+interface MetricItem {
   label: string;
   value: string;
   description?: string;

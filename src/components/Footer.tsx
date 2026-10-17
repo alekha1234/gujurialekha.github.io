@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { personalData } from '@/data/personal';
-import { ArrowUp, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {

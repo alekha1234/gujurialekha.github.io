@@ -82,14 +82,10 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
   const composer = cards.filter({ hasText: 'ML Composer' }).first();
   check('Smart Irrigation card says Proprietary (no Code link)', (await irrigation.getByText('Proprietary').count()) === 1 && (await irrigation.getByRole('link', { name: /^Code:/ }).count()) === 0);
   check('ML Composer card keeps Code link', (await composer.getByRole('link', { name: /^Code:/ }).count()) === 1);
-  await irrigation.getByRole('button', { name: 'Details' }).click();
-  const dialog = p.getByRole('dialog');
-  await dialog.waitFor({ timeout: 10000 });
-  await p.screenshot({ path: SHOTS + '/desktop-modal.png' });
-  check('Details modal: proprietary note & plain tags', (await dialog.getByText('Proprietary · built at Trinity Mobility').count()) === 1 && (await dialog.getByText('Data source').count()) === 1);
-  await dialog.getByRole('button', { name: 'Close', exact: true }).click();
-  await p.waitForTimeout(500);
-  check('Modal closes', (await p.getByRole('dialog').count()) === 0);
+  const details = irrigation.getByRole('link', { name: /^Details/ });
+  check('Details links to the case-study page', (await details.getAttribute('href'))?.endsWith('/projects/smart-irrigation-pipeline/'));
+  check('Project title links to the case-study page', (await irrigation.getByRole('link', { name: /^Smart Irrigation/ }).getAttribute('href'))?.endsWith('/projects/smart-irrigation-pipeline/'));
+  check('No popup dialog left on the page', (await p.getByRole('dialog').count()) === 0);
 
   const archiveCode = p.locator('#more-projects-grid > *');
   const before = await archiveCode.count();

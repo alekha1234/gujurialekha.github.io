@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export interface FormFieldProps {
+interface FormFieldProps {
   label: string;
   id: string;
   required?: boolean;
@@ -70,7 +70,7 @@ export function FormField({
   );
 }
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className = '', ...props }, ref) => {
@@ -85,7 +85,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 Input.displayName = 'Input';
 
-export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className = '', ...props }, ref) => {

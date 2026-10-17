@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { featuredProjects, hasRepo, ProjectItem } from '@/data/projects';
+import { featuredProjects, hasRepo } from '@/data/projects';
 import { getAssetPath } from '@/utils/assets';
 import {
   ArrowLeft,
@@ -15,8 +15,6 @@ import {
   CheckCircle2,
   AlertCircle,
   TrendingUp,
-  Tag,
-  FileCode,
 } from 'lucide-react';
 
 export function generateStaticParams() {

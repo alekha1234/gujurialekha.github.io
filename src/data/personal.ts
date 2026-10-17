@@ -1,11 +1,9 @@
-export interface SocialLink {
+interface SocialLink {
   label: string;
   url: string;
-  iconName: 'github' | 'linkedin' | 'kaggle' | 'twitter' | 'mail' | 'blog' | 'file-text';
-  display: string;
 }
 
-export interface PersonalData {
+interface PersonalData {
   name: string;
   formalName: string;
   role: string;
@@ -18,8 +16,6 @@ export interface PersonalData {
   extendedBio: string[];
   resume: {
     viewUrl: string;
-    downloadUrl: string;
-    localPdf: string;
   };
   socials: SocialLink[];
   contact: {
@@ -56,39 +52,27 @@ export const personalData: PersonalData = {
   ],
   resume: {
     viewUrl: "/my_documents/resume/gujuri_alekha_resume.pdf",
-    downloadUrl: "/my_documents/resume/gujuri_alekha_resume.pdf",
-    localPdf: "/my_documents/resume/gujuri_alekha_resume.pdf",
   },
   socials: [
     {
       label: "LinkedIn",
       url: "https://www.linkedin.com/in/gujuri-alekha/",
-      iconName: "linkedin",
-      display: "in/gujuri-alekha",
     },
     {
       label: "GitHub",
       url: "https://github.com/alekha1234",
-      iconName: "github",
-      display: "github.com/alekha1234",
     },
     {
       label: "Kaggle",
       url: "https://www.kaggle.com/gujurialekha",
-      iconName: "kaggle",
-      display: "kaggle.com/gujurialekha",
     },
     {
       label: "Twitter/X",
       url: "https://x.com/Alekha81293434?t=tmjtkIs0vGF3vPGIFACtdw&s=09",
-      iconName: "twitter",
-      display: "@Alekha81293434",
     },
     {
       label: "Technical Blog",
       url: "https://alekha1234.github.io/blog/",
-      iconName: "blog",
-      display: "alekha1234.github.io/blog",
     },
   ],
   contact: {

@@ -70,19 +70,6 @@ body {
   outline: 2px solid #f8fafc;
 }
 
-/* Technical grid backdrop */
-.bg-tech-grid {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
-}
-
-.bg-tech-dots {
-  background-size: 24px 24px;
-  background-image: radial-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px);
-}
-
 /* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -93,16 +80,6 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Subtle border animation */
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
-.animate-pulse-subtle {
-  animation: pulse-subtle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* 2-second auto-close progress indicator */
@@ -178,15 +155,6 @@ body {
   animation: flow-x 3.2s linear infinite;
 }
 
-@keyframes caret-blink {
-  50% { opacity: 0; }
-}
-.caret::after {
-  content: '_';
-  margin-left: 2px;
-  color: #22d3ee;
-  animation: caret-blink 1s steps(1) infinite;
-}
 
 /* Phones run no 3D scene, so the glass blur only softens a static grid; skipping it saves paint time.
    (content-visibility was tried here too: it broke first-time nav anchor jumps, so it stays out.) */

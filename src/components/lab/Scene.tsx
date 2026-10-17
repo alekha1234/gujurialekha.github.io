@@ -3,8 +3,6 @@
 import { useEffect, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { Environment, Grid, Lightformer, PerformanceMonitor } from '@react-three/drei';
-import { Bloom, ChromaticAberration, EffectComposer, Vignette } from '@react-three/postprocessing';
-import { Vector2 } from 'three';
 import CameraRig from './CameraRig';
 import Robot from './Robot';
 import NeuralNetwork from './NeuralNetwork';
@@ -26,8 +24,6 @@ function PointerBridge() {
   }, [invalidate]);
   return null;
 }
-
-const CA_OFFSET = new Vector2(0.0005, 0.0006);
 
 export default function Scene({ tier: initialTier, reduced, active }: { tier: Tier; reduced: boolean; active: boolean }) {
   const [tier, setTier] = useState<Tier>(initialTier);
@@ -73,13 +69,6 @@ export default function Scene({ tier: initialTier, reduced, active }: { tier: Ti
 
       <NeuralNetwork position={[0, 0.6, -9]} nodeSize={0.07} pulses={tier === 'high' ? 150 : 70} />
 
-      {tier === 'high' && (
-        <EffectComposer multisampling={4}>
-          <Bloom mipmapBlur luminanceThreshold={0.85} luminanceSmoothing={0.2} intensity={0.9} radius={0.7} />
-          <ChromaticAberration offset={CA_OFFSET} radialModulation={false} modulationOffset={0} />
-          <Vignette eskil={false} offset={0.2} darkness={0.75} />
-        </EffectComposer>
-      )}
     </Canvas>
   );
 }
