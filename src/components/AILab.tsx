@@ -10,12 +10,12 @@ import { LabSection, LabTag } from '@/components/ui';
 
 function StageFlow({ stages, color, active }: { stages: string[]; color: string; active?: number }) {
   return (
-    <div className="rounded-lg border border-white/5 bg-white/[0.02] p-3">
-      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-2 font-mono text-[11px] sm:text-xs">
+    <div className="rounded-lg border border-white/5 bg-white/[0.02] p-2.5 sm:p-3">
+      <ol className="flex flex-wrap items-center gap-1.5 font-mono text-[11px] sm:text-xs">
         {stages.map((s, i) => (
           <li key={s} className="flex items-center gap-1.5">
             <span
-              className={`px-2 py-1 rounded border transition-colors ${
+              className={`px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border transition-colors ${
                 active === i ? 'text-white border-current bg-white/10' : 'text-lab-text-secondary border-white/10'
               }`}
               style={active === i ? { color } : undefined}
@@ -23,11 +23,11 @@ function StageFlow({ stages, color, active }: { stages: string[]; color: string;
               <span className="opacity-50 mr-1">{String(i + 1).padStart(2, '0')}</span>
               <span className={active === i ? 'text-white' : ''}>{s}</span>
             </span>
-            {i < stages.length - 1 && <span className="text-lab-text-muted" aria-hidden="true">→</span>}
+            {i < stages.length - 1 && <span className="hidden sm:inline text-lab-text-muted" aria-hidden="true">→</span>}
           </li>
         ))}
       </ol>
-      <div className="relative h-px mt-4 bg-white/10 overflow-hidden" aria-hidden="true">
+      <div className="hidden sm:block relative h-px mt-4 bg-white/10 overflow-hidden" aria-hidden="true">
         {[0, 1, 2].map((d) => (
           <span key={d} className="flow-dot" style={{ animationDelay: `${d * 1.05}s`, background: color, boxShadow: `0 0 10px ${color}` }} />
         ))}
@@ -62,7 +62,7 @@ function WorkLink({ title, sub, href, internal }: { title: string; sub: string; 
     <>
       <span>
         <span className="block text-sm font-semibold text-lab-text-primary">{title}</span>
-        <span className="text-xs text-lab-text-secondary mt-0.5 line-clamp-2 min-h-[2rem]">{sub}</span>
+        <span className="hidden sm:[display:-webkit-box] text-xs text-lab-text-secondary mt-0.5 line-clamp-2 min-h-[2rem]">{sub}</span>
       </span>
       <ArrowUpRight className="w-4 h-4 shrink-0 text-lab-text-muted group-hover:text-lab-cyan" aria-hidden="true" />
     </>
@@ -81,7 +81,7 @@ function WorkLink({ title, sub, href, internal }: { title: string; sub: string; 
 // The stage being explained, under each card's demo (same pattern for all four pipelines).
 function StepNote({ stages, notes, i, color }: { stages: string[]; notes: string[]; i: number; color: string }) {
   return (
-    <p className="text-sm text-lab-text-secondary min-h-[80px] sm:min-h-[60px]" aria-live="polite">
+    <p className="text-[13px] sm:text-sm text-lab-text-secondary min-h-[60px]" aria-live="polite">
       <span className="font-mono" style={{ color }}>{stages[i]}: </span>
       {notes[i]}
     </p>
@@ -93,10 +93,10 @@ function StepNote({ stages, notes, i, color }: { stages: string[]; notes: string
 function Tile({ on, label, color, children }: { on: boolean; label: string; color: string; children: React.ReactNode }) {
   return (
     <div
-      className="tile3d h-[88px] min-w-0 overflow-hidden rounded-md border px-2 py-1.5"
+      className="tile3d h-[70px] sm:h-[88px] min-w-0 overflow-hidden rounded-md border px-2 py-1.5 max-sm:[&_p]:text-[11px] max-sm:[&_p]:leading-tight"
       style={on ? { borderColor: color, boxShadow: `0 12px 24px -12px ${color}, inset 0 1px 0 rgba(255,255,255,0.12)`, transform: 'translateY(-3px)' } : undefined}
     >
-      <p className="font-mono text-[11px] text-lab-text-muted mb-1 truncate">{label}</p>
+      <p className="font-mono text-[11px] text-lab-text-muted mb-0.5 sm:mb-1 truncate">{label}</p>
       {children}
     </div>
   );
@@ -106,7 +106,7 @@ function Tile({ on, label, color, children }: { on: boolean; label: string; colo
 function Demo({ caption, on, color, children }: { caption: string; on: boolean; color: string; children: React.ReactNode }) {
   return (
     <>
-      <p className="font-mono text-sm truncate transition-colors" style={{ color: on ? color : undefined }}>
+      <p className="font-mono text-xs sm:text-sm truncate transition-colors" style={{ color: on ? color : undefined }}>
         {caption}
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">{children}</div>
@@ -181,21 +181,21 @@ function LabCard({
   stages: string[]; step: number; notes: string[]; color: string; workLabel: string; work: React.ReactNode;
 }) {
   return (
-    <article id={id} aria-labelledby={`${id}-heading`} className="glass rounded-xl p-5 flex flex-col scroll-mt-16 lg:grid lg:grid-rows-subgrid lg:row-span-8 lg:gap-y-0">
+    <article id={id} aria-labelledby={`${id}-heading`} className="glass rounded-xl p-4 sm:p-5 flex flex-col scroll-mt-16 lg:grid lg:grid-rows-subgrid lg:row-span-8 lg:gap-y-0">
       <LabTag color={tagColor}>{tag}</LabTag>
-      <h3 id={`${id}-heading`} className="font-display font-semibold text-xl tracking-tight mb-2">
+      <h3 id={`${id}-heading`} className="font-display font-semibold text-lg sm:text-xl tracking-tight mb-1.5 sm:mb-2">
         {title}
       </h3>
-      <p className="text-sm text-lab-text-secondary leading-relaxed">{description}</p>
-      <div aria-hidden="true" className="mt-4 rounded-lg border border-white/5 bg-white/[0.02] p-3 flex flex-col gap-3">
+      <p className="text-[13px] sm:text-sm text-lab-text-secondary leading-relaxed line-clamp-3 sm:line-clamp-none">{description}</p>
+      <div aria-hidden="true" className="mt-3 sm:mt-4 rounded-lg border border-white/5 bg-white/[0.02] p-2.5 sm:p-3 flex flex-col gap-2 sm:gap-3">
         {demo}
       </div>
-      <div className="mt-4 space-y-4">
+      <div className="mt-3 sm:mt-4 space-y-3 sm:space-y-4">
         <StageFlow stages={stages} color={color} active={step} />
         <StepNote stages={stages} notes={notes} i={step} color={color} />
       </div>
       <Illustrative />
-      <h4 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mt-auto pt-5 mb-2">{workLabel}</h4>
+      <h4 className="font-mono text-[11px] sm:text-xs tracking-[0.08em] sm:tracking-[0.2em] text-lab-text-muted mt-auto pt-3 sm:pt-5 mb-2">{workLabel}</h4>
       {work}
     </article>
   );
@@ -217,7 +217,7 @@ export default function AILab() {
         Four pipelines I build with, each traced to a project that uses it.
       </p>
 
-      <div className="rail grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         <LabCard
           id="ml-lab"
           tag="03 // Machine learning"
@@ -361,7 +361,7 @@ export default function AILab() {
                 <p className="font-mono text-xs text-lab-text-secondary leading-snug">{cvStep === 3 ? 'YOLOv5 backbone' : 'conv 3 × 3 windows'}</p>
               </Tile>
               <Tile on={cvStep === 4} label="Detection" color="#34d399">
-                <div className="relative w-12 h-9 rounded-sm border border-white/10">
+                <div className="relative w-12 h-6 sm:h-9 rounded-sm border border-white/10">
                   {cvStep === 4 && <span className="absolute inset-1 border-2 border-emerald-300 rounded-sm" />}
                 </div>
                 <p className={`font-mono text-[11px] mt-0.5 ${cvStep === 4 ? 'text-emerald-300' : 'text-lab-text-muted'}`}>{cvStep === 4 ? 'mask: on' : 'waiting…'}</p>

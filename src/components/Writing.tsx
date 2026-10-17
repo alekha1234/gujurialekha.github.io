@@ -36,7 +36,7 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
         </div>
 
         {/* Blog Cards Grid */}
-        <div className="rail grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {posts.map((post) => (
             <a
               key={post.url}

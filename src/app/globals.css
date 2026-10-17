@@ -166,26 +166,6 @@ body {
   }
 }
 
-/* Phones: card grids become one swipeable row (the next card peeks in) instead of a tall stack. */
-@media (max-width: 639px) {
-  .rail {
-    /* relative: makes the row the containing block for sr-only (absolute) labels, so they're clipped
-       with the row instead of stretching the whole page sideways */
-    position: relative;
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    margin-inline: -1rem;
-    padding-inline: 1rem;
-    scroll-padding-inline: 1rem;
-    scrollbar-width: none;
-  }
-  .rail > * {
-    flex: 0 0 85%;
-    scroll-snap-align: start;
-  }
-}
-
 /* Raised demo tile used in every AI Lab card: top-lit face, inner highlight edge, soft drop shadow.
    The running stage's tile is lifted and tinted inline in AILab.tsx. */
 .tile3d {

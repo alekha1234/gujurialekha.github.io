@@ -86,7 +86,7 @@ export default function About() {
 
           <div className="flex flex-col">
             <h3 className="font-mono text-xs tracking-[0.2em] text-lab-text-muted mb-3">AI CAPABILITY MODULES</h3>
-            <ul className="rail grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1 focus-ring" tabIndex={0} aria-label="AI capability modules">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1">
               {capabilities.map((c) => (
                 <li key={c.id} className="glass rounded-lg p-4 flex flex-col">
                   <span className="font-mono text-[11px] text-lab-cyan">{c.short}</span>
@@ -108,7 +108,7 @@ export default function About() {
           <h2 id="pillars-heading" className="font-display font-bold text-2xl sm:text-3xl tracking-tight mb-6">
             What I build in production
           </h2>
-          <div className="rail grid gap-4 sm:grid-cols-2 lg:grid-cols-4 focus-ring" tabIndex={0} aria-label="Production pillars">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((p, i) => (
               <article key={p.title} className="glass rounded-xl p-5 flex flex-col">
                 <span className="font-mono text-[11px] text-lab-accent">Pillar 0{i + 1}</span>

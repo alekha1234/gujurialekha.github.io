@@ -149,9 +149,13 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
   check('Phone: status badge on one line', (await mp.locator('#top .rounded-full.glass').evaluate((e) => e.getBoundingClientRect().height)) < 34);
   const layoutWidth = await mp.evaluate(() => document.documentElement.scrollWidth);
   check('Phone: layout stays 390px wide (no sideways page scroll)', layoutWidth <= 390, `${layoutWidth}px`);
-  check('Phone: card rows swipe sideways', (await mp.locator('.rail').evaluateAll((rs) => rs.filter((r) => getComputedStyle(r).display === 'flex' && r.scrollWidth > r.clientWidth).length)) >= 6);
+  const stacked = await mp.evaluate(() => ['about', 'skills', 'projects', 'more-projects', 'experience', 'writing'].every((id) =>
+    [...document.querySelectorAll('#' + id + ' .grid')].every((g) => new Set([...g.children].map((k) => Math.round(k.getBoundingClientRect().left))).size <= 1)));
+  check('Phone: cards stack one per row', stacked);
+  const labHeights = await mp.evaluate(() => ['ml-lab', 'nlp-lab', 'llm-lab', 'vision-lab'].map((id) => Math.round(document.getElementById(id).getBoundingClientRect().height)));
+  check('Phone: each AI Lab card fits one screen (≤ 740px)', labHeights.every((h) => h <= 740), labHeights.join(', '));
   const phoneScreens = await mp.evaluate(() => document.documentElement.scrollHeight / innerHeight);
-  check('Phone page ≤ 11.5 screens', phoneScreens <= 11.5, `${phoneScreens.toFixed(1)} screens`);
+  check('Phone page ≤ 21 screens', phoneScreens <= 21, `${phoneScreens.toFixed(1)} screens`);
   await mp.getByRole('button', { name: /Open Navigation Menu/ }).click();
   const mobileNav = mp.locator('nav[aria-label="Mobile Navigation"]');
   check('Phone menu lists Experience & Blogs', (await mobileNav.getByRole('link', { name: /Experience/ }).count()) === 1 && (await mobileNav.getByRole('link', { name: /Blogs/ }).count()) === 1);

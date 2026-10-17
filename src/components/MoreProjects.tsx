@@ -51,7 +51,7 @@ export default function MoreProjects() {
         </div>
 
         {/* Project Grid */}
-        <div id="more-projects-grid" className="rail grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div id="more-projects-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {visibleProjects.map((project) => (
             <div
               key={project.id}

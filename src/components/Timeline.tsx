@@ -25,7 +25,7 @@ export default function Timeline() {
       </h2>
       <p className="text-sm text-lab-text-secondary mb-6">Most recent first.</p>
 
-      <div className="rail grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <article className="glass rounded-xl p-5 sm:p-6">
           <h3 className="font-mono text-[11px] tracking-widest text-blue-300 mb-4">
             EXPERIENCE
@@ -64,12 +64,12 @@ export default function Timeline() {
                   <p className="font-mono text-xs text-lab-text-muted mt-1">{m.period}</p>
                 </div>
                 {m.summary && (
-                  <p className="text-sm text-lab-text-secondary leading-relaxed">{m.summary}</p>
+                  <p className="text-sm text-lab-text-secondary leading-relaxed line-clamp-3 sm:line-clamp-none">{m.summary}</p>
                 )}
                 {m.highlights.length > 0 && (
                   <details>
                     <summary className="cursor-pointer font-mono text-xs text-lab-cyan hover:text-white focus-ring rounded w-fit">
-                      Key work ({m.highlights.length})
+                      Key work &amp; stack ({m.highlights.length})
                     </summary>
                     <ul className="mt-2 space-y-2 text-xs text-lab-text-secondary leading-relaxed">
                       {m.highlights.map((h) => (
@@ -82,20 +82,20 @@ export default function Timeline() {
                         </li>
                       ))}
                     </ul>
+                    {m.technologies.length > 0 && (
+                      <ul className="flex flex-wrap gap-1 mt-3" aria-label="Technologies">
+                        {m.technologies.map((t) => (
+                          <li
+                            key={t}
+                            className="font-mono text-[11px] px-1.5 py-0.5 rounded bg-white/5 text-lab-text-secondary"
+                          >
+                            {t}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </details>
-                )}
-                {m.technologies.length > 0 && (
-                  <ul className="flex flex-wrap gap-1" aria-label="Technologies">
-                    {m.technologies.map((t) => (
-                      <li
-                        key={t}
-                        className="font-mono text-[11px] px-1.5 py-0.5 rounded bg-white/5 text-lab-text-secondary"
-                      >
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  )}
               </li>
             ))}
           </ol>

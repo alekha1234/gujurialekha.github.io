@@ -20,7 +20,7 @@ export default function FeaturedProjects() {
         Select a project for the full case study.
       </p>
 
-      <ul className="rail grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {shown.map((p) => (
           <li key={p.id} className="glass rounded-xl overflow-hidden flex flex-col hover:glass-glow transition-all duration-300">
             <img
@@ -29,7 +29,7 @@ export default function FeaturedProjects() {
               width={640}
               height={360}
               loading="lazy"
-              className="aspect-video w-full object-cover border-b border-white/10"
+              className="aspect-[2/1] sm:aspect-video w-full object-cover border-b border-white/10"
             />
             <div className="p-5 flex flex-col flex-1">
               <p className="font-mono text-[11px] text-lab-cyan truncate">{p.category.toUpperCase()}</p>

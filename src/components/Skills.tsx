@@ -18,7 +18,7 @@ export default function Skills() {
         Grouped by area. Brighter chips are the tools I use most in production.
       </p>
 
-      <div className="rail grid gap-4 sm:grid-cols-2 lg:grid-cols-6 focus-ring" tabIndex={0} aria-label="Skill areas">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
         {skillsData.map((cat, i) => (
           <article key={cat.code} className={`glass rounded-xl p-5 flex flex-col sm:max-lg:last:col-span-2 ${span(i)}`}>
             <span className="font-mono text-[11px] text-lab-accent">Area 0{i + 1}</span>
