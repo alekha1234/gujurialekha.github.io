@@ -55,7 +55,7 @@ export default function Navigation() {
                 AG
               </div>
               <span className="font-display font-bold text-sm tracking-tight text-lab-text-primary group-hover:text-lab-accent transition-colors">
-                ALEKHA<span className="text-lab-cyan">.AI</span>
+                ALEKHA <span className="text-lab-cyan">G</span>
               </span>
               <span className="sr-only">home</span>
             </Link>
