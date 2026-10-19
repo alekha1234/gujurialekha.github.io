@@ -37,8 +37,8 @@ export function generateMetadata({ params }: PageProps): Metadata {
     };
   }
 
-  const canonicalUrl = `https://alekha1234.github.io/gujurialekha.github.io/projects/${project.slug}/`;
-  const imageUrl = `https://alekha1234.github.io/gujurialekha.github.io${project.image}`;
+  const canonicalUrl = `https://gujurialekha.github.io/projects/${project.slug}/`;
+  const imageUrl = `https://gujurialekha.github.io${project.image}`;
 
   return {
     title: `${project.title} | Case Study`,
@@ -52,7 +52,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
       url: canonicalUrl,
       title: `${project.title} | Applied ML Case Study`,
       description: project.summary,
-      siteName: 'Alekha Gujuri — Data Scientist Portfolio',
+      siteName: 'Gujuri Alekha',
       images: [
         {
           url: imageUrl,
@@ -138,8 +138,8 @@ export default function ProjectPage({ params }: PageProps) {
     featuredProjects[(currentIndex - 1 + featuredProjects.length) % featuredProjects.length];
   const nextProject = featuredProjects[(currentIndex + 1) % featuredProjects.length];
 
-  const canonicalUrl = `https://alekha1234.github.io/gujurialekha.github.io/projects/${project.slug}/`;
-  const imageUrl = `https://alekha1234.github.io/gujurialekha.github.io${project.image}`;
+  const canonicalUrl = `https://gujurialekha.github.io/projects/${project.slug}/`;
+  const imageUrl = `https://gujurialekha.github.io${project.image}`;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -148,7 +148,7 @@ export default function ProjectPage({ params }: PageProps) {
         '@type': 'TechArticle',
         '@id': `${canonicalUrl}#article`,
         isPartOf: {
-          '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#website',
+          '@id': 'https://gujurialekha.github.io/#website',
         },
         headline: project.title,
         description: project.summary,
@@ -156,10 +156,10 @@ export default function ProjectPage({ params }: PageProps) {
         url: canonicalUrl,
         image: imageUrl,
         author: {
-          '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
+          '@id': 'https://gujurialekha.github.io/#person',
         },
         publisher: {
-          '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
+          '@id': 'https://gujurialekha.github.io/#person',
         },
         datePublished: '2024-01-15T00:00:00Z',
         dateModified: '2026-09-27T00:00:00Z',
@@ -173,7 +173,7 @@ export default function ProjectPage({ params }: PageProps) {
         ...(hasRepo(project.githubUrl) && { codeRepository: project.githubUrl }),
         programmingLanguage: 'Python',
         author: {
-          '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
+          '@id': 'https://gujurialekha.github.io/#person',
         },
       },
       {
@@ -184,13 +184,13 @@ export default function ProjectPage({ params }: PageProps) {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://alekha1234.github.io/gujurialekha.github.io/',
+            item: 'https://gujurialekha.github.io/',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Case Studies',
-            item: 'https://alekha1234.github.io/gujurialekha.github.io/#projects',
+            item: 'https://gujurialekha.github.io/#projects',
           },
           {
             '@type': 'ListItem',

@@ -42,7 +42,7 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
   await p.screenshot({ path: SHOTS + '/desktop-hero.png' });
 
   const h1 = await p.locator('h1').innerText();
-  check('Hero H1 shows full name', /ALEKHA GUJURI/i.test(h1), h1.replace(/\n/g, ' '));
+  check('Hero H1 shows full name', /GUJURI ALEKHA/i.test(h1), h1.replace(/\n/g, ' '));
   const heroLinks = await p.locator('#top a.rounded-md').evaluateAll((as) => as.map((a) => [a.textContent.trim(), a.getAttribute('href')]));
   check('Hero primary CTA is "View projects" → #projects', heroLinks[0]?.[0] === 'View projects' && heroLinks[0]?.[1] === '#projects', JSON.stringify(heroLinks));
   check('Status line', /Open to AI\/ML & Data Science Roles/i.test(await p.locator('#top').innerText()));
@@ -50,7 +50,7 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
   const navLinks = await p.locator('nav[aria-label="Main Navigation"] a').evaluateAll((as) => as.map((a) => ({ t: a.textContent.trim(), h: a.getAttribute('href'), tg: a.target })));
   check('Nav order', navLinks.map((l) => l.t).join(',') === 'About,Skills,AI Lab,Projects,Experience,Blogs,Contact', navLinks.map((l) => l.t).join(','));
   const blogs = navLinks.find((l) => l.t === 'Blogs');
-  check('Blogs nav → blog in new tab', blogs?.h === 'https://alekha1234.github.io/blog/' && blogs?.tg === '_blank', JSON.stringify(blogs));
+  check('Blogs nav → blog in new tab', blogs?.h === 'https://gujurialekha.github.io/blog/' && blogs?.tg === '_blank', JSON.stringify(blogs));
 
   for (const id of ['about', 'skills', 'ai-lab', 'projects', 'experience', 'contact']) {
     await p.locator(`nav[aria-label="Main Navigation"] a[href="#${id}"]`).click();
@@ -99,7 +99,7 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
 
   const blogCards = await p.locator('#writing a[href*="/blog/"][href$=".html"]').evaluateAll((as) => as.map((a) => a.href));
   check('Blog cards link to real articles', blogCards.length >= 2 && blogCards.length <= 4, blogCards.join(' , '));
-  check('Writing has a "Visit the blog" button', (await p.locator('#writing').getByRole('link', { name: /Visit the blog/ }).getAttribute('href')) === 'https://alekha1234.github.io/blog/');
+  check('Writing has a "Visit the blog" button', (await p.locator('#writing').getByRole('link', { name: /Visit the blog/ }).getAttribute('href')) === 'https://gujurialekha.github.io/blog/');
 
   const labels = await p.locator('#contact form label').allInnerTexts();
   check('Contact labels are plain', ['Name', 'Email', 'Phone', 'Message'].every((l, i) => labels[i]?.startsWith(l)), labels.map((l) => l.trim().split('\n')[0]).join(' | '));
@@ -109,7 +109,7 @@ const landsAtTop = (top) => top >= -5 && top <= 120;
   await p.waitForTimeout(400);
   const fieldErrs = await p.locator('#contact form [role="alert"], #contact form .text-red-400').count();
   check('Empty submit shows validation (nothing sent)', fieldErrs > 0, `${fieldErrs} error messages`);
-  check('Footer shows © line only', /© \d{4} Alekha Gujuri/.test(await p.locator('footer').innerText()));
+  check('Footer shows © line only', /© \d{4} Gujuri Alekha/.test(await p.locator('footer').innerText()));
   check('Desktop: no console/network errors', errs.length === 0, errs.slice(0, 5).join(' || '));
 
   // Case-study pages

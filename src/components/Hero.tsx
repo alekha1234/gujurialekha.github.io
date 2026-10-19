@@ -27,9 +27,9 @@ export default function Hero() {
           <div className="space-y-2">
             <p className="font-mono text-xs text-lab-cyan tracking-[0.3em]">AI RESEARCH LAB // ONLINE</p>
             <h1 id="hero-heading" className="font-display font-bold tracking-tight leading-[1.02]">
-              <span className="block text-4xl sm:text-5xl xl:text-6xl text-lab-text-primary">I&apos;M ALEKHA GUJURI</span>
+              <span className="block text-4xl sm:text-5xl xl:text-6xl text-lab-text-primary">I&apos;M GUJURI ALEKHA</span>
               <span className="block mt-2 text-2xl sm:text-3xl xl:text-4xl text-gradient-lab">AI / ML ENGINEER</span>
-              <span className="sr-only"> — {personalData.formalName}, {personalData.role} &amp; Machine Learning Engineer</span>
+              <span className="sr-only"> — {personalData.formalName}, {personalData.role} &amp; AI / ML Engineer</span>
             </h1>
             <p className="font-mono text-xs sm:text-sm text-lab-text-secondary">
               {personalData.role} @ <span className="text-lab-text-primary">Trinity Mobility</span> · {personalData.location}

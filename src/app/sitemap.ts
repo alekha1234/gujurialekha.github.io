@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { featuredProjects } from '@/data/projects';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://alekha1234.github.io/gujurialekha.github.io';
+  const baseUrl = 'https://gujurialekha.github.io';
 
   const projectRoutes = featuredProjects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}/`,

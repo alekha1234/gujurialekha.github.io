@@ -39,9 +39,7 @@ jobs:
         run: npm ci
 
       - name: Build with Next.js
-        run: npx next build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /gujurialekha.github.io
+        run: npx next build  # user site (gujurialekha.github.io): served from the root, no base path
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

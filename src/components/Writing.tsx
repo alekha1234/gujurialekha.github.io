@@ -82,7 +82,7 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
 
         <div className="mt-8 flex justify-center">
           <a
-            href="https://alekha1234.github.io/blog/"
+            href="https://gujurialekha.github.io/blog/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-md glass font-mono text-xs font-semibold tracking-wider text-lab-text-primary hover:glass-glow transition-shadow focus-ring"

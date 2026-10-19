@@ -49,7 +49,7 @@ export const featuredProjects: ProjectItem[] = [
       { label: "Integration", value: "ICCC Platform", description: "City Command Center alerts" },
       { label: "AI Feature", value: "LLM Summaries", description: "Operator-facing plain English" },
     ],
-    githubUrl: "https://github.com/alekha1234",
+    githubUrl: "https://github.com/gujurialekha",
     isFeatured: true,
     highlights: [
       "Engineered sequential 3-stage architecture where each stage feeds the next, returning a complete operational command.",
@@ -80,7 +80,7 @@ export const featuredProjects: ProjectItem[] = [
       { label: "Quality Gate", value: "Automated", description: "Code coverage & test suites" },
       { label: "Algorithms", value: "Multi-Model", description: "Regression, Classif., Clustering" },
     ],
-    githubUrl: "https://github.com/alekha1234/End-to-End-Machine-Learning-Project",
+    githubUrl: "https://github.com/gujurialekha/End-to-End-Machine-Learning-Project",
     isFeatured: true,
     highlights: [
       "Designed Model Registry and Nexus integration workflow for centralized model storage, versioning, and reuse.",
@@ -111,7 +111,7 @@ export const featuredProjects: ProjectItem[] = [
       { label: "Data Pipeline", value: "Parquet/JSON", description: "High-throughput streaming" },
       { label: "Target Domain", value: "Grid Anomalies", description: "Proactive overload detection" },
     ],
-    githubUrl: "https://github.com/alekha1234",
+    githubUrl: "https://github.com/gujurialekha",
     isFeatured: true,
     highlights: [
       "Engineered simulation engines generating ML-ready synthetic datasets for energy-demand analysis and grid fault scenarios.",
@@ -142,7 +142,7 @@ export const featuredProjects: ProjectItem[] = [
       { label: "Classes", value: "3 Classes", description: "Masked / Unmasked / Incorrect" },
       { label: "Throughput", value: "Real-Time", description: "Edge video stream capable" },
     ],
-    githubUrl: "https://github.com/alekha1234/Face-Mask-Detection-Using-YoloV5-Model/blob/main/Yolov5_Face_mask_detection.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Face-Mask-Detection-Using-YoloV5-Model/blob/main/Yolov5_Face_mask_detection.ipynb",
     isFeatured: true,
     highlights: [
       "Trained custom YOLOv5 weights with mosaic augmentations and anchor box tuning.",
@@ -173,7 +173,7 @@ export const featuredProjects: ProjectItem[] = [
       { label: "Feature Space", value: "17", description: "Demographic & economic variables" },
       { label: "Lead Tier", value: "Top 20%", description: "Captures majority of subscribers" },
     ],
-    githubUrl: "https://github.com/alekha1234/Portuguese-Bank-Marketing-Campaign",
+    githubUrl: "https://github.com/gujurialekha/Portuguese-Bank-Marketing-Campaign",
     isFeatured: false,
     highlights: [
       "Mitigated severe class imbalance between subscribers and non-subscribers.",
@@ -204,7 +204,7 @@ export const featuredProjects: ProjectItem[] = [
       { label: "Domain", value: "Bio-Vision", description: "Underwater taxonomic indexing" },
       { label: "Optimization", value: "Adam + Dropout", description: "Overfitting prevention" },
     ],
-    githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Jelly-Fish-Classification-Using-Computer-Vision.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Computer-Vision-Object-Detection/blob/main/Jelly-Fish-Classification-Using-Computer-Vision.ipynb",
     isFeatured: false,
     highlights: [
       "Custom CNN architecture extracting morphological features from underwater imagery.",
@@ -239,7 +239,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Predictive Analytics",
     description: "Predictive customer conversion modeling on 45,000+ interactions to maximize term deposit subscriptions while reducing cold-calling operational overhead.",
     technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy"],
-    githubUrl: "https://github.com/alekha1234/Portuguese-Bank-Marketing-Campaign",
+    githubUrl: "https://github.com/gujurialekha/Portuguese-Bank-Marketing-Campaign",
   },
   {
     id: "jellyfish-marine-classification",
@@ -247,7 +247,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Computer Vision",
     description: "Convolutional neural network for marine organism classification to support ecological surveys and automated taxonomic indexing from underwater imagery.",
     technologies: ["TensorFlow", "Keras", "Python", "CNN"],
-    githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Jelly-Fish-Classification-Using-Computer-Vision.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Computer-Vision-Object-Detection/blob/main/Jelly-Fish-Classification-Using-Computer-Vision.ipynb",
   },
   {
     id: "cifar10-benchmark",
@@ -255,7 +255,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Computer Vision",
     description: "Deep convolutional architecture extracting robust feature representations from noisy 32x32 color images across 10 balanced classes.",
     technologies: ["TensorFlow", "Keras", "Python", "CNN", "Deep Learning"],
-    githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Object-Classification-Using-Cifar10.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Computer-Vision-Object-Detection/blob/main/Object-Classification-Using-Cifar10.ipynb",
   },
   {
     id: "clinical-liver-prediction",
@@ -263,7 +263,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Healthcare Analytics",
     description: "Predictive diagnostic classification model using 10 biochemical blood biomarkers, achieving 82% diagnostic accuracy for early triage.",
     technologies: ["Python", "Scikit-Learn", "Pandas", "Decision Trees"],
-    githubUrl: "https://github.com/alekha1234/LIver-Disease-Prediction",
+    githubUrl: "https://github.com/gujurialekha/LIver-Disease-Prediction",
   },
   {
     id: "nlp-suite",
@@ -271,7 +271,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "NLP & Text Analytics",
     description: "Reusable text engineering repository covering tokenization, lemmatization, TF-IDF vectorization, and sentiment classification.",
     technologies: ["Python", "NLTK", "Scikit-Learn", "Pandas", "TF-IDF"],
-    githubUrl: "https://github.com/alekha1234/Natural-Language-Processing",
+    githubUrl: "https://github.com/gujurialekha/Natural-Language-Processing",
   },
   {
     id: "cat-dog-resnet50",
@@ -279,7 +279,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Computer Vision",
     description: "Deep transfer learning implementation utilizing pretrained ResNet50 architecture for fine-grained binary animal image classification.",
     technologies: ["Python", "ResNet50", "PyTorch/Keras", "Transfer Learning"],
-    githubUrl: "https://github.com/alekha1234/Computer-Vision-Object-Detection/blob/main/Cat-Dog-Classification-Using-ResNet50.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Computer-Vision-Object-Detection/blob/main/Cat-Dog-Classification-Using-ResNet50.ipynb",
   },
   {
     id: "sales-effectiveness-ficzon",
@@ -287,7 +287,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Business Analytics",
     description: "Comprehensive enterprise sales data analysis, pipeline velocity tracking, and conversion bottleneck identification for FicZon.",
     technologies: ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "Seaborn"],
-    githubUrl: "https://github.com/alekha1234/FicZon-Sales-Effectiveness/blob/main/FicZon-Sales-Effectiveness.ipynb",
+    githubUrl: "https://github.com/gujurialekha/FicZon-Sales-Effectiveness/blob/main/FicZon-Sales-Effectiveness.ipynb",
   },
   {
     id: "employee-attrition-random-forest",
@@ -295,7 +295,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "HR Analytics & ML",
     description: "Decision Tree and Random Forest modeling to identify leading organizational and compensation drivers of voluntary staff attrition.",
     technologies: ["Python", "Random Forest", "Decision Trees", "Scikit-Learn"],
-    githubUrl: "https://github.com/alekha1234/Machine-Learning-Projects/blob/main/Employee-Attrition-Using-Decision-Tree-and-Random-Forest.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Machine-Learning-Projects/blob/main/Employee-Attrition-Using-Decision-Tree-and-Random-Forest.ipynb",
   },
   {
     id: "loan-status-svm",
@@ -303,7 +303,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Financial Analytics",
     description: "Support Vector Machines (SVM) with radial basis kernel applied to credit history and applicant financial attributes for automated loan underwriting.",
     technologies: ["Python", "SVM", "Scikit-Learn", "Pandas"],
-    githubUrl: "https://github.com/alekha1234/Machine-Learning-Projects/blob/main/Loan-Status-Classification-Using-Support-Vector-Machines.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Machine-Learning-Projects/blob/main/Loan-Status-Classification-Using-Support-Vector-Machines.ipynb",
   },
   {
     id: "total-sales-forecasting",
@@ -311,7 +311,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Time Series & Regression",
     description: "Linear regression modeling and trend decomposition to predict retail revenue trajectories across marketing budget allocations.",
     technologies: ["Python", "Linear Regression", "NumPy", "Matplotlib"],
-    githubUrl: "https://github.com/alekha1234/Machine-Learning-Projects/blob/main/Total-Sales-Prediction-Using-Linear-Regression.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Machine-Learning-Projects/blob/main/Total-Sales-Prediction-Using-Linear-Regression.ipynb",
   },
   {
     id: "diabetic-risk-prediction",
@@ -319,7 +319,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Healthcare Analytics",
     description: "Logistic regression model trained on diagnostic metabolic markers (glucose, insulin, BMI) for binary diabetic vulnerability scoring.",
     technologies: ["Python", "Logistic Regression", "Scikit-Learn", "EDA"],
-    githubUrl: "https://github.com/alekha1234/Machine-Learning-Projects/blob/main/Diabetic-Prediction-Using-Logistic-Regression.ipynb",
+    githubUrl: "https://github.com/gujurialekha/Machine-Learning-Projects/blob/main/Diabetic-Prediction-Using-Logistic-Regression.ipynb",
   },
   {
     id: "inx-employee-performance",
@@ -327,7 +327,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Workforce Analytics",
     description: "In-depth workforce productivity analysis identifying key drivers of high performance and structural impediments across business units.",
     technologies: ["Python", "Machine Learning", "Feature Importance", "Seaborn"],
-    githubUrl: "https://github.com/alekha1234/Employee-performance-of-INX-Future-Inc",
+    githubUrl: "https://github.com/gujurialekha/Employee-performance-of-INX-Future-Inc",
   },
   {
     id: "iris-flower-classification",
@@ -335,7 +335,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Foundational ML",
     description: "Comprehensive benchmark comparison of KNN, Decision Trees, and SVM algorithms on the foundational Iris morphometric dataset.",
     technologies: ["Python", "Scikit-Learn", "Matplotlib", "Classification"],
-    githubUrl: "https://github.com/alekha1234/Iris_dataset",
+    githubUrl: "https://github.com/gujurialekha/Iris_dataset",
   },
   {
     id: "fifa-world-cup-analytics",
@@ -343,7 +343,7 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Sports Analytics",
     description: "Exploratory data analysis and unsupervised pattern discovery evaluating national squad metrics, player attributes, and match results.",
     technologies: ["Python", "Unsupervised Learning", "Pandas", "Seaborn"],
-    githubUrl: "https://github.com/alekha1234/FIFA-World-Cup-2020",
+    githubUrl: "https://github.com/gujurialekha/FIFA-World-Cup-2020",
   },
   {
     id: "house-price-advanced-regression",
@@ -351,6 +351,6 @@ export const moreProjectsData: ArchivedProject[] = [
     category: "Predictive Modeling",
     description: "High-dimensional Ames housing valuation modeling utilizing ensemble gradient boosters (XGBoost, LightGBM) with extensive feature engineering.",
     technologies: ["Python", "XGBoost", "LightGBM", "Scikit-Learn", "Advanced Regression"],
-    githubUrl: "https://github.com/alekha1234/House_price_prediction_Advance_Regression/blob/main/House_Price_Advance_Regression.ipynb",
+    githubUrl: "https://github.com/gujurialekha/House_price_prediction_Advance_Regression/blob/main/House_Price_Advance_Regression.ipynb",
   },
 ];

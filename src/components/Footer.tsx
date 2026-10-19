@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="space-y-1 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-2">
               <span className="font-display font-bold text-sm text-lab-text-primary">
-                ALEKHA GUJURI
+                GUJURI ALEKHA
               </span>
               <span className="text-lab-accent text-xs font-semibold">AI / ML Engineer</span>
             </div>
@@ -29,11 +29,11 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex items-center space-x-4">
             <a
-              href="https://github.com/alekha1234"
+              href="https://github.com/gujurialekha"
               target="_blank"
               rel="noopener noreferrer"
               className="text-lab-text-secondary hover:text-lab-accent transition-colors focus-ring rounded p-1"
-              aria-label="View Alekha Gujuri GitHub Profile (opens in new tab)"
+              aria-label="View Gujuri Alekha GitHub Profile (opens in new tab)"
             >
               <Github className="w-4 h-4" aria-hidden="true" />
             </a>
@@ -42,7 +42,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-lab-text-secondary hover:text-lab-cyan transition-colors focus-ring rounded p-1"
-              aria-label="Connect with Alekha Gujuri on LinkedIn (opens in new tab)"
+              aria-label="Connect with Gujuri Alekha on LinkedIn (opens in new tab)"
             >
               <Linkedin className="w-4 h-4" aria-hidden="true" />
             </a>
@@ -51,7 +51,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-lab-text-secondary hover:text-lab-accent transition-colors font-bold focus-ring rounded p-1"
-              aria-label="View Alekha Gujuri Kaggle Competitions (opens in new tab)"
+              aria-label="View Gujuri Alekha Kaggle Competitions (opens in new tab)"
             >
               K
             </a>
@@ -78,7 +78,7 @@ export default function Footer() {
 
         <div className="pt-6 text-center text-xs text-lab-text-muted">
           <div>
-            © {new Date().getFullYear()} Alekha Gujuri
+            © {new Date().getFullYear()} Gujuri Alekha
           </div>
         </div>
       </div>

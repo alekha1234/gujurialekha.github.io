@@ -1,6 +1,6 @@
 // Latest posts come from the blog's Quarto RSS feed (newest first). Regex instead of DOMParser so the
 // same parser runs at build time (Node) and in the browser.
-export const FEED_URL = 'https://alekha1234.github.io/blog/index.xml';
+export const FEED_URL = 'https://gujurialekha.github.io/blog/index.xml';
 
 export interface BlogPost {
   title: string;

@@ -30,8 +30,8 @@ interface PersonalData {
 }
 
 export const personalData: PersonalData = {
-  name: "Alekha Gujuri",
-  formalName: "Gujuri Alekha",
+  name: "Gujuri Alekha",
+  formalName: "Alekha Gujuri",
   role: "Associate Data Scientist",
   subRoles: [
     "Applied Machine Learning",
@@ -60,7 +60,7 @@ export const personalData: PersonalData = {
     },
     {
       label: "GitHub",
-      url: "https://github.com/alekha1234",
+      url: "https://github.com/gujurialekha",
     },
     {
       label: "Kaggle",
@@ -72,7 +72,7 @@ export const personalData: PersonalData = {
     },
     {
       label: "Technical Blog",
-      url: "https://alekha1234.github.io/blog/",
+      url: "https://gujurialekha.github.io/blog/",
     },
   ],
   contact: {

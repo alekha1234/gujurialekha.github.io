@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://alekha1234.github.io/gujurialekha.github.io';
+  const baseUrl = 'https://gujurialekha.github.io';
   return {
     rules: [
       {
@@ -17,6 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    // This is the host-root robots.txt, so it also lists the blog's sitemap
+    sitemap: [`${baseUrl}/sitemap.xml`, `${baseUrl}/blog/sitemap.xml`],
   };
 }

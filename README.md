@@ -2,13 +2,13 @@
 
 <img src="public/documents/logos/avatar-144.jpg" alt="Gujuri Alekha" width="96" height="96">
 
-[![Live site](https://img.shields.io/badge/Live_site-alekha1234.github.io-2563eb)](https://alekha1234.github.io/gujurialekha.github.io/)
-[![Deploy](https://github.com/alekha1234/gujurialekha.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/alekha1234/gujurialekha.github.io/actions/workflows/deploy.yml)
-[![Blog](https://img.shields.io/badge/Blog-alekha1234.github.io%2Fblog-0ea5e9)](https://alekha1234.github.io/blog/)
+[![Live site](https://img.shields.io/badge/Live_site-gujurialekha.github.io-2563eb)](https://gujurialekha.github.io/)
+[![Deploy](https://github.com/gujurialekha/gujurialekha.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/gujurialekha/gujurialekha.github.io/actions/workflows/deploy.yml)
+[![Blog](https://img.shields.io/badge/Blog-gujurialekha.github.io%2Fblog-0ea5e9)](https://gujurialekha.github.io/blog/)
 
 Personal portfolio of **Gujuri Alekha**, Associate Data Scientist at Trinity Mobility (Bengaluru, India). It covers time-series forecasting, multi-stage ML pipelines, smart-city IoT, generative AI / RAG and MLOps.
 
-**Live:** https://alekha1234.github.io/gujurialekha.github.io/
+**Live:** https://gujurialekha.github.io/
 
 ## What's on the site
 
@@ -20,7 +20,7 @@ Personal portfolio of **Gujuri Alekha**, Associate Data Scientist at Trinity Mob
 | AI Lab | Four animated pipeline demos: ML, NLP, RAG / LLM, computer vision |
 | Projects | Four featured case studies (each has its own page) and a searchable archive |
 | Experience & education | Work history, education and certifications |
-| Writing | Latest four posts, pulled live from the [blog](https://alekha1234.github.io/blog/) |
+| Writing | Latest four posts, pulled live from the [blog](https://gujurialekha.github.io/blog/) |
 | Contact | Contact details and a message form |
 
 ## Tech stack
@@ -66,7 +66,7 @@ Most edits are data changes. No component code needed.
 
 ## Deployment
 
-Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). It builds the site with `NEXT_PUBLIC_BASE_PATH=/gujurialekha.github.io` and publishes it to GitHub Pages. A daily rebuild at 02:30 UTC keeps the blog posts in the HTML current for search engines.
+Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). It builds the site and publishes it to GitHub Pages at the root of `gujurialekha.github.io` (this repo's name matches the username, so it's the user site; the blog repo is served under `/blog/`). A daily rebuild at 02:30 UTC keeps the blog posts in the HTML current for search engines.
 
 ## Repository layout
 
@@ -85,7 +85,7 @@ skills/ agents/ scripts/ hooks/ .agent(s)/ .claude-plugin/ .codex-plugin/
 
 - Email: [gujurialekha@gmail.com](mailto:gujurialekha@gmail.com)
 - LinkedIn: [gujuri-alekha](https://www.linkedin.com/in/gujuri-alekha/)
-- GitHub: [@alekha1234](https://github.com/alekha1234)
+- GitHub: [@gujurialekha](https://github.com/gujurialekha)
 - Kaggle: [gujurialekha](https://www.kaggle.com/gujurialekha)
 
 ## License

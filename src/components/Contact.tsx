@@ -202,17 +202,17 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded bg-lab-elevated border border-lab-border text-lab-text-secondary hover:text-lab-accent hover:border-lab-accent transition-colors focus-ring"
-                  aria-label="Connect with Alekha Gujuri on LinkedIn (opens in new tab)"
+                  aria-label="Connect with Gujuri Alekha on LinkedIn (opens in new tab)"
                 >
                   <Linkedin className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>LinkedIn</span>
                 </a>
                 <a
-                  href="https://github.com/alekha1234"
+                  href="https://github.com/gujurialekha"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded bg-lab-elevated border border-lab-border text-lab-text-secondary hover:text-lab-accent hover:border-lab-accent transition-colors focus-ring"
-                  aria-label="View Alekha Gujuri GitHub Profile (opens in new tab)"
+                  aria-label="View Gujuri Alekha GitHub Profile (opens in new tab)"
                 >
                   <Github className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>GitHub</span>
@@ -222,7 +222,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded bg-lab-elevated border border-lab-border text-lab-text-secondary hover:text-lab-accent hover:border-lab-accent transition-colors font-bold focus-ring"
-                  aria-label="View Alekha Gujuri Kaggle Competitions (opens in new tab)"
+                  aria-label="View Gujuri Alekha Kaggle Competitions (opens in new tab)"
                 >
                   <span>Kaggle</span>
                 </a>

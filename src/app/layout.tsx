@@ -25,13 +25,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://alekha1234.github.io/gujurialekha.github.io/'),
+  metadataBase: new URL('https://gujurialekha.github.io/'),
   title: {
-    default: 'Alekha Gujuri | Data Scientist & Machine Learning Engineer',
-    template: '%s | Alekha Gujuri',
+    default: 'Gujuri Alekha | Data Scientist & AI / ML Engineer',
+    template: '%s | Gujuri Alekha',
   },
   description:
-    'Portfolio of Alekha Gujuri — Associate Data Scientist with 2.5 years of experience across predictive modeling, time-series forecasting, smart city IoT, and MLOps pipelines.',
+    'Portfolio of Gujuri Alekha — Associate Data Scientist with 2.5 years of experience across predictive modeling, time-series forecasting, smart city IoT, and MLOps pipelines.',
   keywords: [
     'Alekha Gujuri',
     'Gujuri Alekha',
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
     'Bengaluru Data Scientist',
     'Trinity Mobility',
   ],
-  authors: [{ name: 'Alekha Gujuri', url: 'https://github.com/alekha1234' }],
-  creator: 'Alekha Gujuri',
+  authors: [{ name: 'Gujuri Alekha', url: 'https://github.com/gujurialekha' }],
+  creator: 'Gujuri Alekha',
   alternates: {
-    canonical: 'https://alekha1234.github.io/gujurialekha.github.io/',
+    canonical: 'https://gujurialekha.github.io/',
   },
   robots: {
     index: true,
@@ -66,30 +66,30 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://alekha1234.github.io/gujurialekha.github.io/',
-    title: 'Alekha Gujuri | Data Scientist & Machine Learning Engineer',
+    url: 'https://gujurialekha.github.io/',
+    title: 'Gujuri Alekha | Data Scientist & AI / ML Engineer',
     description:
       'Transforming complex observational data into deterministic predictive systems. Explore production case studies, research code, and ML benchmarks.',
-    siteName: 'Alekha Gujuri — Data Scientist Portfolio',
+    siteName: 'Gujuri Alekha',
     images: [
       {
-        url: 'https://alekha1234.github.io/gujurialekha.github.io/documents/logos/profile-img.png',
+        url: 'https://gujurialekha.github.io/documents/logos/profile-img.png',
         width: 800,
         height: 800,
-        alt: 'Alekha Gujuri — Associate Data Scientist',
+        alt: 'Gujuri Alekha — Associate Data Scientist',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alekha Gujuri | Data Scientist & Machine Learning Engineer',
+    title: 'Gujuri Alekha | Data Scientist & AI / ML Engineer',
     description:
       'Explore machine learning case studies, deep learning vision models, time-series pipelines, and applied data science systems.',
     creator: '@Alekha81293434',
-    images: ['https://alekha1234.github.io/gujurialekha.github.io/documents/logos/profile-img.png'],
+    images: ['https://gujurialekha.github.io/documents/logos/profile-img.png'],
   },
   icons: {
-    icon: `${basePath}/favicon-48.png`,
+    icon: [`${basePath}/favicon.ico`, `${basePath}/favicon-48.png`],
     apple: `${basePath}/apple-touch-icon.png`,
   },
 };
@@ -99,33 +99,33 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#website',
-      url: 'https://alekha1234.github.io/gujurialekha.github.io/',
-      name: 'Alekha Gujuri — Data Scientist Portfolio',
+      '@id': 'https://gujurialekha.github.io/#website',
+      url: 'https://gujurialekha.github.io/',
+      name: 'Gujuri Alekha',
       description:
-        'Portfolio of Alekha Gujuri — Associate Data Scientist specializing in time-series forecasting, multi-stage ML pipelines, smart city IoT systems, and MLOps.',
+        'Portfolio of Gujuri Alekha — Associate Data Scientist specializing in time-series forecasting, multi-stage ML pipelines, smart city IoT systems, and MLOps.',
       publisher: {
-        '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
+        '@id': 'https://gujurialekha.github.io/#person',
       },
       inLanguage: 'en-US',
     },
     {
       '@type': 'ProfilePage',
-      '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#profilepage',
-      url: 'https://alekha1234.github.io/gujurialekha.github.io/',
-      name: 'Alekha Gujuri Profile',
+      '@id': 'https://gujurialekha.github.io/#profilepage',
+      url: 'https://gujurialekha.github.io/',
+      name: 'Gujuri Alekha Profile',
       isPartOf: {
-        '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#website',
+        '@id': 'https://gujurialekha.github.io/#website',
       },
       mainEntity: {
-        '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
+        '@id': 'https://gujurialekha.github.io/#person',
       },
     },
     {
       '@type': 'Person',
-      '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#person',
-      name: 'Alekha Gujuri',
-      alternateName: 'Gujuri Alekha',
+      '@id': 'https://gujurialekha.github.io/#person',
+      name: 'Gujuri Alekha',
+      alternateName: 'Alekha Gujuri',
       email: 'mailto:gujurialekha@gmail.com',
       jobTitle: 'Associate Data Scientist',
       worksFor: {
@@ -143,8 +143,8 @@ const jsonLd = {
           name: 'Science Degree College',
         },
       ],
-      url: 'https://alekha1234.github.io/gujurialekha.github.io/',
-      image: 'https://alekha1234.github.io/gujurialekha.github.io/documents/logos/profile-img.png',
+      url: 'https://gujurialekha.github.io/',
+      image: 'https://gujurialekha.github.io/documents/logos/profile-img.png',
       description: personalData.shortBio,
       knowsAbout: [
         'Machine Learning',
@@ -160,22 +160,22 @@ const jsonLd = {
         'TensorFlow',
       ],
       sameAs: [
-        'https://github.com/alekha1234',
+        'https://github.com/gujurialekha',
         'https://www.linkedin.com/in/gujuri-alekha/',
         'https://www.kaggle.com/gujurialekha',
         'https://x.com/Alekha81293434',
-        'https://alekha1234.github.io/blog/',
+        'https://gujurialekha.github.io/blog/',
       ],
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://alekha1234.github.io/gujurialekha.github.io/#breadcrumbs',
+      '@id': 'https://gujurialekha.github.io/#breadcrumbs',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://alekha1234.github.io/gujurialekha.github.io/',
+          item: 'https://gujurialekha.github.io/',
         },
       ],
     },
