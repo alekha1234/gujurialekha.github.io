@@ -89,7 +89,12 @@ export const metadata: Metadata = {
     images: ['https://gujurialekha.github.io/documents/logos/gujuri-alekha.png'],
   },
   icons: {
-    icon: [`${basePath}/favicon.ico`, `${basePath}/favicon-48.png`],
+    // "A inside G" mark; favicon.svg is the master the PNG/ICO sizes were rendered from. The blog links these too.
+    icon: [
+      { url: `${basePath}/favicon.ico`, sizes: '48x48' },
+      { url: `${basePath}/favicon.svg`, type: 'image/svg+xml' },
+      { url: `${basePath}/favicon-48.png`, type: 'image/png', sizes: '48x48' },
+    ],
     apple: `${basePath}/apple-touch-icon.png`,
   },
   // Search Console ownership (URL-prefix property https://gujurialekha.github.io/, HTML tag method)
