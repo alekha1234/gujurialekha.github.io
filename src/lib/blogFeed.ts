@@ -31,7 +31,8 @@ export function parseFeed(xml: string, limit = 4): BlogPost[] {
     return {
       title: text(pick(item, 'title')),
       url: text(pick(item, 'link')),
-      date: isNaN(+date) ? '' : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }),
+      // Quarto writes a post's date as midnight in the author's time zone (IST): "2026-10-11" -> "Sat, 10 Oct 2026 18:30:00 GMT".
+      date: isNaN(+date) ? '' : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'Asia/Kolkata' }),
       category: text(pick(item, 'category')),
       // A full-content feed puts the whole article here; only short summaries make a usable excerpt.
       excerpt: excerpt && excerpt.length <= 300 ? excerpt : undefined,
