@@ -92,6 +92,8 @@ export const metadata: Metadata = {
     icon: [`${basePath}/favicon.ico`, `${basePath}/favicon-48.png`],
     apple: `${basePath}/apple-touch-icon.png`,
   },
+  // Search Console ownership (URL-prefix property https://gujurialekha.github.io/, HTML tag method)
+  verification: { google: '8LEtenQgzO2vSOXusB8aX72CWKZuDhNMQMkrCHBDwws' },
 };
 
 const jsonLd = {
