@@ -84,7 +84,7 @@ skills/ agents/ scripts/ hooks/ .agent(s)/ .claude-plugin/ .codex-plugin/
 ## Contact
 
 - Email: [gujurialekha@gmail.com](mailto:gujurialekha@gmail.com)
-- LinkedIn: [gujuri-alekha](https://www.linkedin.com/in/gujuri-alekha/)
+- LinkedIn: [gujurialekha](https://www.linkedin.com/in/gujurialekha/)
 - GitHub: [@gujurialekha](https://github.com/gujurialekha)
 - Kaggle: [gujurialekha](https://www.kaggle.com/gujurialekha)
 

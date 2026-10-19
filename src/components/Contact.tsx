@@ -198,7 +198,7 @@ export default function Contact() {
               {/* Social Channels List */}
               <div className="pt-4 border-t border-lab-border/60 flex flex-wrap gap-2">
                 <a
-                  href="https://www.linkedin.com/in/gujuri-alekha/"
+                  href="https://www.linkedin.com/in/gujurialekha/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded bg-lab-elevated border border-lab-border text-lab-text-secondary hover:text-lab-accent hover:border-lab-accent transition-colors focus-ring"

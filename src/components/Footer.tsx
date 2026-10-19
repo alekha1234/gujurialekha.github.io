@@ -38,7 +38,7 @@ export default function Footer() {
               <Github className="w-4 h-4" aria-hidden="true" />
             </a>
             <a
-              href="https://www.linkedin.com/in/gujuri-alekha/"
+              href="https://www.linkedin.com/in/gujurialekha/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-lab-text-secondary hover:text-lab-cyan transition-colors focus-ring rounded p-1"

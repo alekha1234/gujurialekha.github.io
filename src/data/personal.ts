@@ -56,7 +56,7 @@ export const personalData: PersonalData = {
   socials: [
     {
       label: "LinkedIn",
-      url: "https://www.linkedin.com/in/gujuri-alekha/",
+      url: "https://www.linkedin.com/in/gujurialekha/",
     },
     {
       label: "GitHub",

@@ -161,7 +161,7 @@ const jsonLd = {
       ],
       sameAs: [
         'https://github.com/gujurialekha',
-        'https://www.linkedin.com/in/gujuri-alekha/',
+        'https://www.linkedin.com/in/gujurialekha/',
         'https://www.kaggle.com/gujurialekha',
         'https://x.com/Alekha81293434',
         'https://gujurialekha.github.io/blog/',

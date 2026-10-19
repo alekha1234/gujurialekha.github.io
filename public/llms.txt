@@ -25,7 +25,7 @@
 - **Name:** Gujuri Alekha (also: Alekha Gujuri)
 - **Role:** Associate Data Scientist, Trinity Mobility, Bengaluru, India
 - **Email:** gujurialekha@gmail.com
-- **LinkedIn:** https://www.linkedin.com/in/gujuri-alekha/
+- **LinkedIn:** https://www.linkedin.com/in/gujurialekha/
 - **GitHub:** https://github.com/gujurialekha
 - **Kaggle:** https://www.kaggle.com/gujurialekha
 - **Blog:** https://gujurialekha.github.io/blog/ (Python notebooks on time series, statistics, and machine learning)
