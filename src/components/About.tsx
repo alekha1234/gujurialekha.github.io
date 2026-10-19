@@ -55,15 +55,17 @@ export default function About() {
           <div className="glass holo-scan rounded-xl p-5 sm:p-6 space-y-5">
             <div className="flex items-center gap-4">
               <img
-                src={getAssetPath('/documents/logos/avatar-144.jpg')}
-                alt={`${personalData.formalName} — ${personalData.role}`}
+                src={getAssetPath('/documents/logos/gujuri-alekha-144.jpg')}
+                alt={`${personalData.name} — ${personalData.role}`}
                 width={72}
                 height={72}
                 loading="lazy"
                 className="w-16 h-16 rounded-lg object-cover object-top border border-lab-accent/40"
               />
               <div>
-                <p className="font-display font-semibold text-lg">{personalData.name}</p>
+                <p className="font-display font-semibold text-lg">
+                  {personalData.name} <span className="text-xs font-normal text-lab-text-muted">(also {personalData.formalName})</span>
+                </p>
                 <p className="font-mono text-xs text-lab-cyan">{personalData.role.toUpperCase()}</p>
               </div>
             </div>

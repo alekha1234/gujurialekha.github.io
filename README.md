@@ -1,6 +1,6 @@
 # Gujuri Alekha · AI / ML Engineer Portfolio
 
-<img src="public/documents/logos/avatar-144.jpg" alt="Gujuri Alekha" width="96" height="96">
+<img src="public/documents/logos/gujuri-alekha-144.jpg" alt="Gujuri Alekha" width="96" height="96">
 
 [![Live site](https://img.shields.io/badge/Live_site-gujurialekha.github.io-2563eb)](https://gujurialekha.github.io/)
 [![Deploy](https://github.com/gujurialekha/gujurialekha.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/gujurialekha/gujurialekha.github.io/actions/workflows/deploy.yml)

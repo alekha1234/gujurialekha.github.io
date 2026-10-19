@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: '%s | Gujuri Alekha',
   },
   description:
-    'Portfolio of Gujuri Alekha — Associate Data Scientist with 2.5 years of experience across predictive modeling, time-series forecasting, smart city IoT, and MLOps pipelines.',
+    'Gujuri Alekha (Alekha Gujuri), Associate Data Scientist at Trinity Mobility, Bengaluru. Portfolio of time-series forecasting, smart city IoT and MLOps case studies.',
   keywords: [
     'Alekha Gujuri',
     'Gujuri Alekha',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     siteName: 'Gujuri Alekha',
     images: [
       {
-        url: 'https://gujurialekha.github.io/documents/logos/profile-img.png',
+        url: 'https://gujurialekha.github.io/documents/logos/gujuri-alekha.png',
         width: 800,
         height: 800,
         alt: 'Gujuri Alekha — Associate Data Scientist',
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     description:
       'Explore machine learning case studies, deep learning vision models, time-series pipelines, and applied data science systems.',
     creator: '@Alekha81293434',
-    images: ['https://gujurialekha.github.io/documents/logos/profile-img.png'],
+    images: ['https://gujurialekha.github.io/documents/logos/gujuri-alekha.png'],
   },
   icons: {
     icon: [`${basePath}/favicon.ico`, `${basePath}/favicon-48.png`],
@@ -126,6 +126,9 @@ const jsonLd = {
       '@id': 'https://gujurialekha.github.io/#person',
       name: 'Gujuri Alekha',
       alternateName: 'Alekha Gujuri',
+      givenName: 'Alekha',
+      familyName: 'Gujuri',
+      homeLocation: { '@type': 'Place', name: 'Bengaluru, India' },
       email: 'mailto:gujurialekha@gmail.com',
       jobTitle: 'Associate Data Scientist',
       worksFor: {
@@ -144,7 +147,7 @@ const jsonLd = {
         },
       ],
       url: 'https://gujurialekha.github.io/',
-      image: 'https://gujurialekha.github.io/documents/logos/profile-img.png',
+      image: 'https://gujurialekha.github.io/documents/logos/gujuri-alekha.png',
       description: personalData.shortBio,
       knowsAbout: [
         'Machine Learning',
@@ -166,6 +169,14 @@ const jsonLd = {
         'https://x.com/Alekha81293434',
         'https://gujurialekha.github.io/blog/',
       ],
+      // Third-party coverage goes in subjectOf; sameAs is only for profiles the person owns.
+      subjectOf: {
+        '@type': 'Article',
+        headline: "From Physics Graduate to Data Scientist: Gujuri's Inspiring Journey",
+        url: 'https://datamites.com/blog/from-physics-graduate-to-data-scientist-gujuris-inspiring-journey/',
+        datePublished: '2025-05-15',
+        publisher: { '@type': 'Organization', name: 'DataMites' },
+      },
     },
     {
       '@type': 'BreadcrumbList',
