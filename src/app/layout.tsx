@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     'Alekha Gujuri',
     'Gujuri Alekha',
     'Associate Data Scientist',
+    'Data Scientist & AI / ML Engineer',
     'Machine Learning Engineer',
-    'AI Specialist',
     'Time-Series Forecasting',
     'Smart City IoT',
     'MLOps & Nexus',
@@ -109,6 +109,7 @@ const jsonLd = {
       '@id': 'https://gujurialekha.github.io/#website',
       url: 'https://gujurialekha.github.io/',
       name: 'Gujuri Alekha',
+      alternateName: 'Alekha Gujuri',
       description:
         'Portfolio of Gujuri Alekha — Associate Data Scientist specializing in time-series forecasting, multi-stage ML pipelines, smart city IoT systems, and MLOps.',
       publisher: {

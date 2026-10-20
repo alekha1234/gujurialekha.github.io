@@ -19,7 +19,7 @@ export default function Footer() {
               <span className="font-display font-bold text-sm text-lab-text-primary">
                 GUJURI ALEKHA
               </span>
-              <span className="text-lab-accent text-xs font-semibold">AI / ML Engineer</span>
+              <span className="text-lab-accent text-xs font-semibold">{personalData.headline}</span>
             </div>
             <p className="text-xs text-lab-text-muted">
               Bengaluru, Karnataka, India • Open for Applied AI & Data Science

@@ -4,6 +4,7 @@
 
 ## Core Entity Telemetry
 - **Name:** Gujuri Alekha (also: Alekha Gujuri)
+- **Title:** Data Scientist & AI / ML Engineer
 - **Role:** Associate Data Scientist
 - **Current Organization:** Trinity Mobility (Bengaluru, Karnataka, India)
 - **Experience:** 2.5 Years Production Data Science & ML Engineering

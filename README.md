@@ -1,4 +1,4 @@
-# Gujuri Alekha · AI / ML Engineer Portfolio
+# Gujuri Alekha · Data Scientist & AI / ML Engineer
 
 <img src="public/documents/logos/gujuri-alekha-144.jpg" alt="Gujuri Alekha" width="96" height="96">
 

@@ -6,6 +6,7 @@ interface SocialLink {
 interface PersonalData {
   name: string;
   formalName: string;
+  headline: string;
   role: string;
   subRoles: string[];
   tagline: string;
@@ -32,6 +33,8 @@ interface PersonalData {
 export const personalData: PersonalData = {
   name: "Gujuri Alekha",
   formalName: "Alekha Gujuri",
+  // Professional title, the same everywhere (hero, footer, page title, llms.txt). `role` is the job title at Trinity Mobility.
+  headline: "Data Scientist & AI / ML Engineer",
   role: "Associate Data Scientist",
   subRoles: [
     "Applied Machine Learning",
@@ -44,7 +47,7 @@ export const personalData: PersonalData = {
   status: "Open to AI/ML & Data Science Roles",
   location: "Bengaluru, Karnataka, India",
   phone: "+91 9348673473",
-  shortBio: "Applied Data Scientist with 2.5 years of experience carrying machine learning work from raw problem statements through to production. Specializing in time-series forecasting, multi-stage decision pipelines, synthetic data simulation, and MLOps tooling that bridges data science with robust software delivery.",
+  shortBio: "Data Scientist & AI / ML Engineer with 2.5 years of experience carrying machine learning work from raw problem statements through to production. Specializing in time-series forecasting, multi-stage decision pipelines, synthetic data simulation, and MLOps tooling that bridges data science with robust software delivery.",
   extendedBio: [
     "At Trinity Mobility, my work centers on applied machine learning for smart-city systems: designing three-stage automated irrigation pipelines, building smart energy grid simulation engines, integrating ML outputs with Integrated Command and Control Centers (ICCC), and deploying LLM-based alert summarization for operator traceability.",
     "Beyond standalone modeling, I engineer the platform tooling that makes models reliable and maintainable: connecting Model Registries with Nexus, building single-click CI/CD deployment modules, and enforcing automated test quality gates with code coverage in Flask/FastAPI microservices.",

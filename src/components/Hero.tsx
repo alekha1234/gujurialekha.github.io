@@ -27,9 +27,12 @@ export default function Hero() {
           <div className="space-y-2">
             <p className="font-mono text-xs text-lab-cyan tracking-[0.3em]">AI RESEARCH LAB // ONLINE</p>
             <h1 id="hero-heading" className="font-display font-bold tracking-tight leading-[1.02]">
-              <span className="block text-4xl sm:text-5xl xl:text-6xl text-lab-text-primary">I&apos;M GUJURI ALEKHA</span>
-              <span className="block mt-2 text-2xl sm:text-3xl xl:text-4xl text-gradient-lab">AI / ML ENGINEER</span>
-              <span className="sr-only"> — {personalData.formalName}, {personalData.role} &amp; AI / ML Engineer</span>
+              {/* Fluid sizes: scale with the viewport between a phone minimum and a desktop maximum */}
+              <span className="block text-[clamp(1.75rem,3.6vw+0.6rem,3.25rem)] text-lab-text-primary">I&apos;M GUJURI ALEKHA</span>
+              <span className="block mt-2 text-[clamp(1rem,1.5vw+0.55rem,1.75rem)] tracking-normal uppercase text-gradient-lab">
+                {personalData.headline}
+              </span>
+              <span className="sr-only"> ({personalData.formalName})</span>
             </h1>
             <p className="font-mono text-xs sm:text-sm text-lab-text-secondary">
               {personalData.role} @ <span className="text-lab-text-primary">Trinity Mobility</span> · {personalData.location}
