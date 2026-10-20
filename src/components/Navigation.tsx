@@ -51,9 +51,15 @@ export default function Navigation() {
               href="#top"
               className="group flex items-center space-x-3 rounded focus-ring p-1"
             >
-              <div aria-hidden="true" className="w-8 h-8 rounded border border-lab-border bg-lab-surface flex items-center justify-center text-lab-accent font-mono text-xs font-bold transition-colors group-hover:border-lab-accent group-hover:shadow-lab-glow">
-                AG
-              </div>
+              {/* Brand mark: the same A-in-G SVG as the favicon and the blog navbar */}
+              <img
+                src={getAssetPath('/favicon.svg')}
+                alt=""
+                aria-hidden="true"
+                width={34}
+                height={34}
+                className="w-[34px] h-[34px] rounded-lg transition-transform duration-150 group-hover:-rotate-6 group-hover:scale-105 group-hover:shadow-lab-glow motion-reduce:transition-none"
+              />
               <span className="font-display font-bold text-sm tracking-tight text-lab-text-primary group-hover:text-lab-accent transition-colors">
                 ALEKHA <span className="text-lab-cyan">G</span>
               </span>
