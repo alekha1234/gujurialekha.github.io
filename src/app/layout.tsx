@@ -239,6 +239,14 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* GoatCounter (9 KB, no cookies): counts every visit, unlike GA above, and feeds the footer visitor count.
+            ponytail: counts full page loads only; client-side Link navigations aren't counted, call goatcounter.count() on route change if per-page stats matter. */}
+        <Script
+          id="goatcounter"
+          strategy="lazyOnload"
+          data-goatcounter={`${personalData.analytics.goatCounterUrl}/count`}
+          src="https://gc.zgo.at/count.js"
+        />
         {/* Schema.org 2026 Unified Knowledge Graph */}
         <script
           type="application/ld+json"

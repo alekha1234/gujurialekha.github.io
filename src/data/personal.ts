@@ -27,6 +27,7 @@ interface PersonalData {
   analytics: {
     googleAnalyticsId: string;
     googleTagManagerId: string;
+    goatCounterUrl: string;
   };
 }
 
@@ -86,5 +87,7 @@ export const personalData: PersonalData = {
   analytics: {
     googleAnalyticsId: "G-X9RX470F8T",
     googleTagManagerId: "GTM-56D57HGN",
+    // Public visitor counter (footer). Needs "Allow adding visitor counts" on in GoatCounter settings.
+    goatCounterUrl: "https://gujurialekha.goatcounter.com",
   },
 };

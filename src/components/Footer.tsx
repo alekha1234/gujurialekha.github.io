@@ -1,10 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { personalData } from '@/data/personal';
-import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUp, Eye, Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Footer() {
+  // Site-wide total from GoatCounter's public counter; stays hidden if it's off, blocked or down
+  const [visitors, setVisitors] = useState('');
+  useEffect(() => {
+    fetch(`${personalData.analytics.goatCounterUrl}/counter/TOTAL.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => d?.count && d.count !== '0' && setVisitors(d.count))
+      .catch(() => {});
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -80,6 +89,12 @@ export default function Footer() {
           <div>
             © {new Date().getFullYear()} Gujuri Alekha
           </div>
+          {visitors && (
+            <div className="mt-2 inline-flex items-center gap-1.5">
+              <Eye className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>{visitors} visitors</span>
+            </div>
+          )}
         </div>
       </div>
     </footer>
