@@ -91,9 +91,13 @@ export const metadata: Metadata = {
   icons: {
     // "A inside G" mark; favicon.svg is the master the PNG/ICO sizes were rendered from. The blog links these too.
     icon: [
-      { url: `${basePath}/favicon.ico`, sizes: '48x48' },
-      { url: `${basePath}/favicon.svg`, type: 'image/svg+xml' },
+      // Google Search wants multiples of 48px and ignores SVG, so the ICO/PNGs come first
+      { url: `${basePath}/favicon.ico`, sizes: '48x48 96x96' },
       { url: `${basePath}/favicon-48.png`, type: 'image/png', sizes: '48x48' },
+      { url: `${basePath}/favicon-96.png`, type: 'image/png', sizes: '96x96' },
+      { url: `${basePath}/favicon-144.png`, type: 'image/png', sizes: '144x144' },
+      { url: `${basePath}/favicon-192.png`, type: 'image/png', sizes: '192x192' },
+      { url: `${basePath}/favicon.svg`, type: 'image/svg+xml' },
     ],
     apple: `${basePath}/apple-touch-icon.png`,
   },
