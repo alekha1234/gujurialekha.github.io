@@ -45,10 +45,16 @@ export default function MoreProjects() {
               aria-label="Filter archived projects by keyword or stack"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 rounded glass border border-lab-border text-xs font-mono text-lab-text-primary placeholder:text-lab-text-muted focus:outline-none focus:border-lab-accent transition-colors"
+              className="w-full pl-9 pr-4 py-2 rounded glass border border-lab-border text-xs font-mono text-lab-text-primary placeholder:text-lab-text-muted focus:border-lab-accent transition-colors focus-ring"
             />
           </div>
         </div>
+
+        {visibleProjects.length === 0 && (
+          <p role="status" className="text-sm text-lab-text-secondary font-mono">
+            No projects match &ldquo;{searchQuery}&rdquo;.
+          </p>
+        )}
 
         {/* Project Grid */}
         <div id="more-projects-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -66,7 +72,7 @@ export default function MoreProjects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-lab-text-muted hover:text-lab-accent transition-colors"
+                    className="text-lab-text-muted hover:text-lab-accent transition-colors rounded focus-ring"
                     aria-label={`GitHub link for ${project.title} (opens in new tab)`}
                   >
                     <FolderGit2 className="w-4 h-4" />
@@ -98,7 +104,7 @@ export default function MoreProjects() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1 font-mono text-xs text-lab-accent hover:text-blue-300 font-semibold transition-colors"
+                  className="inline-flex items-center space-x-1 font-mono text-xs text-lab-accent hover:text-blue-300 font-semibold transition-colors rounded focus-ring"
                 >
                   <span>Code<span className="sr-only">: {project.title} (opens in new tab)</span></span>
                   <ArrowUpRight className="w-3 h-3" />

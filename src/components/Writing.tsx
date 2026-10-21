@@ -35,6 +35,12 @@ export default function Writing({ initialPosts }: { initialPosts: BlogPost[] }) 
           </div>
         </div>
 
+        {posts.length === 0 && (
+          <p className="text-sm text-lab-text-secondary">
+            Latest posts couldn&apos;t be loaded right now. Browse them all on the blog below.
+          </p>
+        )}
+
         {/* Blog Cards Grid */}
         <div className="grid gap-6 md:grid-cols-2">
           {posts.map((post) => (

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { personalData } from '@/data/personal';
 import { getAssetPath } from '@/utils/assets';
 import { FileText, Menu, X, ArrowUpRight, Terminal } from 'lucide-react';
@@ -16,6 +15,29 @@ export default function Navigation() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Same-page #section links scroll without writing the hash into the URL, so it stays https://gujurialekha.github.io/.
+  // Deep links (e.g. /#projects from a project page) still land natively, then the hash is dropped.
+  useEffect(() => {
+    // Deferred: the app router syncs its own URL into history right after mount and would put the hash back
+    const t = setTimeout(() => {
+      if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+    });
+    const onClick = (e: MouseEvent) => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as Element).closest('a[href^="#"]');
+      if (!a || a.classList.contains('skip-link')) return; // skip link keeps native focus handling
+      const target = document.getElementById(a.getAttribute('href')!.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView(); // honours scroll-behavior and scroll-margin from CSS
+    };
+    document.addEventListener('click', onClick);
+    return () => {
+      clearTimeout(t);
+      document.removeEventListener('click', onClick);
+    };
   }, []);
 
   const navLinks = [
@@ -47,7 +69,7 @@ export default function Navigation() {
         >
           <div className="flex items-center justify-between">
             {/* Identity & System Telemetry */}
-            <Link
+            <a
               href="#top"
               className="group flex items-center space-x-3 rounded focus-ring p-1"
             >
@@ -64,7 +86,7 @@ export default function Navigation() {
                 ALEKHA <span className="text-lab-cyan">G</span>
               </span>
               <span className="sr-only">home</span>
-            </Link>
+            </a>
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-3 xl:space-x-7" aria-label="Main Navigation">

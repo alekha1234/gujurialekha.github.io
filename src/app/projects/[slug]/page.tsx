@@ -41,7 +41,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const imageUrl = `https://gujurialekha.github.io${project.image}`;
 
   return {
-    title: `${project.title} | Case Study`,
+    title: project.title, // layout template appends " | Gujuri Alekha"
     description: project.summary,
     alternates: {
       canonical: canonicalUrl,
@@ -57,7 +57,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
         {
           url: imageUrl,
           width: 1200,
-          height: 630,
+          height: 675,
           alt: `${project.title} — Applied Machine Learning Architecture`,
         },
       ],
@@ -216,7 +216,7 @@ export default function ProjectPage({ params }: PageProps) {
         <div className="flex items-center justify-between border-b border-lab-border pb-6">
           <Link
             href="/#projects"
-            className="inline-flex items-center space-x-2 font-mono text-xs text-lab-text-secondary hover:text-lab-accent transition-colors"
+            className="inline-flex items-center space-x-2 font-mono text-xs text-lab-text-secondary hover:text-lab-accent transition-colors rounded focus-ring"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Portfolio</span>
@@ -352,7 +352,7 @@ export default function ProjectPage({ params }: PageProps) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded font-mono text-xs font-semibold bg-lab-accent text-lab-bg hover:bg-blue-400 transition-colors shadow-lab-glow"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded font-mono text-xs font-semibold bg-lab-accent text-lab-bg hover:bg-blue-400 transition-colors shadow-lab-glow focus-ring"
           >
             <Github className="w-4 h-4" />
             <span>Open GitHub Notebook</span>
@@ -365,7 +365,7 @@ export default function ProjectPage({ params }: PageProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-lab-border">
           <Link
             href={`/projects/${prevProject.slug}/`}
-            className="group flex flex-col p-4 rounded-xl border border-lab-border bg-lab-surface/60 hover:border-lab-accent/60 transition-all"
+            className="group flex flex-col p-4 rounded-xl border border-lab-border bg-lab-surface/60 hover:border-lab-accent/60 transition-all focus-ring"
           >
             <span className="font-mono text-[11px] text-lab-text-muted uppercase flex items-center space-x-1 group-hover:text-lab-accent">
               <ArrowLeft className="w-3 h-3" />
@@ -378,7 +378,7 @@ export default function ProjectPage({ params }: PageProps) {
 
           <Link
             href={`/projects/${nextProject.slug}/`}
-            className="group flex flex-col items-end text-right p-4 rounded-xl border border-lab-border bg-lab-surface/60 hover:border-lab-accent/60 transition-all"
+            className="group flex flex-col items-end text-right p-4 rounded-xl border border-lab-border bg-lab-surface/60 hover:border-lab-accent/60 transition-all focus-ring"
           >
             <span className="font-mono text-[11px] text-lab-text-muted uppercase flex items-center space-x-1 group-hover:text-lab-accent">
               <span>Next Case Study</span>

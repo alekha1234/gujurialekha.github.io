@@ -132,7 +132,8 @@ export default function Contact() {
         }),
       });
 
-      const result = await response.json();
+      // A non-JSON error page (e.g. 5xx) falls through to the "could not be sent" message, not the network one
+      const result = await response.json().catch(() => ({}));
       if (result.success) {
         setStatus('success');
         setResponseMsg('Message sent. I will reply within 24 hours.');
@@ -296,6 +297,12 @@ export default function Contact() {
 
                 {/* Status Feedback with ARIA live region */}
                 <div aria-live="polite" aria-atomic="true">
+                  {status === 'success' && (
+                    <div className="p-3 rounded bg-emerald-500/10 border border-emerald-500/40 text-emerald-300 font-mono text-xs flex items-center space-x-2">
+                      <CheckCircle2 className="w-4 h-4 shrink-0" aria-hidden="true" />
+                      <span>{responseMsg}</span>
+                    </div>
+                  )}
                   {status === 'error' && (
                     <div className="p-3 rounded bg-red-500/10 border border-red-500/40 text-red-400 font-mono text-xs flex items-center space-x-2">
                       <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
@@ -368,7 +375,7 @@ export default function Contact() {
               <button
                 type="button"
                 onClick={() => setShowSuccessModal(false)}
-                className="text-lab-accent hover:underline font-semibold"
+                className="text-lab-accent hover:underline font-semibold rounded focus-ring"
               >
                 Close Now
               </button>

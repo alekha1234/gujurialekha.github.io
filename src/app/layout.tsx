@@ -73,9 +73,9 @@ export const metadata: Metadata = {
     siteName: 'Gujuri Alekha',
     images: [
       {
-        url: 'https://gujurialekha.github.io/documents/logos/gujuri-alekha.png',
-        width: 800,
-        height: 800,
+        url: 'https://gujurialekha.github.io/documents/logos/gujuri-alekha.jpg',
+        width: 600,
+        height: 600,
         alt: 'Gujuri Alekha — Associate Data Scientist',
       },
     ],
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     description:
       'Explore machine learning case studies, deep learning vision models, time-series pipelines, and applied data science systems.',
     creator: '@Alekha81293434',
-    images: ['https://gujurialekha.github.io/documents/logos/gujuri-alekha.png'],
+    images: ['https://gujurialekha.github.io/documents/logos/gujuri-alekha.jpg'],
   },
   icons: {
     // "A inside G" mark; favicon.svg is the master the PNG/ICO sizes were rendered from. The blog links these too.
@@ -159,7 +159,7 @@ const jsonLd = {
         },
       ],
       url: 'https://gujurialekha.github.io/',
-      image: 'https://gujurialekha.github.io/documents/logos/gujuri-alekha.png',
+      image: 'https://gujurialekha.github.io/documents/logos/gujuri-alekha.jpg',
       description: personalData.shortBio,
       knowsAbout: [
         'Machine Learning',
